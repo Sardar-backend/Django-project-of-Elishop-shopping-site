@@ -1,0 +1,177 @@
+{% load static %}
+{% load home_tags %}
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>complete responsive grocery website design tutorial</title>
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-rtl.css' %}">
+	<link type="text/css" href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+	<link type="text/css" href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+    <style>
+        section{
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    </style>
+
+</head>
+<body>
+
+<!-- header section starts  -->
+
+<header>
+
+    <div class="header-1">
+        <a href="#" class="logo"></i>groco</a>
+
+        <form action="" class="search-box-container">
+        </form>
+    </div>
+
+    <div class="header-2">
+
+        <div id="menu-bar" class="fas fa-bars"></div>
+
+        <nav class="navbar">
+            <a href="{% url 'home:blog_view' %}">خانه</a>
+            <a href="{% url 'home:category_view' %}">دسته بندی</a>
+            <a href="{% url 'home:products_view' %}">محصولات</a>
+            <a href="{% url 'home:contact_view' %}">تماس</a>
+        </nav>
+        <div class="icons">
+            <a href="#" class="fas fa-shopping-cart"></a>
+            <a href="{% url 'blog:login_view' %}" class="fas fa-user-circle"></a>
+        </div>
+    </div>
+</header>
+
+<!-- header section ends -->
+<section>
+{% for pro in products %}
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8 col-md-10 col-sm-12 col-xs-12 col-lg-push-2 col-md-push-1">
+			<!-- start product box -->
+			<div class="product">
+				<!-- start back arrow -->
+
+				<!-- end back arrow -->
+				<!-- start box -->
+				<div class="main">
+					<div class="row">
+						<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+							<!-- start right side -->
+							<div class="right">
+								<h1>{{pro.title}}</h1>
+
+								<img src='{{pro.image.url}}' alt="" />
+							</div>
+							<!-- end right side -->
+						</div>
+						<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+							<!-- start left side -->
+							<div class="left">
+                                <p>{{pro.description}}
+								</p>
+								<p><a href="">دارای گارانتی</a></p>
+
+								<p>
+									<span>({{pro.counted_view}} بازدید)</span><br>
+                                    {{ pro.category.all|join:" , " }} <br>
+                                    {% for tag in pro.tags.all %}
+                                        <a href="/blog/search/?p={{tag.name}}">#{{tag.name}}</a>
+                                    {% endfor %}
+                                    <!-- <p>{{pro.updated_date|date:"D d M Y"}}</p> -->
+                                    <p>{{pro.updated_date|naturalday}}</p>
+                                <!-- {% for cat in  pro.category.all %}
+                                    <p>#{{cat.name}}</p>
+                                {% endfor %}
+								</p> -->
+								<p class="quantity">تعداد <input type="number" id="qt"></p>
+							</div>
+							<!-- end left side -->
+						</div>
+					</div>
+				</div>
+				<!-- end box -->
+				<!-- start footer and total -->
+				<div class="footer col-lg-12 col-xs-12 p-0">
+					<div class="left col-lg-6 col-xs-6">
+						<p>
+							<span id="price">520000</span> تومان
+						</p>
+					</div>
+					<div class="right col-lg-6 col-xs-6">
+						<p>افزودن به سبد</p>
+					</div>
+				</div>
+				<!-- end footer and total -->
+			</div>
+			<!-- end product box -->
+		</div>
+	</div>
+</div>
+{% endfor %}
+</section>
+
+
+
+
+<br>
+
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <a href="#" class="logo"><</i>groco</a>
+            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز </p>
+            <div class="share">
+                <a href="#" class="btn fab fa-facebook-f"></a>
+                <a href="#" class="btn fab fa-twitter"></a>
+                <a href="#" class="btn fab fa-instagram"></a>
+                <a href="#" class="btn fab fa-linkedin"></a>
+            </div>
+        </div>
+        <div class="box">
+            <h3>دسترسی سریع</h3>
+            <div class="links">
+                <a href="#">خانه</a>
+                <a href="#">دسته بندی</a>
+                <a href="#">محصولات</a>
+
+                <a href="#">تماس با ما</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>دانلود اپلیکیشن</h3>
+            <div class="links">
+                <a href="#">google play</a>
+                <a href="#">window xp</a>
+                <a href="#">app store</a>
+            </div>
+        </div>
+
+    </div>
+
+
+</section>
+
+<!-- footer section ends -->
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

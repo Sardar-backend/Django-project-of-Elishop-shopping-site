@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- header section ends -->
+<section class="category" id="category" style="display: flex !important; flex-direction: row !important; flex-wrap: wrap !important;">
+    <div class="div1" style="display: flex; width: 100%; justify-content:center;">
+    <p class="p" style="font-size: 30px; margin: 20px;">دسته بندی ها</p></div>
+<div class="box-container" style="display: flex !important; flex-direction: row !important;">
+    {% for cats in categorys %}
+    <div class="box">
+        <a href="/product-{{cats.name}}"><h3>{{cats.name}}</h3></a>
+        <p> {{cats.Discoust}}٪ تخفیف</p>
+        <a href="#"><img src="{{cats.image.url}}" alt=""></a>
+        <a href="#" class="btn">الان خرید کن</a>
+    </div>
+    {% endfor %}
+
+    <!-- <div class="box">
+        <h3>آب میوه</h3>
+        <p>44٪ تخفیف</p>
+        <img src="{% static 'images/02395555_big.jpg' %}" alt="">
+        <a href="#" class="btn">الان خرید کن</a>
+    </div>
+    <div class="box">
+        <h3>پروتئینی</h3>
+        <p>35٪ تخفیف</p>
+        <img src="{% static 'images/category-3.png' %}" alt="">
+        <a href="#" class="btn">الان خرید کن</a>
+    </div>
+    <div class="box">
+        <h3>روغن گیاهی</h3>
+        <p>12٪ تخفیف</p>
+        <img src="{% static 'images/category-4.png' %}" alt="">
+        <a href="#" class="btn">الان خرید کن</a>
+    </div>
+    <div class="box">
+        <h3>ادویه جات</h3>
+        <p>50٪ تخفیف</p>
+        <img src="{% static 'images/f2bc579e989855eee601bf3f6d6e4665.jpg' %}" alt="">
+        <a href="#" class="btn">الان خرید کن</a>
+    </div>
+    <div class="box">
+        <h3>لبنیات </h3>
+        <p>44٪ تخفیف</p>
+        <img src="{% static 'images/category-2.png' %}" alt="">
+        <a href="#" class="btn">الان خرید کن</a>
+    </div>
+    <div class="box">
+        <h3>مرکبات</h3>
+        <p>35٪ تخفیف</p>
+        <img src="{% static 'images/5.jpg' %}" alt="">
+        <a href="#" class="btn">الان خرید کن</a>
+    </div>
+    <div class="box">
+        <h3>صیفی جات</h3>
+        <p>12٪ تخفیف</p>
+        <img src="{% static 'images/تصویر با کیفیت صیفی جات-small-1000-logo.jpg' %}" alt="">
+        <a href="#" class="btn">الان خرید کن</a>
+    </div> -->
+</div>
+</section><br><br><br><br><br>
+{% endblock %}
+#category {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;;
+
+}
+.box-container{
+    display: flex !important;
+    flex-direction: row !important;
+}
+.p {
+    font-size: 30px;
+    margin: 20px;
+}
+.div1 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
