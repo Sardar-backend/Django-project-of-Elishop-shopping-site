@@ -11,3 +11,4 @@ admin.site.register(Category)
 admin.site.register(Categorys)
 admin.site.register(contact)
 admin.site.register(newsletter)
+

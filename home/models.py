@@ -18,6 +18,7 @@ class product(models.Model):
     description = models.TextField()
     category = models.ManyToManyField(Category)
     price = models.FloatField(default=0)
+    Discoust =models.IntegerField(default=0)
     counted_view = models.IntegerField(default=0)
     status = models.BooleanField(default=False)
     published_date = models.DateField(null=True)
@@ -28,18 +29,19 @@ class product(models.Model):
         verbose_name = "محصول"
         verbose_name_plural = "محصولات "
     def __str__(self):
-        return  "{} - {}".format(self.title,self.status)
+        return  "{}".format(self.id)
 
     def get_absolute_url(self):
         return reverse('blog:product_view',kwargs={'pid':self.id})
 
 class comment (models.Model):
-    product = models.ForeignKey(product, on_delete=models.SET_NULL ,null=True)
+    pro = models.ForeignKey(product, on_delete=models.SET_NULL ,null=True)
+    name =models.CharField(max_length=255,default=None)
     title = models.CharField(max_length=255)
     content = models.TextField()
     likes = models.IntegerField(default=0)
+    email = models.EmailField(default=None)
     status = models.BooleanField(default=False)
-    published_date = models.DateField(null=True)
     created_date = models.DateTimeField(auto_now_add=True)
     class Meta:
         ordering = ['created_date']
@@ -52,7 +54,6 @@ class comment (models.Model):
 class Categorys (models.Model):
      name = models.ForeignKey(Category, on_delete=models.CASCADE ,null=True)
      image = models.ImageField(upload_to='products/',default='products/product-1.png')
-     Discoust =models.IntegerField(default=0)
      def __str__(self):
          return  " {}".format(self.name)
 class contact (models.Model):

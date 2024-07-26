@@ -4,26 +4,15 @@
 {% block content %}
 <section class="product" id="product">
 
-<br>
+<br>        <h1 class="heading" >نتایج جستجو برای <span>{{req}}</span></h1>
     <div class="box-container">
 
         {% for pro in products %}
                 <div class="box">
             <span class="discount">-33%</span>
-            <div class="icons">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-share"></a>
-                <a href="#" class="fas fa-eye"></a>
-            </div>
             <a href="/blog/product_{{pro.id}}"><img src="{{pro.image.url}}" alt=""></a>
             <h3>{{pro.title}}</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-            </div>
+
             <div class="price"> ${{pro.price}}<span> $13.20 </span> </div>
             <div class="quantity">
                 <span>تعداد : </span>

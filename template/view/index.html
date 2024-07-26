@@ -14,7 +14,7 @@
     <div class="content">
         <span>تازه و ارگانیک</span>
         <h3>محصولات روزمره شما</h3>
-        <a href="#" class="btn">شروع کنید</a>
+        <a href="{% url 'home:products_view' %}" class="btn">خرید کنید</a>
     </div>
 
 </section>
@@ -29,7 +29,7 @@
         <div class="content">
             <h3>پیشنهاد ویژه</h3>
             <p>حداکثر 45٪ تخفیف</p>
-            <a href="#" class="btn">خرید کنید</a>
+            <a href="{% url 'blog:limit_vip' %}" class="btn">خرید کنید</a>
         </div>
     </div>
 
@@ -38,7 +38,7 @@
         <div class="content">
             <h3>پیشنهاد محدود</h3>
             <p>حداکثر 70٪ تخفیف</p>
-            <a href="#" class="btn">خرید کنید</a>
+            <a href="{% url 'blog:limit' %}" class="btn">خرید کنید</a>
         </div>
     </div>
 

@@ -1,11 +1,13 @@
 
 {% extends 'base.html' %}
 {% load static %}
-{% block content %}
 {% load home_tags %}
+{% block content %}
+
 <section class="product g" id="product"  >
 
     <h1 class="heading">اخرین محصولات پروتئینی</h1>
+
 
     <div class="box-container" >
 
@@ -258,8 +260,8 @@
             <a href="#" class="btn">افزودن به سبد خرید</a>
         </div> -->
 
-    </div>
-    <div class="y" >
+
+    <!-- <div class="y" >
         {% if products.has_next %}
             <a href="?page={{ products.next_page_number }}" class="jjj next zz">« Next</a>
         {% endif %}
@@ -283,7 +285,7 @@
             <a href="?page=1" class="jjj next round">››</a>
         {% endif %}
 
-    </div>
+    </div> -->
 
 </section>
 <!-- </section>
@@ -520,7 +522,7 @@
     </div>
 
 </section> -->
-<br>
+
 {% endblock %}
 <!-- <div class="box">
     <span class="discount">-30%</span>

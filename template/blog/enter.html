@@ -106,6 +106,7 @@ body {
     </style>
 </head>
 <body>
+    <br><br><br><br><br>
     <div class="login-page">
         <div class="form">
           <form class="register-form">
@@ -115,11 +116,11 @@ body {
             <button>create</button>
             <p class="message">Already registered? <a href="#">Sign In</a></p>
           </form>
-          <form class="login-form">
-            <input type="text" placeholder="username"/>
-            <input type="password" placeholder="password"/>
-            <button>login</button>
-            <p class="message">Not registered? <a href="#">Create an account</a></p>
+          <form class="login-form" method="post" action="{% url 'accounts:login_view' %}">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">login</button>
+            <p class="message">Not registered? <a href="{% url 'accounts:signup_view' %}">Create an account</a></p>
           </form>
         </div>
       </div>

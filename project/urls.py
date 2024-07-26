@@ -21,6 +21,7 @@ from django.urls import path , include
 from django.contrib.sitemaps.views import sitemap
 from home.sitemaps import StaticViewSitemap
 from blog.sitemaps import BlogSitemap
+from home.feeds import LatestEntriesFeed
 sitemaps = {
     'static': StaticViewSitemap,
     'blog' : BlogSitemap
@@ -29,11 +30,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('home.urls')),
     path('blog/',include('blog.urls')),
+    path('accounts/',include('accounts.urls')),
         path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt', include('robots.urls')),
     path("__debug__/", include("debug_toolbar.urls")),
-    path('summernote/', include('django_summernote.urls'))
+    path('summernote/', include('django_summernote.urls')),
+    path('captcha/', include('captcha.urls')),
+    path('rss/feed/', LatestEntriesFeed())
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
