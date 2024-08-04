@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path , include
 from home.views import *
 app_name = 'home'
 urlpatterns = [
@@ -8,5 +8,5 @@ urlpatterns = [
     path('products',products_view, name="products_view"),
     path('product-<str:cat_name>',products_views, name="pros"),
     path('newsletter',newsletter, name="prose"),
-    
+    path('api/',include('home.api.v1.urls'))
 ]

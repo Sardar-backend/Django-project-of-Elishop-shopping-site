@@ -6,7 +6,7 @@ from taggit.managers import TaggableManager
 class Category(models.Model):
     name = models.CharField(max_length=255)
     def __str__(self):
-        return  "{}".format(self.name)
+        return  "{},{}".format(self.id,self.name)
 
 
 class product(models.Model):

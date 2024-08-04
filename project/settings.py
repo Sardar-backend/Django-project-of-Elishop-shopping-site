@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'django_summernote',
     'blog',
-    'captcha'
+    'captcha',
+    'rest_framework'
 ]
 SITE_ID = 2
 
