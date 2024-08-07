@@ -16,7 +16,7 @@ def contact_view(request):
         else:
             messages.add_message(request,messages.ERROR,'متاسفانه پیام شما ارسال نشد')
     form = contactform()
-    return render(request, 'view/contant.html',{'form':form})
+    return render(request, 'view/contact.html',{'form':form})
 def category_view(request):
     category = Categorys.objects.all()
     text = {'categorys':category}

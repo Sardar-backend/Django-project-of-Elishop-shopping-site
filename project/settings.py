@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'robots',
     'taggit',
     'debug_toolbar',
-
+    'drf_yasg',
     'home.apps.HomeConfig',
     'django.contrib.sitemaps',
     'django_summernote',
