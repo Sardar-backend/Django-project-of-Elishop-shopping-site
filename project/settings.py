@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'django_summernote',
     'blog',
     'captcha',
-    'rest_framework'
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 SITE_ID = 2
 

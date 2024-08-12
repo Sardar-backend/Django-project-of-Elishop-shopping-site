@@ -19,7 +19,7 @@ def product_view(request,pid):
     # comments = get_list_or_404(comment,pro=pid,status=True)
     comments =comment.objects.filter(pro=pid,status=True)
     context = {'products':p ,'comments':comments}
-    return render(request, 'blog/pro.html',context)
+    return render(request, 'blog/product.html',context)
 
 def search_view (request):
     Product = product.objects.filter(status=True)
