@@ -1,5 +1,5 @@
 from typing import Dict
-from rest_framework import serializers
+from rest_framework import serializers , generics
 from django.contrib.auth.models import User
 from django.contrib.auth.password_validation import validate_password
 from django.core import exceptions
@@ -28,3 +28,16 @@ class serializerTokenObtainPairView(TokenObtainPairSerializer):
         validated_data['username'] = self.user.username
         validated_data['user_id'] = self.user.id
         return validated_data
+class changePasswordView(serializers.Serializer):
+    old_password = serializers.CharField(write_only=True,required=True)
+    new_password = serializers.CharField(write_only=True,required=True)
+    new_password1 = serializers.CharField(write_only=True,required=True)
+    def validate(self, attrs):
+        if attrs.get('new_password') != attrs.get('new_password1'):
+            raise serializers.ValidationError('Passwords do not match.')
+        try:
+            validate_password(attrs.get('new_password'))
+        except exceptions.ValidationError as e:
+            raise serializers.ValidationError({'new_password': list(e.messages)})
+
+        return super().validate(attrs)

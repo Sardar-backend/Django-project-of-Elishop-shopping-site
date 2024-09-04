@@ -3,1050 +3,362 @@
 {% load static %}
 {% block content %}
 
-<section class="inner-page" id="products-page">
-    <div class="container-fluid" id="page-hero">
-        <div class="row">
-            <div class="col-12">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 px-0">
-                            <h1>فروشگاه روبیک مارکت</h1>
-                            <p>هر آنچه نیاز دارید در این فروشگاه موجود است</p>
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">صفحه نخست</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">محصولات</li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="content">
-                    <div class="row">
-                        <div class="col-12 col-lg-3 px-3 px-lg-0">
-                            <!-- Side Panel -->
-                            <div class="accordion filters-container">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            گروه های محصولات
-                                        </button>
-                                    </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <div class="form-group">
-                                                <input type="checkbox" id="category1">
-                                                <label for="category1">گوشی موبایل</label>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="checkbox" id="category2">
-                                                <label for="category2">جانبی موبایل</label>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="checkbox" id="category3">
-                                                <label for="category3">دوربین دیجیتال</label>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="checkbox" id="category4">
-                                                <label for="category4">ساعت هوشمند</label>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="checkbox" id="category5">
-                                                <label for="category5">لپ تاپ</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+<div class="menu__overlay--bg"></div>
+<div class="overlay--bg"></div>
+<div class="main" data-category-name="category-cup-coffe">
+    <div class="container-fluid">
+        <div class="main__inner">
+            <div class="search-page">
+                <div class="search-page__inner">
 
-                            <div class="accordion filters-container mt-3">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingTwo">
-                                        <button class="accordion-button py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                                            محدوده قیمت
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <div class="row">
-                                                <div class="col-12 py-1 px-4 mt-3">
-                                                    <div id="steps-slider" dir="rtl"></div>
-                                                </div>
-                                                <div class="col-6 text-center encode4365gbf265g43d-range mt-3">
-                                                    <div>از</div>
-                                                    <div id="encode4365gbf265g43d-range-from">10000</div>
-                                                    <div>تومان</div>
-                                                </div>
-                                                <div class="col-6 text-center encode4365gbf265g43d-range mt-3">
-                                                    <div>از</div>
-                                                    <div id="encode4365gbf265g43d-range-to">500000</div>
-                                                    <div>تومان</div>
-                                                </div>
-                                                <div class="col-12 text-center py-2">
-                                                    <div class="btn btn-warning">اعمال محدوده تخفیف</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="accordion filters-container mt-3">
-                                <div class="accordion-item">
-                                    <div id="collapseThree" class="accordion-collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body pb-2">
-                                            <div class="form-group">
-                                                <input type="checkbox" id="only-available">
-                                                <label for="only-available">فقط کالاهای موجود</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="accordion filters-container mt-3">
-                                <div class="accordion-item">
-                                    <div id="collapseFour" class="accordion-collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body pb-2">
-                                            <div class="form-group">
-                                                <input type="checkbox" id="only-warranty">
-                                                <label for="only-warranty">فقط کالاهای دارای گارانتی</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="accordion filters-container mt-3">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingFive">
-                                        <button class="accordion-button py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
-                                            جدیدترین محصولات
-                                        </button>
-                                    </h2>
-                                    <div id="collapseFive" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <div class="row">
-                                                <!-- Side Product -->
-                                                <div class="col-12 col-md-4 col-lg-12 px-0 mt-2">
-                                                    <a href="product.html">
-                                                        <div class="side-product">
-                                                            <div class="row pl-3">
-                                                                <div class="col-3 pl-2">
-                                                                    <div class="image" style="background-image: url('assets/images/products/p100.png')"></div>
-                                                                </div>
-                                                                <div class="col-9 pr-0">
-                                                                    <h2>گوشی موبایل سامسونگ مدل Galaxy A51</h2>
-                                                                    <div class="row">
-                                                                        <div class="col-7 pl-0">
-                                                                            <span class="encode4365gbf265g43d">320.000 تومان</span>
-                                                                        </div>
-                                                                        <div class="col-5 pr-0 text-end">
-                                                                            <span class="views">321 بازدید</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <!-- Side Product -->
-                                                <!-- Side Product -->
-                                                <div class="col-12 col-md-4 col-lg-12 px-0 mt-2">
-                                                    <a href="product.html">
-                                                        <div class="side-product">
-                                                            <div class="row pl-3">
-                                                                <div class="col-3 pl-2">
-                                                                    <div class="image" style="background-image: url('assets/images/products/p100.png')"></div>
-                                                                </div>
-                                                                <div class="col-9 pr-0">
-                                                                    <h2>گوشی موبایل سامسونگ مدل Galaxy A51</h2>
-                                                                    <div class="row">
-                                                                        <div class="col-7 pl-0">
-                                                                            <span class="encode4365gbf265g43d">320.000 تومان</span>
-                                                                        </div>
-                                                                        <div class="col-5 pr-0 text-end">
-                                                                            <span class="views">321 بازدید</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <!-- Side Product -->
-                                                <!-- Side Product -->
-                                                <div class="col-12 col-md-4 col-lg-12 px-0 mt-2">
-                                                    <a href="product.html">
-                                                        <div class="side-product">
-                                                            <div class="row pl-3">
-                                                                <div class="col-3 pl-2">
-                                                                    <div class="image" style="background-image: url('assets/images/products/p100.png')"></div>
-                                                                </div>
-                                                                <div class="col-9 pr-0">
-                                                                    <h2>گوشی موبایل سامسونگ مدل Galaxy A51</h2>
-                                                                    <div class="row">
-                                                                        <div class="col-7 pl-0">
-                                                                            <span class="encode4365gbf265g43d">320.000 تومان</span>
-                                                                        </div>
-                                                                        <div class="col-5 pr-0 text-end">
-                                                                            <span class="views">321 بازدید</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <!-- Side Product -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /Side Panel -->
-                        </div>
-                        <div class="col-12 col-lg-9 px-0 pl-lg-0 pr-lg-2 mt-2 mt-lg-0">
-                            <!-- Filters -->
-                            <div id="order-filters">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-12 col-sm-10 my-1">
-                                            <span class="d-block d-sm-inline-block">مرتب سازی بر اساس:</span>
-                                            <span class="order-filter d-block d-sm-inline-block active">جدیدترین</span>
-                                            <span class="order-filter d-block d-sm-inline-block">پربازدیدترین</span>
-                                            <span class="order-filter d-block d-sm-inline-block">پرفروش‌ترین</span>
-                                            <span class="order-filter d-block d-sm-inline-block">ارزان‌ترین</span>
-                                        </div>
-                                        <div class="col-12 col-sm-2 pt-1 text-end">
-                                            <span>
-                                                <a href="products-list.html" class="products-view-type"><i class="fa fa-th-list"></i></a>
-                                                <a href="products.html" class="products-view-type active"><i class="fa fa-th"></i></a>
-                                            </span>
-                                            &nbsp;|&nbsp;
-                                            <span>122 کالا</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /Filters -->
-                            <div class="mt-2" id="pager">
-                                <div class="container">
-                                    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 gx-md-4">
-                                        <!-- Products -->
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p100.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>گوشی موبایل سامسونگ مدل Galaxy A51 دو سیم کارت</h2></a>
-                                                    <div class="encode4365gbf265g43d">6.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p400.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>دوربین دیجیتال کانن مدل EOS 2000D به همراه لنز 18-55 میلی متر DC III</h2></a>
-                                                    <div class="encode4365gbf265g43d">6.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p103.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>گوشی موبایل شیائومی مدل POCO X3 M2007J20CG دو سیم‌ کارت</h2></a>
-                                                    <div class="encode4365gbf265g43d">3.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p102.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>گوشی موبایل سامسونگ مدل Galaxy A12 SM-A125F/DS دو سیم کارت</h2></a>
-                                                    <div class="encode4365gbf265g43d">4.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p301.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>هدفون بلوتوثی مدل P39 2021</h2></a>
-                                                    <div class="encode4365gbf265g43d">5.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p101.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>گوشی موبایل شیائومی مدل POCO M3 M2010J19CG دو سیم‌ کارت</h2></a>
-                                                    <div class="encode4365gbf265g43d">5.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p300.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>هدفون بی سیم سامسونگ مدل Galaxy Buds Live</h2></a>
-                                                    <div class="encode4365gbf265g43d">6.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p100.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>گوشی موبایل سامسونگ مدل Galaxy A51 دو سیم کارت</h2></a>
-                                                    <div class="encode4365gbf265g43d">6.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p200.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>لپ تاپ 15 اینچی ایسوس مدل VivoBook X543MA-DM905</h2></a>
-                                                    <div class="encode4365gbf265g43d">6.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p104.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>گوشی موبایل اپل مدل iPhone 12 Pro Max A2412 دو سیم‌ کارت</h2></a>
-                                                    <div class="encode4365gbf265g43d">6.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p201.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>لپ تاپ 14 اینچی ایسوس مدل ZenBook UM433IQ - A5023</h2></a>
-                                                    <div class="encode4365gbf265g43d">5.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p202.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>لپ تاپ 15.6 اینچی ایسوس مدل R565JF-BQ078</h2></a>
-                                                    <div class="encode4365gbf265g43d">4.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p203.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>لپ تاپ 15 اینچی ایسوس مدل VivoBook X543MA - A</h2></a>
-                                                    <div class="encode4365gbf265g43d">3.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p204.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>لپ تاپ 15 اینچی لنوو مدل Lenovo Ideapad 330 - E</h2></a>
-                                                    <div class="encode4365gbf265g43d">6.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p203.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>لپ تاپ 15 اینچی ایسوس مدل VivoBook X543MA - A</h2></a>
-                                                    <div class="encode4365gbf265g43d">3.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p201.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>لپ تاپ 14 اینچی ایسوس مدل ZenBook UM433IQ - A5023</h2></a>
-                                                    <div class="encode4365gbf265g43d">5.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p202.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>لپ تاپ 15.6 اینچی ایسوس مدل R565JF-BQ078</h2></a>
-                                                    <div class="encode4365gbf265g43d">4.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p101.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>گوشی موبایل شیائومی مدل POCO M3 M2010J19CG دو سیم‌ کارت</h2></a>
-                                                    <div class="encode4365gbf265g43d">5.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p401.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>دوربین دیجیتال آکسون مدل AX6062</h2></a>
-                                                    <div class="encode4365gbf265g43d">5.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p402.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>دوربین دیجیتال نیکون مدل D3500 به همراه لنز 18-55 میلی متر VR AF-P</h2></a>
-                                                    <div class="encode4365gbf265g43d">4.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p102.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>گوشی موبایل سامسونگ مدل Galaxy A12 SM-A125F/DS دو سیم کارت</h2></a>
-                                                    <div class="encode4365gbf265g43d">4.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p302.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>اسپیکر بلوتوثی قابل حمل تی اند جی مدل Tg-113</h2></a>
-                                                    <div class="encode4365gbf265g43d">4.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p303.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>مودم روتر ADSL2 Plus بی‌ سیم N300 دی-لینک مدل DSL-2740U</h2></a>
-                                                    <div class="encode4365gbf265g43d">3.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p304.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>ماوس تسکو مدل TM2018N</h2></a>
-                                                    <div class="encode4365gbf265g43d">6.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p300.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>هدفون بی سیم سامسونگ مدل Galaxy Buds Live</h2></a>
-                                                    <div class="encode4365gbf265g43d">6.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p301.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>هدفون بلوتوثی مدل P39 2021</h2></a>
-                                                    <div class="encode4365gbf265g43d">5.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p302.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>اسپیکر بلوتوثی قابل حمل تی اند جی مدل Tg-113</h2></a>
-                                                    <div class="encode4365gbf265g43d">4.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p403.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>دوربین دیجیتال مدل AX6065</h2></a>
-                                                    <div class="encode4365gbf265g43d">3.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p404.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>دوربین دیجیتال سونی مدل Cyber-shot DSC-W800</h2></a>
-                                                    <div class="encode4365gbf265g43d">6.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Product Box -->
-                                            <div class="encode4326654321vfb">
-                                                <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p400.png')"></div></a>
-                                                <div class="details p-3">
-                                                    <div class="category">
-                                                        <a href="products.html">گوشی موبایل</a>
-                                                        &nbsp;/&nbsp;
-                                                        <a href="products.html">سامسونگ</a>
-                                                    </div>
-                                                    <a href="product.html"><h2>دوربین دیجیتال کانن مدل EOS 2000D به همراه لنز 18-55 میلی متر DC III</h2></a>
-                                                    <div class="encode4365gbf265g43d">6.000.000 تومان</div>
-                                                    <div class="rate">
-                                                        <i class="fa fa-star-half-alt"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Box -->
-                                        </div>
-                                        <!-- /Products -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div id="pagination-bg">
-                                            <ul class="pagination justify-content-center pagination-sm"></ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<section class="pt-4 pb-3" id="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-6 col-sm-4 col-lg-2">
-                <div class="title">دسترسی سریع</div>
-                <ul>
-                    <li><a href="blog.html">بلاگ آموزشی</a></li>
-                    <li><a href="faq.html">راهنمای خرید</a></li>
-                    <li><a href="faq.html">شیوه های پرداخت</a></li>
-                    <li><a href="contact.html">پیگیری سفارش</a></li>
-                    <li><a href="faq.html">سوالات متداول</a></li>
-                    <li><a href="about.html">درباره ما</a></li>
-                    <li><a href="contact.html">تماس با ما</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-sm-4 col-lg-2">
-                <div class="title">گروه های محصولات</div>
-                <ul>
-                    <li><a href="products.html">تجهیزات کامپیوتر</a></li>
-                    <li><a href="products.html">گوشی موبایل</a></li>
-                    <li><a href="products.html">جانبی موبایل</a></li>
-                    <li><a href="products.html">ساعت هوشمند</a></li>
-                    <li><a href="products.html">جانبی کامپیوتر</a></li>
-                    <li><a href="products.html">دوربین</a></li>
-                    <li><a href="products.html">لپ تاپ</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-sm-4 col-lg-2 d-none d-sm-inline-block">
-                <div class="title">ناحیه کاربری</div>
-                <ul>
-                    <li><a href="login.html">ورود به سایت</a></li>
-                    <li><a href="register.html">عضویت در سایت</a></li>
-                    <li><a href="reset-password.html">بازیابی رمز عبور</a></li>
-                    <li><a href="cart.html">سبد خرید</a></li>
-                    <li><a href="checkout.html">پیش فاکتور</a></li>
-                </ul>
-            </div>
-            <div class="col-12 col-md-12 col-lg-6">
-                <hr class="d-lg-none">
-                <img src="assets/images/logo.png" alt=""> روبیک مارکت
-                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
-                <div class="row">
-                    <div class="col-12 col-md-6 text-center p-2" id="encode43vfbb65gtabfb">
-                        <div>7 روز هفته، 24 ساعت شبانه روز</div>
-                        <div>پاسخگوی شما هستیم</div>
-                        <div>09351234567</div>
-                    </div>
-                    <div class="col-12 col-md-6 pt-2 pt-md-0" id="encode43vfbbbfb">
+                    <div class="wrapper no-wrapper mt-4">
                         <div class="row">
-                            <div class="col-4 text-center">
-                                <a href="#"><img src="assets/images/encode43vfbbbfb/enamad.html" alt=""></a>
+                            <div class="search-side-bar col-lg-3 col-12">
+                                <div class="search-side-bar__inner">
+                                    <div class="boxes">
+                                        <div class="box categories-box">
+                                            <div class="box__inner categories-box__inner">
+                                                <div class="box-title">دسته‌بندی نتایج</div>
+                                                <div class="box-content">
+                                                    <ul class="items">
+                                                        <li class="item"><a class="arrow-left" href="#">خانه و
+                                                                آشپزخانه</a></li>
+                                                        <div class="show-more">
+                                                            <ul class="items">
+                                                                <li class="item"><a class="arrow-down"
+                                                                                    href="#">آشپزخانه</a></li>
+                                                                <div class="show-more">
+                                                                    <ul class="items">
+                                                                        <li class="item"><a class="arrow-down active"
+                                                                                            href="#">تهیه و سرو چای و
+                                                                                قهوه</a></li>
+                                                                        <div class="show-more">
+                                                                            <ul class="child">
+                                                                                <li class="child-item"><a
+                                                                                            href="#">قوری</a></li>
+                                                                                <li class="child-item"><a href="#">کتری
+                                                                                        و قوری</a></li>
+                                                                                <li class="child-item"><a href="#">سرویس
+                                                                                        چای خوری</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </ul>
+                                                                </div>
+                                                            </ul>
+                                                        </div>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="box search-box">
+                                            <div class="box__inner search-box__inner">
+                                                <div class="box-title">جستجو در نتایج</div>
+                                                <div class="box-content">
+                                                    <div class="search-in-result">
+                                                        <form action="{% url 'blog:search' %}">
+                                                        <input class="search-in-result--input" type="text"
+                                                             name="p"  placeholder="نام محصول یا برند را بنویسید">
+                                                        <button class="search-in-result--btn"><span
+                                                                    class="mdi mdi-magnify"></span></button>
+                                                    </form></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="box brands-box">
+                                            <div class="box__inner brands-box__inner has-drop-down">
+                                                <div class="box-title">
+                                                    <span class="text">برندها</span>
+                                                    <span class="icon mdi mdi-window-minimize"></span>
+                                                </div>
+                                                <div class="box-content">
+                                                    <form action="{% url 'blog:search' %}">
+                                                    <div class="search-in-brands">
+                                                        <input name="p" class="search-in-brands--input" type="text"
+                                                               placeholder="نام محصول یا برند را بنویسید">
+                                                        <button class="search-in-brands--btn"><span
+                                                                    class="mdi mdi-magnify"></span></button>
+                                                    </div>
+                                                    <div class="brands">
+                                                        <div class="brand-item">
+                                                            <label class="brand-item__inner" for="samsung">
+                                                            <span class="md-checkbox">
+                                                                <input class="fa-title" id="samsung" data-brand-id="254"
+                                                                       type="checkbox">
+                                                                <label for="samsung">سامسونگ</label>
+                                                            </span>
+                                                                <span class="en-title">Samsung</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="brand-item">
+                                                            <label class="brand-item__inner" for="huawei">
+                                                            <span class="md-checkbox">
+                                                                <input class="fa-title" id="huawei" data-brand-id="261"
+                                                                       type="checkbox">
+                                                                <label for="huawei">هوآوی</label>
+                                                            </span>
+                                                                <span class="en-title">Huawei</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="brand-item">
+                                                            <label class="brand-item__inner" for="apple">
+                                                            <span class="md-checkbox">
+                                                                <input class="fa-title" id="apple" data-brand-id="287"
+                                                                       type="checkbox">
+                                                                <label for="apple">آپل</label>
+                                                            </span>
+                                                                <span class="en-title">Apple</span>
+                                                            </label>
+                                                        </div>
+                                                    </div></form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="box colors-box">
+                                            <div class="box__inner colors-box__inner has-drop-down">
+                                                <div class="box-title">
+                                                    <span class="text">رنگ ها</span>
+                                                    <span class="icon mdi mdi-window-minimize"></span>
+                                                </div>
+                                                <div class="box-content">
+                                                    <div class="colors">
+                                                        <div class="color-item">
+                                                            <label class="color-item__inner" for="blue">
+                                                            <span class="md-checkbox">
+                                                                <input class="fa-title" id="blue" data-brand-id="255"
+                                                                       type="checkbox">
+                                                                <label for="blue">آبی </label>
+                                                            </span>
+                                                                <span class="color"
+                                                                              style="background-color: #1b7af3;"></span>
+                                                                 </label>
+                                                        </div>
+                                                        <div class="color-item">
+                                                            <label class="color-item__inner" for="red">
+                                                            <span class="md-checkbox">
+                                                                <input class="fa-title" id="red" data-brand-id="260"
+                                                                       type="checkbox">
+                                                                   <label for="red"> قرمز </label>
+                                                            </span>
+                                                                <span class="color"
+                                                                      style="background-color: #cf3939;"></span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="color-item">
+                                                            <label class="color-item__inner" for="green">
+                                                            <span class="md-checkbox">
+                                                                <input class="fa-title" id="green" data-brand-id="262"
+                                                                       type="checkbox">
+                                                                   <label for="green"> سبز </label>
+                                                            </span>
+                                                                <span class="color"
+                                                                      style="background-color: #5ccf2e;"></span>
+                                                            </label>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="box existing-pd-box">
+
+
+                                            <div class="box__inner existing-pd-box__inner">
+                                                <div class="box-title">
+                                                    <span>{{display}} فقط کالا های موجود</span>
+
+
+                                                    <a href="{% url 'home:exist' %}"><button type="submit" class="mr-5">فعال</button></a>
+                                                    <a href="{% url 'home:products_view' %}"><button type="submit" class="mr-1">غیر فعال</button></a>
+
+                                                    <!-- <button  type="submit" id="id-name--1"
+                                                           class="switch-input"></button>
+
+                                                    <label for="id-name--1" class="switch-label"><span"
+                                                                class="toggle--on"></span><span
+                                                                class="toggle--off"></span></label> -->
+                                                                <!-- <button type="submit">wd</button> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="box ready-pd-box">
+                                            <div class="box__inner ready-pd-box__inner">
+                                                <div class="box-title">
+                                                    <span>فقط کالاهای آماده ارسال</span>
+
+
+                                                    <a  href="{% url 'home:ready' %}"><button style="background-color: greenyellow; border-radius:15px " type="submit" class="mr-1 p-2">فعال</button></a>
+                                                    <a href="{% url 'home:products_view' %}"><button style="background-color: red; color:white; border-radius:15px" type="submit" class="mr-1 p-2">غیر فعال</button></a>
+                                                    <!-- <input type="checkbox" id="id-name--2" name="set-name"
+                                                           class="switch-input">
+
+                                                    <label for="id-name--2" class="switch-label"><span
+                                                                class="toggle--on"></span><span
+                                                                class="toggle--off"></span></label> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="box price-slider-box">
+                                            <div class="box__inner price-slider-box__inner has-drop-down">
+                                                <div class="box-title">
+                                                    <span class="text">انتخاب محدوده قیمت</span>
+                                                    <span class="icon mdi mdi-open-in-new"></span>
+                                                </div>
+                                                <div class="box-content no-active"><form action="{% url 'blog:filter' %}" method="get">
+                                                    <div id="pd-price-range"></div>
+                                                    <div class="pd-price-calc" >
+                                                        <div class="pd-price-calc__inner">
+                                                            <div class="from-price">
+                                                                <span class="title item">از</span>
+                                                                <span class="price item oo" data-value="0">0</span>
+                                                                <input class="yu" type="hidden" name="min_price" value="0" class="u">
+                                                                <span class="unit item">تومان</span>
+                                                            </div>
+                                                            <div class="to-price">
+                                                                <span class="title item">تا</span>
+                                                                <span  class="price item ss"
+                                                                      data-value="456000">456000</span>
+                                                                      <input type="hidden" name="max_price" value="" class="u">
+                                                                <span class="unit item">تومان</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="button-filter">
+                                                        <button class="button-filter__inner" type="submit" ">
+                                                            <span class="icon mdi mdi-filter"></span>
+                                                            <span class="text">اعمال محدوده قیمت</span>
+                                                        </button>
+                                                    </div>
+                                                    <script>
+                                                        let t = document.querySelector('.u')
+                                                        let r = document.querySelector('.ss')
+                                                        let ro = document.querySelector('.oo')
+                                                        let ruo = document.querySelector('.yu')
+                                                        let rd = document.querySelector('.button-filter')
+                                                        rd.addEventListener('click',function() {
+                                                           let ggg =  r.innerHTML
+                                                          let ff=  ro.innerHTML
+                                                          let i = "ssasastyyss"
+                                                          t.value=ggg.replace(',','')
+                                                          console.log(ff)
+                                                          ruo.value=ff.replace(',','')
+                                                    })
+                                                    </script>
+                                                </form></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-4 text-center">
-                                <a href="#"><img src="assets/images/encode43vfbbbfb/samandehi.html" alt=""></a>
-                            </div>
-                            <div class="col-4 text-center">
-                                <a href="#"><img src="assets/images/encode43vfbbbfb/etehadiye.html" alt=""></a>
+                            <div class="search-main-bar col-lg-9 col-12">
+                                <div class="search-main-bar__inner">
+                                    <div class="filters dt-nf">
+                                        <div class="filters__inner ah-tab-overflow-right">
+                                            <div class="title">
+                                                <span class="icon mdi mdi-sort-variant"></span>
+                                                <span class="text">مرتب سازی بر اساس:</span>
+                                            </div>
+                                            <div class="filter" data-sort-id="1">
+                                            <span class="filter--text">
+                                                پرفروش‌ترین
+                                            </span>
+                                            </div>
+                                            <!-- <div class="filter active" data-sort-id="2">
+                                            <span class="filter--text">
+                                                مرتبط‌ترین
+                                            </span>
+                                            </div> -->
+                                            <div class="filter" data-sort-id="3">
+                                            <span class="filter--text">
+                                                ارزان‌ترین
+                                            </span>
+                                            </div>
+                                            <div class="filter" data-sort-id="4">
+                                            <span class="filter--text">
+                                                گران‌ترین
+                                            </span>
+                                            </div>
+                                            <div class="filter" data-sort-id="5">
+                                            <span class="filter--text">
+                                                بیشترین تخفیف
+                                            </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-2 mb-2 mr-4" >
+                                    <h1>{{exist}}</h1></div>
+                                    <div class="products">
+                                        <div class="products__inner">
+                        {% for pro in products  %}
+
+  				      	<div class="product col-lg-3 no-padding"><a href="{% url 'blog:product_single' pid=5 %}">
+                                                <div class="product__inner mb-3">
+                                                    <div class="has-discount">
+							<div class="colors">
+                                                            <div class="colors__inner">
+                                                                <!--Be Carefull Maximum of colors Must Not More Than 4 colors -->
+                                                                <span class="color"
+                                                                      style="background-color: blue;"></span>
+                                                                <span class="color"
+                                                                      style="background-color: violet;"></span>
+                                                                <span class="color"
+                                                                      style="background-color: mediumseagreen;"></span>
+                                                                <span class="color"
+                                                                      style="background-color: mediumseagreen;"></span>
+                                                                <span class="mdi mdi-plus"></span>
+                                                            </div>
+                                                        </div>
+							<span class="has-discount--text">فروش ویژه</span>
+						    </div>
+                                                    <div class="picture">
+							<img src="{% static 'asset/images/117624541.jpg' %}" alt="">
+                                                    </div>
+                                                    <div class="title">
+							<span class="title--text">{{pro.title}}</span>
+                                                    </div>
+                                                    <div class="price">
+                                                        <span class="price--text">۲۳۴٫۰۰۰</span>
+                                                        <span class="price--unit">تومان</span>
+                                                    </div>
+                                                </div>
+                        </div></a>
+                        {% endfor %}
+
+
+                                        </div>
+                                        <div class="row ">
+                                            <div class="col-12">
+                                                <div class="pagination mb-3">
+                                                    <a href="#" class="prev"><i class="mdi mdi-chevron-double-right"></i></a>
+                                                    <a href="#" class="active-page">1</a>
+                                                    <a href="#">2</a>
+                                                    <a href="#">3</a>
+                                                    <a href="#">4</a>
+                                                    <a href="#">...</a>
+                                                    <a href="#">8</a>
+                                                    <a href="#" class="next"><i class="mdi mdi-chevron-double-left"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
+<!-- <script>
+    let j  = document.querySelector('.switch-input')
+    let hidden  = document.querySelector('.hidden')
+    j.addEventListener('click', function (){
+            console.log('dwwd')
+            hidden.value == 'false'
+    })
+</script> -->
 <!-- /Footer -->
 {% endblock %}

@@ -111,6 +111,7 @@ body {
         <div class="form">
           <form method="post" action="{% url 'accounts:signup_view' %}">
             {% csrf_token %}
+            
             <input name="username" type="text" placeholder="name"/>
             <input name="password1" type="password" placeholder="password"/>
             <input name="password2" type="password" placeholder="password again"/>

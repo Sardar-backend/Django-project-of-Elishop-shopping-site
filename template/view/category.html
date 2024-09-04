@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="menu__overlay--bg"></div>
+    <div class="overlay--bg"></div>
+    <div class="main">
+        <div class="container-fluid">
+            <div class="main__inner">
+                <div class="category-page">
+                    <div class="category-page__inner">
+                        <div class="breadcrumbs">
+                            <div class="breadcrumbs__inner">
+                                <div class="items">
+                                    <div class="item"><a href="#">خانه</a></div>
+                                    <div class="item"><a href="#">دکوراسیون اداری</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wrapper c-row no-wrapper">
+                            <div class="category-side-bar col-lg-2">
+                                <div class="category-side-bar__inner">
+                                    <div class="category-lists">
+                                        <h1 class="title"><span class="title--text">خانه و آشپزخانه</span></h1>
+                                        <div class="items">
+                                            <div class="item">
+                                                <a href="#" class="item-text">صوتی و تصویری</a>
+                                                <span class="child-items">
+                                                <a href="#" class="child-item"><span class="child-item--text">تلویزیون</span></a>
+                                                <a href="#" class="child-item"><span class="child-item--text">میز تلویزیون</span></a>
+                                                <a href="#" class="child-item"><span class="child-item--text">کنسول بازی</span></a>
+                                                </span>
+                                            </div>
+                                        </div>
+ <div class="items">
+                                            <div class="item">
+                                                <a href="#" class="item-text">آشپزخانه</a>
+                                            <span class="child-items">
+                                                <a href="#" class="child-item"><span class="child-item-text">لوازم پخت و پز</span></a>
+                                                <a href="#" class="child-item"><span class="child-item-text">لوازم شیرینی پزی</span></a>
+                                                <a href="#" class="child-item"><span class="child-item-text">حوله و دستمال آشپزخانه</span></a>
+                                            </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="category-main-bar col-lg-10">
+                                <div class="category-main-bar__inner">
+                                    <div class="category-cards items">
+                                        <div class="c-row col-lg-6 no-padding">
+                                            <div class="category-card item col-lg-12 big">
+                                                <div class="category-card__inner">
+                                                    <a href="{% url 'home:pros' cat_name=categorys.0 %}" class="link">
+                                                        <img src="{% static './asset/images/coffee-maker.jpg' %}" alt="">
+                                                        <span class="title"><span class="title--text">{{categorys.0}}</span></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="c-row col-lg-6 no-padding">
+                                            <div class="category-card col-lg-6 item small">
+                                                <div class="category-card__inner">
+                                                    <a href="{% url 'home:pros' cat_name=categorys.1 %}" class="link">
+                                                        <img src="{% static './asset/images/410.jpg' %}" alt="">
+                                                        <span class="title"><span class="title--text">{{categorys.1}}</span></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="category-card col-lg-6 item small">
+                                                <div class="category-card__inner">
+                                                    <a href="{% url 'home:pros' cat_name=categorys.2 %}" class="link">
+                                                        <img src="{% static './asset/images/417.jpg' %}" alt="">
+                                                        <span class="title"><span class="title--text">{{categorys.2}}</span></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="category-card col-lg-6 item small">
+                                                <div class="category-card__inner">
+                                                    <a href="{% url 'home:pros' cat_name=categorys.3 %}" class="link">
+                                                        <img src="{% static './asset/images/433.jpg' %}" alt="">
+                                                        <span class="title"><span class="title--text">{{categorys.3}}</span></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="category-card col-lg-6 item small">
+                                                <div class="category-card__inner">
+                                                    <a href="{% url 'home:pros' cat_name=categorys.4 %}" class="link">
+                                                        <img src="{% static './asset/images/419.jpg' %}" alt="">
+                                                        <span class="title"><span class="title--text">{{categorys.4}}</span></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="c-row col-lg-12 no-padding">
+                                            <div class="category-card col-lg-3 item small">
+                                                <div class="category-card__inner">
+                                                    <a href="{% url 'home:pros' cat_name=categorys.5 %}" class="link">
+                                                        <img src="{% static './asset/images/418.jpg' %}" alt="">
+                                                        <span class="title"><span class="title--text">{{categorys.5}}</span></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="category-card col-lg-3 item small">
+                                                <div class="category-card__inner">
+                                                    <a href="{% url 'home:pros' cat_name=categorys.6 %}" class="link">
+                                                        <img src="{% static './asset/images/423.jpg' %}" alt="">
+                                                        <span class="title"><span class="title--text">{{categorys.6}}</span></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="category-card col-lg-3 item small">
+                                                <div class="category-card__inner">
+                                                    <a href="{% url 'home:pros' cat_name=categorys.7 %}" class="link">
+                                                        <img src="{% static './asset/images/422.jpg' %}" alt="">
+                                                        <span class="title"><span class="title--text">{{categorys.7}}</span></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="category-card col-lg-3 item small">
+                                                <div class="category-card__inner">
+                                                    <a href="{% url 'home:pros' cat_name=categorys.8 %}" class="link">
+                                                        <img src="{% static './asset/images/424.jpg' %}" alt="">
+                                                        <span class="title"><span class="title--text">{{categorys.8}}</span></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="c-row col-lg-12 no-padding">
+                                            <div class="category-card col-lg-4 item small">
+                                                <div class="category-card__inner">
+                                                    <a href="{% url 'home:pros' cat_name=categorys.9 %}" class="link"></a>
+                                                        <img src="{% static './asset/images/424.jpg' %}" alt="">
+                                                        <span class="title"><span class="title--text">{{categorys.9}}</span></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="category-card col-lg-4 item small">
+                                                <div class="category-card__inner">
+                                                    <a href="{% url 'home:pros' cat_name=categorys.10 %}" class="link"></a>
+                                                        <img src="{% static './asset/images/424.jpg' %}" alt="">
+                                                        <span class="title"><span class="title--text">{{categorys.10}}</span></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="category-card col-lg-4 item small">
+                                                <div class="category-card__inner">
+                                                    <a href="{% url 'home:pros' cat_name=categorys.11 %}" class="link">
+                                                        <img src="{% static './asset/images/424.jpg' %}" alt="">
+                                                        <span class="title"><span class="title--text">{{categorys.11}}</span></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="c-row col-lg-6 no-padding">
+                                            <div class="category-card item col-lg-12 big">
+                                                <div class="category-card__inner">
+                                                    <a href="{% url 'home:pros' cat_name=categorys.12 %}" class="link">
+                                                        <img src="{% static './asset/images/coffee-maker.jpg' %}" alt="">
+                                                        <span class="title"><span class="title--text">{{categorys.12}}</span></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="c-row col-lg-6 no-padding">
+                                            <div class="category-card col-lg-6 item small">
+                                                <div class="category-card__inner">
+                                                        <a href="{% url 'home:pros' cat_name=categorys.13 %}" class="link">
+                                                        <img src="{% static './asset/images/410.jpg' %}" alt="">
+                                                        <span class="title"><span class="title--text">{{categorys.13}}</span></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="category-card col-lg-6 item small">
+                                                <div class="category-card__inner">
+                                                        <a href="{% url 'home:pros' cat_name=categorys.14 %}" class="link">
+                                                        <img src="{% static './asset/images/417.jpg' %}" alt="">
+                                                        <span class="title"><span class="title--text">{{categorys.14}}</span></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="category-card col-lg-6 item small">
+                                                <div class="category-card__inner">
+                                                        <a href="{% url 'home:pros' cat_name=categorys.15 %}" class="link">
+                                                        <img src="{% static './asset/images/433.jpg' %}" alt="">
+                                                        <span class="title"><span class="title--text">{{categorys.15}}</span></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="category-card col-lg-6 item small">
+                                                <div class="category-card__inner">
+                                                        <a href="{% url 'home:pros' cat_name=categorys.16 %}" class="link">
+                                                        <img src="{% static './asset/images/419.jpg' %}" alt="">
+                                                        <span class="title"><span class="title--text">{{categorys.16}}</span></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

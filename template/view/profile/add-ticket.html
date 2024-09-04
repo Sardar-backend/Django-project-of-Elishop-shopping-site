@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <div class="menu__overlay--bg"></div>
+    <div class="overlay--bg"></div>
+
+    <div class="main">
+        <div class="container-fluid">
+            <div class="main__inner">
+                <div class="profile-page">
+                    <div class="profile-page__inner">
+                        <div class="breadcrumbs">
+                            <div class="breadcrumbs__inner">
+                                <div class="items">
+                                    <div class="item"><a href="#">خانه</a></div>
+                                    <div class="item"><a href="#">پروفایل کاربری</a></div>
+                                    <div class="item"><a href="#">آدرس‌ها</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wrapper c-row no-wrapper">
+                            {% include './layout.html' %}
+                            <div class="side-left col-lg-9">
+                                <div class="side-left__inner">
+                                    <div class="add-tickets">
+                                        <div class="add-tickets__inner">
+                                            <div class="profile-section-title">
+                                                <span class="mdi mdi-message-plus"></span>
+                                                <span class="profile-section-title--text">افزودن تیکت</span>
+                                            </div>
+                                            <label for="add-ticket--inp" class="add-ticket">
+                                            <span class="add-ticket--text text">متن تیکت شما</span>
+                                            <textarea rows="8" id="add-ticket--inp"
+                                                      placeholder="متن تیکت را اینجا بنویسید" name="add-ticket--inp"
+                                                      class="add-ticket--inp"></textarea>
+                                        </label>
+                                            <div class="submit-add-ticket">
+                                                <input type="submit" value="ارسال تیکت" class="submit-add-ticket--btn">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

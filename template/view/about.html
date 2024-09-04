@@ -1,542 +1,541 @@
+{% load static %}
 <!doctype html>
-<html lang="fa" dir="rtl">
+<html lang="en">
 
-<!-- Mirrored from rubik-market-html.wbrk.ir/about.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 12 Aug 2023 06:32:39 GMT -->
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>قالب فروشگاهی روبیک مارکت</title>
-    <!-- CSS Styles -->
-    <link rel="stylesheet" href="assets/css/bootstrap.rtl.min.css">
-    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="assets/plugins/aos-master/dist/aos.css">
-    <link rel="stylesheet" href="assets/plugins/hover-master/css/hover-min.css">
-    <link rel="stylesheet" href="assets/css/ionicons.css">
-    <link rel="stylesheet" href="assets/css/droopmenu.css">
-    <link rel="stylesheet" href="assets/css/highlight.css">
-    <link rel="stylesheet" href="assets/css/nouislider.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <!-- /CSS Styles -->
+    <link rel="stylesheet" href="{% static 'asset/css/app.css' %}">
+
+
+    <meta name="csrf-token" content="4343kjj4i3o434kjhk3j4k3">
+    <!-- <script>
+        var baseUrl = '<?php echo $_SERVER['
+        SERVER_NAME
+        ']; ?>';
+    </script> -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
 </head>
+
 <body>
-<!-- Header -->
-<section id="header">
-    <!-- Top NavBar -->
-    <div id="encode4325436">
-        <div class="container">
-            <div class="row">
-                <div class="col-8 d-none d-md-block">
-                    <ul>
-                        <li><a href="index.html">صفحه نخست</a></li>
-                        <li><a href="about.html">درباره ما</a></li>
-                        <li><a href="contact.html">تماس با ما</a></li>
-                    </ul>
-                </div>
-                <div class="col-12 col-md-4 text-center text-md-end" id="top-encode43vfbb65gtabfb">
-                    <span>تلفن مشاوره و فروش: 09351234567</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /Top NavBar -->
-    <!-- Search NavBar -->
-    <div id="encode43254bvfb">
-        <div class="container pt-1">
-            <div class="row py-3 align-content-center">
-                <div class="col-12 col-md-3 col-xl-2 text-center text-md-start pb-2" id="encode4326523bvfb">
-                    <a href="index.html">
-                        <img src="assets/images/logo.png" alt=""> روبیک مارکت
-                    </a>
-                </div>
-                <div class="col-12 col-md-5 col-xl-6">
-                    <div id="search-bar">
-                        <i class="fa fa-search"></i>
-                        <input type="text" placeholder="جستجو کنید...">
-                    </div>
-                </div>
-                <div class="col-12 col-md-4">
-                    <div class="row">
-                        <div class="col-12 col-md-7 col-lg-6 text-center" id="btn-login-register">
-                            <a href="login.html">ورود</a> /
-                            <a href="register.html">عضویت</a>
-                        </div>
-                        <div class="col-12 col-md-5 col-lg-6">
-                            <a href="cart.html">
-                                <div class="btn btn-warning w-100"><i class="fa fa-shopping-cart"></i>&nbsp;<span class="d-md-none d-lg-inline-block">سبد خرید</span> (2)</div>
+<header class="header">
+    <div class="header__inner">
+        <div class="container-fluid hidden-lg">
+            <div class="top">
+                <div class="row">
+                    <div class="col-lg-2 col-md-3 col-6">
+                        <div class="logo">
+                            <a href="./index.html">
+                                <img src="{% static './asset/images/5e7b59c933af5.png' %}" alt="">
                             </a>
                         </div>
                     </div>
+                    <div class="col-lg-7 col-md-6 hidden-sm">
+                        <div class="search">
+                            <form action="" class="search__inner">
+                                <button class="button">
+                                    <span class="button--text">جستجو</span>
+                                    <span class="button--icon mdi mdi-magnify"></span>
+                                </button>
+                                <input class="input" type="search"
+                                       placeholder="نام کالا، برند و یا دسته مورد نظر خود را جستجو کنید...">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="reg-log">
+                            <i class="mdi mdi-account-circle-outline"></i>
+                            <div class="reg-log__logged-in__box">
+                                <div class="reg-log__logged-in__box__inner">
+                                    <div class="line"></div>
+                                    <ul class="items">
+                                        <li class="item"><a href=""><span class="icon mdi mdi-account"></span><span
+                                                class="text">پروفایل کاربری</span></a></li>
+                                        <li class="item"><span id="reg-log--logout"><span
+                                                class="icon mdi mdi-logout"></span><span>خروج</span></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <span data-dialog="reg-log__dialog" class="reg-log--text">ورود/ثبت ‌نام</span>
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- /Search NavBar -->
-    <!-- Main NavBar -->
-    <div id="main-nav">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="droopmenu-navbar dmarrow-down droopmenu-horizontal dmpos-top dmfade">
-                        <div class="droopmenu-inner">
-                            <div class="droopmenu-header">
-                                <a href="#" class="droopmenu-toggle"><i class="dm-burg"></i></a>
-                                <span class="d-md-none">منوی فروشگاه</span>
+            <div class="bottom">
+                <div class="row">
+                    <div class="main__menu">
+                        <div class="relative mg-rl-auto">
+                            <div class="main__menu__inner ">
+                                <ul class="items hidden-sm">
+                                    <li data-id="1" data-parent-id="" class="item"><span class="underLine">
+
+                                        </span><a class="item--link" href=""> کالای دیجیتال</a>
+                                    </li>
+                                    <li data-id="2" data-parent-id="" class="item"><span class="underLine">
+
+                                        </span><a class="item--link" href="">آرایشی و بهداشتی </a>
+                                    </li>
+                                    <li data-id="3" data-parent-id="" class="item"><span class="underLine">
+                                        </span><a class="item--link" href=""> خودرو و ابزار اداری</a>
+                                    </li>
+                                    <li data-id="4" data-parent-id="" class="item"><span class="underLine"></span>
+                                        <a class="item--link" href="">مد و پوشاک </a>
+                                    </li>
+                                    <li data-id="5" data-parent-id="" class="item"><span class="underLine"></span>
+                                        <a class="item--link" href=""> خانه و آشپزخانه</a>
+                                    </li>
+                                    <li data-id="6" data-parent-id="" class="item"><span class="underLine"></span><a
+                                            class="item--link" href="">کتاب، لوازم تحریر و هنر</a>
+                                    </li>
+                                    <li data-id="6" data-parent-id="" class="item"><span class="underLine"></span><a
+                                            class="item--link" href="{% url 'home:about' %}">درباره ما</a>
+                                    </li>
+                                </ul>
+                                <ul class="float-left">
+                                    <div class="cart">
+                                        <div class="cart__inner">
+                                            <div class="cart__inner__button">
+                                                <span class="icon--cart mdi mdi-cart"></span>
+                                                <span class="text">سبد خرید</span>
+                                                <span class="number">۲</span>
+                                                <span class="icon--chevron mdi mdi-chevron-down"></span>
+                                            </div>
+                                            <div class="cart__inner__basket">
+                                                <div class="header">
+                                                    <div class="basket-total">
+                                                        <span>تعداد</span>
+                                                        <span> 2 </span>
+                                                        <span>کالا</span>
+                                                    </div>
+                                                    <a href="#" class="basket-link">
+                                                        مشاهده سبد خرید
+                                                        <span></span>
+                                                    </a>
+                                                </div>
+                                                <div class="product-lists">
+                                                    <ul class="items">
+                                                        <li>
+                                                            <a class="cart-box-list-item">
+                                                                    <span class="basket-item-close">
+                                                                <span class="mdi mdi-close"></span>
+                                                                    </span>
+                                                                <div class="cart-item-image">
+                                                                    <img src="{% static './asset/images/mobile-red.jpg' %}" alt="">
+                                                                </div>
+                                                                <div class="cart-item-content">
+                                                                    <p class="cart-item-title">
+                                                                        گوشی موبایل اپل مدل iPhone 11 Pro Max A2220 دو
+                                                                        سیم‌ کارت ظرفیت 256 گیگابایت
+                                                                    </p>
+                                                                    <div class="basket-total">
+                                                                        <small> قیمت :</small>
+                                                                        <small> 12,315,000</small>
+                                                                        <small>تومان</small>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                            <a class="cart-box-list-item">
+                                                                    <span class="basket-item-close">
+                                                                <span class="mdi mdi-close"></span>
+                                                                    </span>
+                                                                <div class="cart-item-image">
+                                                                    <img src="{% static './asset/images/mobile-purple.jpg' %}" alt="">
+                                                                </div>
+                                                                <div class="cart-item-content">
+                                                                    <p class="cart-item-title">
+                                                                        گوشی موبایل اپل مدل iPhone 11 Pro Max A2220 دو
+                                                                        سیم‌ کارت ظرفیت 256 گیگابایت
+                                                                    </p>
+
+                                                                    <div class="basket-total">
+                                                                        <small> قیمت :</small>
+                                                                        <small> 12,315,000</small>
+                                                                        <small>تومان</small>
+                                                                    </div>
+
+                                                                </div>
+                                                            </a>
+                                                        </li>
+
+
+                                                </div>
+
+                                                <div class="footer">
+                                                    <div class="basket-total">
+                                                        <small> مبلغ قابل پرداخت :</small>
+                                                        <div class="basket-total">
+                                                            <small> 26,631,000</small>
+                                                            <span>تومان</span>
+                                                        </div>
+                                                    </div>
+                                                    <a href="#" class="basket-link">
+                                                        <div class="checkout">
+                                                            <div class="checkout--text">تسویه حساب</div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ul>
+
                             </div>
-                            <!-- Header Mega Menu-->
-                            <div class="droopmenu-nav">
-                                <div class="droopmenu-nav-wrap">
-                                    <div class="droopmenu-navi">
-                                        <ul class="droopmenu">
-                                            <li class="droopmenu-parent" aria-haspopup="true">
-                                                <a href="#" aria-expanded="false"><i class="fa fa-bars"></i>&nbsp;&nbsp;گروه های محصولات<em class="droopmenu-topanim"></em></a><div class="dm-arrow"></div>
-                                                <ul class="droopmenu-grid droopmenu-grid-9">
-                                                    <li class="droopmenu-tabs droopmenu-tabs-vertical">
-                                                        <div class="droopmenu-tabsection droopmenu-tab-active" id="droopmenutab10">
-                                                            <a class="droopmenu-tabheader" href="#">کالای دیجیتال</a>
-                                                            <div class="droopmenu-tabcontent">
-                                                                <div class="droopmenu-row">
-                                                                    <ul class="droopmenu-col droopmenu-col4">
-                                                                        <li><h4>صوت</h4></li>
-                                                                        <li><a href="products.html">رادیو دیجیتال</a></li>
-                                                                        <li><a href="products.html">ضبط صوت</a></li>
-                                                                        <li><a href="products.html">اسپیکر</a></li>
-                                                                        <li><a href="products.html">هدفون</a></li>
-                                                                        <li><a href="products.html">میکروفن</a></li>
-                                                                        <li><h4>گوشی موبایل</h4></li>
-                                                                        <li><a href="products.html">گوشی موبایل</a></li>
-                                                                        <li><a href="products.html">تبلت</a></li>
-                                                                        <li><a href="products.html">کیف و کاور</a></li>
-                                                                        <li><a href="products.html">جانبی موبایل</a></li>
-                                                                    </ul>
-                                                                    <ul class="droopmenu-col droopmenu-col4">
-                                                                        <li><h4>تصویر</h4></li>
-                                                                        <li><a href="products.html">ال سی دی</a></li>
-                                                                        <li><a href="products.html">تلویزیون</a></li>
-                                                                        <li><a href="products.html">گیرنده دیجیتال</a></li>
-                                                                        <li><h4>کنسول بازی</h4></li>
-                                                                        <li><a href="products.html">پلی استیشن 4</a></li>
-                                                                        <li><a href="products.html">پلی استیشن 3</a></li>
-                                                                        <li><a href="products.html">پلی استیشن 2</a></li>
-                                                                        <li><a href="products.html">ایکس باکس 360</a></li>
-                                                                        <li><a href="products.html">نینتندو</a></li>
-                                                                        <li><a href="products.html">بازی کامپیوتری</a></li>
-                                                                    </ul>
-                                                                    <ul class="droopmenu-col droopmenu-col4 d-none d-lg-inline-block">
-                                                                        <li><img src="assets/images/megamenu/megamenu-image1.png" alt=""></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                            <div data-id-parent="1" id="sub__menu-1" class="sub__menu">
+                                <div class="sub__menu__inner">
+                                    <ul class="items">
 
-                                                        <div class="droopmenu-tabsection" id="droopmenutab11">
-                                                            <a class="droopmenu-tabheader" href="#">لوازم منزل</a>
-                                                            <div class="droopmenu-tabcontent">
-                                                                <div class="droopmenu-row">
-                                                                    <ul class="droopmenu-col droopmenu-col4">
-                                                                        <li><h4>مبلمان</h4></li>
-                                                                        <li><a href="products.html">مبلمان اتاق</a></li>
-                                                                        <li><a href="products.html">مبل تکی</a></li>
-                                                                        <li><a href="products.html">مبلمان کودک</a></li>
-                                                                        <li><a href="products.html">میز ناهارخوری</a></li>
-                                                                        <li><a href="products.html">مبلمان اداری</a></li>
-                                                                        <li><a href="products.html">مبل تخت شو</a></li>
-                                                                        <li><a href="products.html">مبلمان راحتی</a></li>
-                                                                        <li><a href="products.html">گل میز</a></li>
-                                                                    </ul>
-                                                                    <ul class="droopmenu-col droopmenu-col4">
-                                                                        <li><h4>دکوراسیون</h4></li>
-                                                                        <li><a href="products.html">تابلوهای دکوری</a></li>
-                                                                        <li><a href="products.html">استیکر</a></li>
-                                                                        <li><a href="products.html">دیوارپوش</a></li>
-                                                                        <li><a href="products.html">کاغذ دیواری</a></li>
-                                                                        <li><a href="products.html">کفپوش</a></li>
-                                                                        <li><a href="products.html">موکت</a></li>
-                                                                        <li><a href="products.html">لوستر</a></li>
-                                                                        <li><a href="products.html">لوازم دکوری</a></li>
-                                                                    </ul>
-                                                                    <ul class="droopmenu-col droopmenu-col4 d-none d-lg-inline-block">
-                                                                        <li><img src="assets/images/megamenu/megamenu-image2.png" alt=""></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                        <li class="item menu-item-"><span class="mdi mdi-chevron-left"></span><a class
+                                                                                                                 href="./category.html">خودرو،
+                                            ابزار و تجهیزات صنعتی</a>
+                                        </li>
 
-                                                        <div class="droopmenu-tabsection" id="droopmenutab12">
-                                                            <a class="droopmenu-tabheader" href="#">مد  و پوشاک</a>
-                                                            <div class="droopmenu-tabcontent">
-                                                                <div class="droopmenu-row">
-                                                                    <ul class="droopmenu-col droopmenu-col4">
-                                                                        <li><h4>مردانه</h4></li>
-                                                                        <li><a href="products.html">شلوار</a></li>
-                                                                        <li><a href="products.html">پیراهن</a></li>
-                                                                        <li><a href="products.html">تیشرت</a></li>
-                                                                        <li><a href="products.html">کفش</a></li>
-                                                                        <li><a href="products.html">کلاه</a></li>
-                                                                        <li><a href="products.html">کمربند</a></li>
-                                                                        <li><a href="products.html">عینک</a></li>
-                                                                        <li><a href="products.html">ساعت</a></li>
-                                                                        <li><a href="products.html">لباس زیر</a></li>
-                                                                    </ul>
-                                                                    <ul class="droopmenu-col droopmenu-col4">
-                                                                        <li><h4>زنانه</h4></li>
-                                                                        <li><a href="products.html">روسری</a></li>
-                                                                        <li><a href="products.html">چادر</a></li>
-                                                                        <li><a href="products.html">مانتو</a></li>
-                                                                        <li><a href="products.html">شلوار</a></li>
-                                                                        <li><a href="products.html">ساپورت</a></li>
-                                                                        <li><a href="products.html">تی شرت</a></li>
-                                                                        <li><a href="products.html">عینک</a></li>
-                                                                        <li><a href="products.html">ساعت</a></li>
-                                                                        <li><a href="products.html">لباس زیر</a></li>
-                                                                    </ul>
-                                                                    <ul class="droopmenu-col droopmenu-col4 d-none d-lg-inline-block">
-                                                                        <li><img src="assets/images/megamenu/megamenu-image3.png" alt=""></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                        <li class="item item--sibling menu-item-">
+                                            <span class=""></span><a href="#" class="item--link">خودروهای ایرانی و
+                                            خارجی</a>
+                                        </li>
+                                        <li class="item item--sibling menu-item-">
+                                            <span class=""></span><a href="#" class="item--link">موتور سیکلت</a>
+                                        </li>
 
-                                                        <div class="droopmenu-tabsection" id="droopmenutab13">
-                                                            <a class="droopmenu-tabheader" href="#">فرهنگ و هنر</a>
-                                                            <div class="droopmenu-tabcontent">
-                                                                <div class="droopmenu-row">
-                                                                    <ul class="droopmenu-col droopmenu-col4">
-                                                                        <li><h4>آلات موسیقی</h4></li>
-                                                                        <li><a href="products.html">گیتار</a></li>
-                                                                        <li><a href="products.html">ویالون</a></li>
-                                                                        <li><a href="products.html">ارگ</a></li>
-                                                                        <li><a href="products.html">پیانو</a></li>
-                                                                        <li><a href="products.html">سنتور</a> </li>
-                                                                        <li><a href="products.html">ساز دهنی</a></li>
-                                                                        <li><a href="products.html">گیتار برقی</a></li>
-                                                                        <li><a href="products.html">درام</a></li>
-                                                                        <li><a href="products.html">تجهیزات استدیو</a></li>
-                                                                        <li><a href="products.html">جانبی موسیقی</a></li>
-                                                                    </ul>
-                                                                    <ul class="droopmenu-col droopmenu-col4">
-                                                                        <li><h4>صنایع دستی</h4></li>
-                                                                        <li><a href="products.html">کالاهای مسی</a></li>
-                                                                        <li><a href="products.html">معرق</a></li>
-                                                                        <li><a href="products.html">سفال</a></li>
-                                                                        <li><a href="products.html">لعلینه</a> </li>
-                                                                        <li><a href="products.html">محصولات چرمی</a></li>
-                                                                        <li><a href="products.html">تابلو و ساعت</a></li>
-                                                                        <li><a href="products.html">میناکاری</a></li>
-                                                                        <li><a href="products.html">سوزن دوزی</a></li>
-                                                                        <li><a href="products.html">فیروزه کوبی</a></li>
-                                                                        <li><a href="products.html">خاتم و منبت</a></li>
-                                                                    </ul>
-                                                                    <ul class="droopmenu-col droopmenu-col4 d-none d-lg-inline-block">
-                                                                        <li><img src="assets/images/megamenu/megamenu-image4.png" alt=""></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                        <li class="item item--sibling menu-item-">
+                                            <span class=""></span><a href="#" class="item--link">لوازم جانبی خودرو و
+                                            موتورسیکلت</a>
+                                        </li>
+                                        <li class="item item--sibling menu-item-">
+                                            <span class=""></span><a href="#" class="item--link">لنت ترمز</a>
+                                        </li>
+                                        <li class="item item--sibling menu-item-">
+                                            <span class=""></span><a href="#" class="item--link">لوازم مصرفی خودرو و
+                                            موتورسیکلت</a>
+                                        </li>
+                                        <li class="item item--sibling menu-item-">
+                                            <span class=""></span><a href="#" class="item--link">لاستیک و تایر</a>
+                                        </li>
+                                        <li class="item item--sibling menu-item-">
+                                            <span class=""></span><a href="#" class="item--link">روغن موتور و ضد یخ</a>
+                                        </li>
+                                        <li class="item item--sibling menu-item-">
+                                            <span class=""></span><a href="#" class="item--link">مکمل سوخت و روغن و
+                                            انواع فیلتر</a>
+                                        </li>
+                                        <li class="item item--footer menu-item-">
+                                            <span class="mdi mdi-plus"></span><a href="#" class="item--link">همه
+                                            دسته‌بندی‌های </a></li>
+                                    </ul>
+                                    <div class="ads-placement-grids">
+                                        <div class="ads-placement-grids__inner">
 
-                                                        <div class="droopmenu-tabsection" id="droopmenutab14">
-                                                            <a class="droopmenu-tabheader" href="#">سلامت و زیبایی</a>
-                                                            <div class="droopmenu-tabcontent">
-                                                                <div class="droopmenu-row">
-                                                                    <ul class="droopmenu-col droopmenu-col4">
-                                                                        <li><h4>محصولات</h4></li>
-                                                                        <li><a href="products.html">لوازم آرایشی</a></li>
-                                                                        <li><a href="products.html">شامپو</a></li>
-                                                                        <li><a href="products.html">نرم کننده</a></li>
-                                                                        <li><a href="products.html">برس و شانه</a></li>
-                                                                        <li><a href="products.html">انواع ماسک</a></li>
-                                                                        <li><a href="products.html">تقویت کننده مو</a></li>
-                                                                        <li><a href="products.html">رنگ مو</a></li>
-                                                                        <li><a href="products.html">دستمال کاغذی</a></li>
-                                                                        <li><a href="products.html">سایر محصولات</a></li>
-                                                                    </ul>
-                                                                    <ul class="droopmenu-col droopmenu-col4">
-                                                                        <li><h4>برند ها</h4></li>
-                                                                        <li><a href="products.html">صحت</a></li>
-                                                                        <li><a href="products.html">پرژک</a></li>
-                                                                        <li><a href="products.html">داروگر</a></li>
-                                                                        <li><a href="products.html">طبیعت</a></li>
-                                                                        <li><a href="products.html">گلرنگ</a></li>
-                                                                        <li><a href="products.html">گلنار</a></li>
-                                                                        <li><a href="products.html">کلیر</a></li>
-                                                                        <li><a href="products.html">شبنم</a></li>
-                                                                        <li><a href="products.html">آیسان</a></li>
-                                                                    </ul>
-                                                                    <ul class="droopmenu-col droopmenu-col4 d-none d-lg-inline-block">
-                                                                        <li><img src="assets/images/megamenu/megamenu-image5.png" alt=""></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="droopmenu-tabsection" id="droopmenutab15">
-                                                            <a class="droopmenu-tabheader" href="#">جواهرات</a>
-                                                            <div class="droopmenu-tabcontent">
-                                                                <div class="droopmenu-row">
-                                                                    <ul class="droopmenu-col droopmenu-col4">
-                                                                        <li><h4>زنانه</h4></li>
-                                                                        <li><a href="products.html">حلقه ازدواج</a></li>
-                                                                        <li><a href="products.html">ساعت</a></li>
-                                                                        <li><a href="products.html">گردنبند</a></li>
-                                                                        <li><a href="products.html">ساعت</a></li>
-                                                                        <li><a href="products.html">النگو</a></li>
-                                                                        <li><a href="products.html">انگشتر</a></li>
-                                                                        <li><a href="products.html">دستبند</a></li>
-                                                                        <li><a href="products.html">سایر</a></li>
-                                                                    </ul>
-                                                                    <ul class="droopmenu-col droopmenu-col4">
-                                                                        <li><h4>مرانه</h4></li>
-                                                                        <li><a href="products.html">ساعت</a></li>
-                                                                        <li><a href="products.html">دستبند</a></li>
-                                                                        <li><a href="products.html">گردنبند</a></li>
-                                                                        <li><a href="products.html">انگشتر</a></li>
-                                                                        <li><a href="products.html">عینک</a></li>
-                                                                        <li><a href="products.html">سایر</a></li>
-                                                                    </ul>
-                                                                    <ul class="droopmenu-col droopmenu-col4 d-none d-lg-inline-block">
-                                                                        <li><img src="assets/images/megamenu/megamenu-image6.png" alt=""></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="about.html">درباره ما<em class="droopmenu-topanim"></em></a></li>
-                                            <li class="droopmenu-parent" aria-haspopup="true">
-                                                <a href="products.html" aria-expanded="false">صفحات فروشگاه<em class="droopmenu-topanim"></em></a><div class="dm-arrow"></div>
-                                                <ul style="">
-                                                    <li><a href="products.html">محصولات <sup>(کاشی کاری)</sup></a></li>
-                                                    <li><a href="products-list.html">محصولات <sup>(لیست)</sup></a></li>
-                                                    <li><a href="products.html">جزئیات محصول</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="droopmenu-parent" aria-haspopup="true">
-                                                <a href="contact.html" aria-expanded="false">تماس با فروشگاه<em class="droopmenu-topanim"></em></a><div class="dm-arrow"></div>
-                                                <ul style="">
-                                                    <li><a href="faq.html">سوالات متداول</a></li>
-                                                    <li><a href="contact.html">تماس با ما</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="droopmenu-parent" aria-haspopup="true">
-                                                <a href="blog.html" aria-expanded="false">بلاگ آموزشی<em class="droopmenu-topanim"></em></a><div class="dm-arrow"></div>
-                                                <ul style="">
-                                                    <li><a href="blog.html">آرشیو مطالب</a></li>
-                                                    <li><a href="blog-post.html">داخلی بلاگ</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="droopmenu-parent" aria-haspopup="true">
-                                                <a href="#" aria-expanded="false">سایر صفحات<em class="droopmenu-topanim"></em></a><div class="dm-arrow"></div>
-                                                <ul style="">
-                                                    <li><a href="compare.html">مقایسه محصول</a></li>
-                                                    <li><a href="cart.html">سبد خرید</a></li>
-                                                    <li><a href="checkout.html">پیش فاکتور</a></li>
-                                                    <li class="dm-bottom-separator"></li>
-                                                    <li><a href="login.html">ورود به سایت</a></li>
-                                                    <li><a href="register.html">عضویت در سایت</a></li>
-                                                    <li><a href="reset-password.html">بازگردانی رمز عبور</a></li>
-                                                    <li class="dm-bottom-separator"></li>
-                                                    <li><a href="error-404.html">خطای 404</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="droopmenu-parent" aria-haspopup="true">
-                                                <a href="profile/personal-info.html" aria-expanded="false">پروفایل کاربری<em class="droopmenu-topanim"></em></a><div class="dm-arrow"></div>
-                                                <ul style="">
-                                                    <li><a href="profile/personal-info.html">مشخصات کاربری</a></li>
-                                                    <li><a href="profile/factors.html">سفارشات</a></li>
-                                                    <li><a href="profile/addresses.html">آدرس ها</a></li>
-                                                    <li><a href="profile/favorites.html">علاقه مندی ها</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- /Header Menu Menu -->
+                            <div data-id-parent="2" id="sub__menu-2" class="sub__menu">
+                                <div class="sub__menu__inner">
+                                    <ul class="items">
+
+                                        <li class="item menu-item-"><span class="mdi mdi-chevron-left"></span><a class
+                                                                                                                 href="#">لوازم
+                                            آرایشی</a>
+                                        </li>
+
+                                        <li class="item item--sibling menu-item-">
+                                            <span class=""></span><a href="#" class="item--link">آرایش چشم و ابرو</a>
+                                        </li>
+                                        <li class="item item--sibling menu-item-">
+                                            <span class=""></span><a href="#" class="item--link">آرایش لب</a>
+                                        </li>
+                                        <li class="item item--sibling menu-item-">
+                                            <span class=""></span><a href="#" class="item--link">آرایش صورت</a>
+                                        </li>
+                                        <li class="item item--sibling menu-item-">
+                                            <span class=""></span><a href="#" class="item--link">مواد آرایش مو</a>
+                                        </li>
+
+                                        <li class="item item--footer menu-item-">
+                                            <span class="mdi mdi-plus"></span><a href="#" class="item--link">همه
+                                            دسته‌بندی‌های </a></li>
+                                    </ul>
+                                    <div class="ads-placement-grids">
+                                        <div class="ads-placement-grids__inner">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <button class="btn-menu md-none">
+                            <div class="align align__justify">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </button>
+                        <div class="side-menu">
+                            <div class="logo-nav-res dt-sl text-center">
+                                <a href="./index.html">
+                                    <img src="{% static './asset/images/5e7b59c933af5.png' %}" alt="">
+                                </a>
+                            </div>
+                            <div class="search-box-side-menu dt-sl text-center mt-2 mb-3">
+                                <form action="">
+                                    <input type="text" name="s" placeholder="جستجو کنید...">
+                                    <i class="mdi mdi-magnify"></i>
+                                </form>
+                            </div>
+                            <ul class="navbar-nav dt-sl">
+                                <li class="sub-menu">
+                                    <a>کالای دیجیتال</a>
+                                    <ul>
+                                        <li class="sub-menu">
+                                            <a href="#">عنوان دسته</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">زیر منو یک</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو دو</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو سه</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو چهار</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="sub-menu">
+                                            <a href="#">عنوان دسته</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">زیر منو یک</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو دو</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو سه</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">عنوان دسته</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">عنوان دسته</a>
+                                        </li>
+                                        <li class="sub-menu">
+                                            <a href="#">عنوان دسته</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">زیر منو یک</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو دو</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو سه</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو چهار</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sub-menu">
+                                    <a href="#">بهداشت و سلامت</a>
+                                    <ul>
+                                        <li class="sub-menu">
+                                            <a href="#">عنوان دسته</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">زیر منو یک</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو دو</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو سه</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو چهار</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="sub-menu">
+                                            <a href="#">عنوان دسته</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">زیر منو یک</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو دو</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو سه</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">عنوان دسته</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">عنوان دسته</a>
+                                        </li>
+                                        <li class="sub-menu">
+                                            <a href="#">عنوان دسته</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">زیر منو یک</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو دو</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو سه</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو چهار</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sub-menu">
+                                    <a href="#">ابزار و اداری</a>
+                                    <ul>
+                                        <li class="sub-menu">
+                                            <a href="#">عنوان دسته</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">زیر منو یک</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو دو</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو سه</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو چهار</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="sub-menu">
+                                            <a href="#">عنوان دسته</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">زیر منو یک</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو دو</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو سه</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">عنوان دسته</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">عنوان دسته</a>
+                                        </li>
+                                        <li class="sub-menu">
+                                            <a href="#">عنوان دسته</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">زیر منو یک</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو دو</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو سه</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو چهار</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">مد و پوشاک</a>
+                                </li>
+                                <li>
+                                    <a href="#">خانه و آشپزخانه</a>
+                                </li>
+                                <li>
+                                    <a href="#">ورزش و سفر</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="overlay-side-menu">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Main NavBar -->
-</section>
-<!-- /Header -->
-
-<section class="inner-page" id="contact-page">
-    <div class="container-fluid" id="page-hero">
-        <div class="row">
-            <div class="col-12">
-                <div class="container">
+    <div id="reg-log__dialog" class="reg-log__dialog">
+        <div class="reg-log__dialog__inner">
+            <div class="dialog__overlay"></div>
+            <div class="dialog__content">
+                <div class="header">
+                    <div class="close-dialog"><span class="mdi mdi-close" data-dialog-close></span></div>
+                    <div class="logOrRegStatus"><span id="logOrRegStatus--text"></span></div>
+                </div>
+                <div class="container-fluid">
                     <div class="row">
-                        <div class="col-12 px-0">
-                            <h1>درباره ما</h1>
-                            <p>با ما بیشتر آشنا شوید.</p>
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">صفحه نخست</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">درباره ما</li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="content">
-                    <div class="row">
-                        <div class="col-12 col-lg-7">
-                            <div class="title">معرفی فروشگاه</div>
-                            <p>این یک متن آزمایشی است که به زودی توسط نویسنده این سایت، تکمیل یا حذف خواهد شد. اگر شما نویسنده‌ی این سایت هستید، برای حذف یا ویرایش این صفحه، کافی است از طریق مرکز مدیریت سایت خود وارد بخش مربوطه شده و محتوای این صفحه را ویرایش یا حذف کنید.</p>
-                            <p>صفحات و محتوای آزمایشی همیشه بخشی از محتوای پیش‌نمایش قالب و افزونه های وب هستند که شما بتوانید ارتباط درستی با پیش نمایش قالب گرفته و تصمیم مناسبی بگیرید. این صفحات معمولا برای اطلاعات کلی در مورد سایت مثل «درباره ما»، «تماس با ما»، «فهرست» یا «نظرات شما» مفید هستند.</p>
-                            <p>بنابراین نگران ویرایش و بروزرسانی محتوای این نوع صفحات نباشید. شما می‌توانید به سادگی و تنها با چند کلیک وارد ناحیه مدیریت وب‌سایت خود شده و مطلب مربوطه را ویرایش کنید.<br>
-                            این یک متن آزمایشی است که به زودی توسط نویسنده این سایت، تکمیل یا حذف خواهد شد. اگر شما نویسنده‌ی این سایت هستید، برای حذف یا ویرایش این صفحه، کافی است از طریق مرکز مدیریت سایت خود وارد بخش مربوطه شده و محتوای این صفحه را ویرایش یا حذف کنید.</p>
-                        </div>
-                        <div class="col-12 col-lg-5 align-self-center h-100">
-                            <img src="assets/images/about-us.jpg" alt="">
-                        </div>
-                    </div>
-                    <!-- Team -->
-                    <div class="row pt-5">
-                        <div class="col-12 text-center pt-4 pb-3">
-                            <h2 class="center-title">تیم ما</h2>
-                            <span class="sub-title">با تیم ما بیشتر آشنا شوید.</span>
-                        </div>
-                        <div class="col-12 col-sm-6 col-lg-3">
-                            <!-- Person Box -->
-                            <figure class="team-person">
-                                <div class="profile-image"><img src="assets/images/team/team-person1.jpg" alt="sample47" /></div>
-                                <figcaption>
-                                    <h3>مجید کیانی</h3>
-                                    <h4>مدیر عامل</h4>
-                                    <p>به عنوان مدیر عامل در تیم فعالیت دارد.</p>
-                                    <div class="icons"><a href="#"><i class="ion-social-reddit"></i></a>
-                                        <a href="#"> <i class="ion-social-twitter"></i></a>
-                                        <a href="#"> <i class="ion-social-vimeo"></i></a>
+                        <div class="login__form col-md-8">
+                            <form action="">
+                                <div class="login__form__inner">
+                                    <h4 class="title">ورود به حساب کاربری</h4>
+                                    <span class="show-status"></span>
+                                    <div class="username">
+                                        <span class="mdi mdi-phone"></span>
+                                        <input id="log-username" placeholder="شماره موبایل" type="text"
+                                               class="username--inp">
                                     </div>
-                                </figcaption>
-                            </figure>
-                            <!-- /Person Box -->
-                        </div>
-                        <div class="col-12 col-sm-6 col-lg-3">
-                            <!-- Person Box -->
-                            <figure class="team-person">
-                                <div class="profile-image"><img src="assets/images/team/team-person2.jpg" alt="sample47" /></div>
-                                <figcaption>
-                                    <h3>پوریا طلایی</h3>
-                                    <h4>برنامه نویس</h4>
-                                    <p>به عنوان برنامه نویس در تیم فعالیت دارد.</p>
-                                    <div class="icons"><a href="#"><i class="ion-social-reddit"></i></a>
-                                        <a href="#"> <i class="ion-social-twitter"></i></a>
-                                        <a href="#"> <i class="ion-social-vimeo"></i></a>
+                                    <div class="password">
+                                        <span class="mdi mdi-lock"></span>
+                                        <input id="log-password" placeholder="رمز عبور" type="password"
+                                               class="password--inp">
                                     </div>
-                                </figcaption>
-                            </figure>
-                            <!-- /Person Box -->
-                        </div>
-                        <div class="col-12 col-sm-6 col-lg-3">
-                            <!-- Person Box -->
-                            <figure class="team-person">
-                                <div class="profile-image"><img src="assets/images/team/team-person3.jpg" alt="sample47" /></div>
-                                <figcaption>
-                                    <h3>امیر جاوید</h3>
-                                    <h4>تولید کننده محتوا</h4>
-                                    <p>به عنوان تولید کننده محتوا در تیم فعالیت دارد.</p>
-                                    <div class="icons"><a href="#"><i class="ion-social-reddit"></i></a>
-                                        <a href="#"> <i class="ion-social-twitter"></i></a>
-                                        <a href="#"> <i class="ion-social-vimeo"></i></a>
+                                    <div class="remember-me">
+                                        <label class="brand-item__inner" for="remember-me">
+                                                            <span class="md-checkbox">
+                                                                <input class="remember-me--inp" id="remember-me"
+                                                                       type="checkbox">
+                                                                <label for="remember-me">مرا به خاطر بسپار</label>
+                                            </span>
+                                        </label>
                                     </div>
-                                </figcaption>
-                            </figure>
-                            <!-- /Person Box -->
-                        </div>
-                        <div class="col-12 col-sm-6 col-lg-3">
-                            <!-- Person Box -->
-                            <figure class="team-person">
-                                <div class="profile-image"><img src="assets/images/team/team-person4.jpg" alt="sample47" /></div>
-                                <figcaption>
-                                    <h3>وحید کمالی</h3>
-                                    <h4>دیجیتال مارکتر</h4>
-                                    <p>به عنوان دیجیتال مارکتر در تیم فعالیت دارد.</p>
-                                    <div class="icons"><a href="#"><i class="ion-social-reddit"></i></a>
-                                        <a href="#"> <i class="ion-social-twitter"></i></a>
-                                        <a href="#"> <i class="ion-social-vimeo"></i></a>
+                                    <span id=forget--password class="forget--password">فراموشی رمزعبور</span>
+                                    <div class="submit-login">
+                                        <button class="submit-login--btn"><span class="text">ورود به حساب کاربری</span>
+                                            <span class="mdi mdi-loading hidden"></span>
+                                        </button>
                                     </div>
-                                </figcaption>
-                            </figure>
-                            <!-- /Person Box -->
+                                </div>
+                            </form>
                         </div>
-                    </div>
-                    <!-- Team -->
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<section class="pt-4 pb-3" id="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-6 col-sm-4 col-lg-2">
-                <div class="title">دسترسی سریع</div>
-                <ul>
-                    <li><a href="blog.html">بلاگ آموزشی</a></li>
-                    <li><a href="faq.html">راهنمای خرید</a></li>
-                    <li><a href="faq.html">شیوه های پرداخت</a></li>
-                    <li><a href="contact.html">پیگیری سفارش</a></li>
-                    <li><a href="faq.html">سوالات متداول</a></li>
-                    <li><a href="about.html">درباره ما</a></li>
-                    <li><a href="contact.html">تماس با ما</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-sm-4 col-lg-2">
-                <div class="title">گروه های محصولات</div>
-                <ul>
-                    <li><a href="products.html">تجهیزات کامپیوتر</a></li>
-                    <li><a href="products.html">گوشی موبایل</a></li>
-                    <li><a href="products.html">جانبی موبایل</a></li>
-                    <li><a href="products.html">ساعت هوشمند</a></li>
-                    <li><a href="products.html">جانبی کامپیوتر</a></li>
-                    <li><a href="products.html">دوربین</a></li>
-                    <li><a href="products.html">لپ تاپ</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-sm-4 col-lg-2 d-none d-sm-inline-block">
-                <div class="title">ناحیه کاربری</div>
-                <ul>
-                    <li><a href="login.html">ورود به سایت</a></li>
-                    <li><a href="register.html">عضویت در سایت</a></li>
-                    <li><a href="reset-password.html">بازیابی رمز عبور</a></li>
-                    <li><a href="cart.html">سبد خرید</a></li>
-                    <li><a href="checkout.html">پیش فاکتور</a></li>
-                </ul>
-            </div>
-            <div class="col-12 col-md-12 col-lg-6">
-                <hr class="d-lg-none">
-                <img src="assets/images/logo.png" alt=""> روبیک مارکت
-                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
-                <div class="row">
-                    <div class="col-12 col-md-6 text-center p-2" id="encode43vfbb65gtabfb">
-                        <div>7 روز هفته، 24 ساعت شبانه روز</div>
-                        <div>پاسخگوی شما هستیم</div>
-                        <div>09351234567</div>
-                    </div>
-                    <div class="col-12 col-md-6 pt-2 pt-md-0" id="encode43vfbbbfb">
-                        <div class="row">
-                            <div class="col-4 text-center">
-                                <a href="#"><img src="assets/images/encode43vfbbbfb/enamad.html" alt=""></a>
-                            </div>
-                            <div class="col-4 text-center">
-                                <a href="#"><img src="assets/images/encode43vfbbbfb/samandehi.html" alt=""></a>
-                            </div>
-                            <div class="col-4 text-center">
-                                <a href="#"><img src="assets/images/encode43vfbbbfb/etehadiye.html" alt=""></a>
+                        <div class="reg__ref col-md-4">
+                            <div class="reg__ref__inner">
+                                <div class="reg--image"><img src="{% static './asset/images/account.png' %}" alt=""></div>
+                                <div class="reg--text">برای خریدکردن و آگاهی از اطلاعات کاربری خود در پروکالا ثبت نام
+                                    کنید.
+                                </div>
+                                <div class="reg-btn"><a id="reg-btn__inner" href="#">ثبت نام</a></div>
                             </div>
                         </div>
                     </div>
@@ -544,40 +543,215 @@
             </div>
         </div>
     </div>
-</section>
-<!-- /Footer -->
+</header>
 
-<!-- Copyright -->
-<section class="py-2" id="copyright">
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<br><br><br><br><br>
+<section class="about pt-100 pb-100" data-scroll-index="1">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-sm-6" id="social-links">
-                <span>ما را دنبال کنید</span>
-                <a href="#"><img src="assets/images/social/insta.png" alt=""></a>
-                <a href="#"><img src="assets/images/social/facebook.png" alt=""></a>
-                <a href="#"><img src="assets/images/social/linkedin.png" alt=""></a>
-                <a href="#"><img src="assets/images/social/twitter.png" alt=""></a>
-                <a href="#"><img src="assets/images/social/youtube.png" alt=""></a>
+            <div class="col-lg-5 col-md-6">
+                <!--About Image-->
+                <div class="about-img">
+                    <img src="{% static 'asset/images/about-img.jpg' %}" alt="">
+                </div>
             </div>
-            <div class="col-12 col-sm-6 text-sm-end pt-2 pt-sm-0">
-                <span>کلیه حقوق و مادی معنوی محفوط است.</span>
+            <div class="col-lg-7 col-md-6">
+                <!--About Content-->
+                <div class="about-content">
+                    <div class="about-heading">
+                        <h2>درباره من</h2>
+                        <span>مرجع قالب و اسکریپت های فارسی</span>
+                    </div>
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد </p>
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد </p>
+                    <!--About Social Icons-->
+                    <div class="social-icons">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-dribbble"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                    </div>
+                    <span class="about-button">
+                        <a class="main-btn" href="#">دانلود رزومه</a>
+                    </span>
+                </div>
             </div>
         </div>
     </div>
 </section>
-<!-- Copyright -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
-<!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-<script src="assets/plugins/fontawesome/js/all.min.js"></script>
-<script src="assets/plugins/aos-master/dist/aos.js"></script>
-<script src="assets/js/droopmenu.js"></script>
-<script src="assets/js/nouislider.min.js"></script>
-<script src="assets/js/pagination.js"></script>
-<script src="assets/js/scripts.js"></script>
-<!-- /Scripts -->
+
+<footer class="footer">
+    <div class="container mg-rl-auto">
+        <div class="footer__inner">
+            <div id="bottomToTopNavigation">
+                <span class="icon mdi mdi-chevron-up"></span>
+            </div>
+            <div class="shoppro-work-icon">
+                <div class="shoppro-work-icon__inner">
+                            <span class="row items">
+                    <span class="item col-lg-2 col-6">
+                     <span class="item__inner">
+                           <span class="item-picture"><img src="{% static './asset/images/original.svg" alt=""></span>
+                            <span class="item-title">ضمانت اصل بودن کالا</span>
+                            </span>
+                            </span>
+                            <span class="item col-lg-2 col-6">
+                        <span class="item__inner">
+                           <span class="item-picture"><img src="{% static './asset/images/7day_moneyback.svg" alt=""></span>
+                            <span class="item-title">۷ روز ضمانت بازگشت</span>
+                            </span>
+                            </span>
+                            <span class="item col-lg-2 col-6">
+                        <span class="item__inner">
+                           <span class="item-picture"><img src="{% static './asset/images/location-payment.svg" alt=""></span>
+                            <span class="item-title">پرداخت در محل</span>
+                            </span>
+                            </span>
+                            <span class="item col-lg-2 col-6">
+                        <span class="item__inner">
+                           <span class="item-picture"><img src="{% static './asset/images/7day_moneyback.svg" alt=""></span>
+                            <span class="item-title">پشتیبانی ۲۴ ساعته</span>
+                            </span>
+                            </span>
+                            <span class="item col-lg-2 col-12">
+                        <span class="item__inner">
+                           <span class="item-picture"><img src="{% static './asset/images/express.svg" alt=""></span>
+                            <span class="item-title">تحویل اکسپرس</span>
+                            </span>
+                            </span>
+                            </span>
+                </div>
+            </div>
+
+            <div class="main-area">
+                <div class="row main-area__inner">
+                    <div class="more-links col-12 col-md-6 col-lg-3">
+                        <div class="more-links__inner">
+                            <span class="head-title">راهنمای خرید از فروشگاه</span>
+                            <span class="items">
+                                <a href="#" class="item"><span class="item--text">نحوه ثبت سفارش</span></a>
+                                    <a href="#" class="item"><span class="item--text">شیوه‌های پرداخت</span></a>
+                                    <a href="#" class="item"><span class="item--text">رویه ارسال سفارش</span></a>
+                                    </span>
+                        </div>
+                    </div>
+                    <div class="more-links col-12 col-md-6 col-lg-3">
+                        <div class="more-links__inner">
+                            <span class="head-title">خدمات مشتریان</span>
+                            <span class="items">
+                                <a href="#" class="item"><span class="item--text">پاسخ به پرسش‌های متداول</span></a>
+                                    <a href="#" class="item"><span
+                                            class="item--text">رویه‌های بازگرداندن کالا</span></a>
+                                    <a href="#" class="item"><span class="item--text">شرایط استفاده</span></a>
+                                    </span>
+                        </div>
+                    </div>
+                    <div class="more-links col-12 col-md-6 col-lg-3">
+                        <div class="more-links__inner">
+                            <span class="head-title">خدمات مشتریان</span>
+                            <span class="items">
+                                <a href="#" class="item"><span class="item--text">پاسخ به پرسش‌های متداول</span></a>
+                                    <a href="#" class="item"><span
+                                            class="item--text">رویه‌های بازگرداندن کالا</span></a>
+                                    <a href="#" class="item"><span class="item--text">شرایط استفاده</span></a>
+                                    </span>
+                        </div>
+                    </div>
+                    <div class="socials col-12 col-md-6 col-lg-3">
+                        <div class="socials__inner">
+                            <span class="head-title">پرو کالا در شبکه‌های اجتماعی</span>
+                            <span class="items">
+                                <a href="#" class="item telegram"><span class="item--icon mdi mdi-send"></span><span
+                                        class="item--text">پرو کالا در تلگرام</span></a>
+                                    <a href="#" class="item instagram"><span
+                                            class="item--icon mdi mdi-instagram"></span><span class="item--text">پرو کالا در اینستاگرام</span></a>
+                                    </span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row main-area__inner">
+                    <div class="more-links col-12 col-md-6 col-lg-7">
+                        <div class="more-links__inner">
+                            <h1 class="site-title">خدمات مشتریان</h1>
+                            <span class="items">
+                                <a href="#" class="item">
+                                    <span class="item--text-description">
+                                        <p>
+                                پرو  کالا به عنوان یکی از قدیمی‌ترین فروشگاه های اینترنتی با بیش از یک دهه تجربه، با
+                                پایبندی به سه اصل کلیدی، پرداخت در
+                                محل، 7 روز ضمانت بازگشت کالا و تضمین اصل‌بودن کالا، موفق شده تا همگام با فروشگاه‌های
+                                معتبر جهان، به بزرگ‌ترین فروشگاه
+                                اینترنتی ایران تبدیل شود. به محض ورود به پرو  کالا با یک سایت پر از کالا رو به رو
+                                می‌شوید! هر آنچه که نیاز دارید و به
+                                ذهن شما خطور می‌کند در اینجا پیدا خواهید کرد.
+</p>
+                                    </span>
+                                    </a>
+                                    </span>
+                        </div>
+                    </div>
+                    <div class="certification col-12 col-md-6 col-lg-5">
+                        <div class="certification__inner">
+                            <span class="head-title">مجوزها و نمادهای رسمی</span>
+                            <span class="items">
+                                <a href="#" class="item"><img src="{% static './asset/images/business.png' %}" alt=""></a>
+                                <a href="#" class="item"><img src="{% static './asset/images/samandehi.png' %}" alt=""></a>
+                                <a href="#" class="item"><img src="{% static './asset/images/download.jpg' %}" alt=""></a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row copy-area__inner">
+                    <div class="more-links col-12 col-md-12 col-lg-12">
+                        <div class="more-links__inner">
+                            <span class="items">
+                                <a href="#" class="item">
+                                    <span class="item--text-description">
+                                        <p>کلیه حقوق برای این سایت و قالب محفوظ است</p>
+                                    </span>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<div class="snackbar">
+    <div class="snackbar__inner">
+        <span class="title"></span>
+        <span class="figure-out">باشه!</span>
+    </div>
+</div>
+<div class="loading-svg hidden">
+    <div class="loading-svg__inner">
+        <svg version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+             y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+<path fill="#fff" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+  c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z" transform="rotate(116.899 50 50)">
+    <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="2s" from="0 50 50" to="360 50 50"
+                      repeatCount="indefinite"></animateTransform>
+</path>
+            <path fill="#fff" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+  c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z" transform="rotate(-233.798 50 50)">
+                <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50"
+                                  to="-360 50 50" repeatCount="indefinite"></animateTransform>
+            </path>
+            <path fill="#fff" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+  L82,35.7z" transform="rotate(116.899 50 50)">
+                <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="2s" from="0 50 50"
+                                  to="360 50 50" repeatCount="indefinite"></animateTransform>
+            </path>
+</svg>
+    </div>
+</div>
 </body>
+<script src="{% static 'asset/js/app.js' %}"></script>
 
-<!-- Mirrored from rubik-market-html.wbrk.ir/about.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 12 Aug 2023 06:32:42 GMT -->
 </html>

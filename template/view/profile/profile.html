@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="menu__overlay--bg"></div>
+    <div class="overlay--bg"></div>
+
+    <div class="main">
+        <div class="container-fluid">
+            <div class="main__inner">
+                <div class="profile-page">
+                    <div class="profile-page__inner">
+                        <div class="breadcrumbs">
+                            <div class="breadcrumbs__inner">
+                                <div class="items">
+                                    <div class="item"><a href="/">خانه</a></div>
+                                    <div class="item"><a href="#">پروفایل کاربری</a></div>
+                                    <div class="item"><a href="#">آدرس‌ها</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wrapper c-row no-wrapper">
+                            {% include './layout.html' %}
+                        <div class="side-left col-lg-9 ">
+                            <div class="side-left__inner ">
+                                <div class="addresses ">
+                                    <div class="addresses__inner c-row ">
+                                        <div class="card-item-add col-lg-6 ">
+                                            <a href="{% url 'home:profile_add_adress' %}">
+                                            <div class="card-item-add__inner ">
+                                                <div class="icon ">
+                                                    <span class="mdi mdi-map-marker-plus "></span>
+                                                </div>
+                                                <div class="title ">
+                                                    <span class="title--text ">افزودن آدرس</span>
+                                                </div>
+                                            </div></a>
+                                        </div>
+                                        {% for adress in iterable %}
+                                            <div class="card-item-address col-lg-6 ">
+                                            <div class="card-item-address__inner ">
+                                                <div class="icon ">
+                                                    <span class="mdi mdi-map-marker "></span>
+                                                </div>
+                                                <div class="getter-name ">
+                                                    <div class="getter--text ">علی ابراهیمی</div>
+                                                </div>
+                                                <div class="getter-location ">
+                                                    <span class="getter-location--text ">استان هزمرگان، شهر بندر لنگه، خیابان شهید اصغری، کوچه بهار۳</span>
+                                                </div>
+                                                <div class="separate-line "></div>
+                                                <div class="c-row ">
+                                                    <div class="getter-mobile col-lg-6 ">
+                                                        <div class="getter-mobile__inner ">
+                                                            <span class="mdi mdi-phone "></span>
+                                                            <span class="key ">موبایل:</span>
+                                                            <span class="value ">09100152871</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="getter-post-code col-lg-6 ">
+                                                        <div class="getter-post-code__inner ">
+                                                            <span class="mdi mdi-mailbox "></span>
+                                                            <span class="key ">کد پستی:</span>
+                                                            <span class="value ">665686654</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="actions ">
+                                                        <div class="edit ">
+                                                            <span class="edit--text ">ویرایش</span>
+                                                        </div>
+                                                        <div class="remove ">
+                                                            <div class="remove--text ">حذف</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

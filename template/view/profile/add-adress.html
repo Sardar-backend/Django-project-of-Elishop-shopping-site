@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <div class="menu__overlay--bg"></div>
+    <div class="overlay--bg"></div>
+
+    <div class="main">
+        <div class="container-fluid">
+            <div class="main__inner">
+                <div class="profile-page">
+                    <div class="profile-page__inner">
+                        <div class="breadcrumbs">
+                            <div class="breadcrumbs__inner">
+                                <div class="items">
+                                    <div class="item"><a href="#">خانه</a></div>
+                                    <div class="item"><a href="#">پروفایل کاربری</a></div>
+                                    <div class="item"><a href="#"> افزودن آدرس‌</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wrapper c-row no-wrapper">
+                            {% include './layout.html' %}
+
+                            <div class="side-left col-lg-9">
+                                <div class="side-left__inner">
+                                    <div class="add-address-form">
+                                        <div class="add-address-form__inner">
+                                            {% for message in messages %}
+                                            <div class="container-fluid p-0">
+                                              <div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+                                                {{ message }}
+                                              </div>
+                                            </div>
+                                            {% endfor %}
+                                            <form class="c-row" method="post" action="{% url 'home:profile_add_adress' %}">{% csrf_token %}
+                                                <input type="hidden" name="user" value="{{request.user.id}}">
+                                                <div class="form-title">
+                                                    <span class="icon mdi mdi-map-marker-plus"></span>
+                                                    <span class="text">افزودن آدرس جدید</span>
+                                                </div>
+                                                <label for="getter-name--inp" class="getter-name col-lg-6">
+                                                <span class="getter-name--text text">نام گیرنده</span>
+                                                <input id="getter-name--inp"
+                                                       placeholder="نام تحویل گیرنده را وارد نمایید"
+                                                       name="recipient_name" type="text" class="getter-name--inp">
+                                            </label>
+                                                <label for="getter-mobile--inp" class="getter-mobile col-lg-6">
+                                                <span class="getter-mobile--text text">موبایل گیرنده</span>
+                                                <input id="getter-mobile--inp"
+                                                       placeholder="شماره موبایل گیرنده را وارد نمایید"
+                                                       name="mobile_recver" type="text" class="getter-mobile--inp">
+                                            </label>
+                                                <label class="getter-state col-lg-4">
+                                                <span class="getter-state--text text">انتخاب استان</span>
+                                                <select class="input-select" name="ostan">
+                                                    <option value="esfahan">اصفهان</option>
+                                                    <option value="alborz">البرز</option>
+                                                    <option value="ardabil">اردبیل</option>
+                                                    <option value="tehran">تهران</option>
+                                                    <option value="sari">ساری</option>
+                                                </select>
+                                            </label>
+                                                <label class="getter-city col-lg-4">
+                                                <span class="getter-city--text text">انتخاب شهر</span>
+                                                <select class="input-select" name="city">
+                                                    <option value="shahin-shahr">شاهین‌شهر</option>
+                                                    <option value="bandarabbas">بندرعباس</option>
+                                                    <option value="shahriar">شهریار</option>
+                                                    <option value="shahreray">شهرری</option>
+                                                    <option value="mazandaran">مازندران</option>
+                                                    <option value="sannadaj">سنندح</option>
+                                                    <option value="baneh">بانه</option>
+                                                </select>
+                                            </label>
+                                                <label for="getter-postal-code--inp" class="getter-postal-code col-lg-4">
+                                                <span class="getter-postal-code--text text">کد پستی</span>
+                                                <input id="getter-postal-code--inp"
+                                                       placeholder="کد پستی گیرنده را وارد نمایید"
+                                                       name="Postal_code" type="text"
+                                                       class="getter-postal-code--inp">
+                                            </label>
+                                                <label for="getter-address--inp" class="getter-postal-address col-lg-8">
+                                                <span class="getter-postal-address--text text">آدرس پستی</span>
+                                                <textarea name="content" class="getter-address--inp"
+                                                          placeholder="آدرس کامل تحویل گیرنده را وارد نمایید"
+                                                          rows="5"></textarea>
+                                            </label>
+                                                <div class="submit-add-address">
+                                                    <input type="submit" value="ثبت آدرس">
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

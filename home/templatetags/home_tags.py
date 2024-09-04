@@ -9,12 +9,12 @@ def lates_pro():
 @register.inclusion_tag('tagstemp/p.html')
 def lates_v():
     Product = product.objects.filter(status=True)
-    Product = Product.filter(category__name="سبزیجات").order_by('updated_date')[:4]
+    Product = Product.filter(category__name="موبایل گوشی").order_by('updated_date')[:10]
     return {'products':Product}
 @register.inclusion_tag('tagstemp/p.html')
 def lates_s():
     Product = product.objects.filter(status=True)
-    Product = Product.filter(category__name="صیفی جات").order_by('updated_date')[:4]
+    Product = Product.filter(category__name="تجهیزات جانبی گوشی").order_by('updated_date')[:7]
     return {'products':Product}
 @register.inclusion_tag('tagstemp/p.html')
 def lates_l():
@@ -29,5 +29,12 @@ def lates_po():
 @register.inclusion_tag('tagstemp/p.html')
 def lates_r():
     Product = product.objects.filter(status=True)
-    Product = Product.filter(category__name="روعن گیاهی").order_by('updated_date')[:4]
+    Product = Product.filter(category__name="هدفون هدست و هنذفری").order_by('updated_date')[:10]
     return {'products':Product}
+
+@register.inclusion_tag('tagstemp/layout.html')
+def profile_sidbar():
+    pass
+    # Product = product.objects.filter(status=True)
+    # Product = Product.filter(category__name="روعن گیاهی").order_by('updated_date')[:4]
+    # return {'products':Product}

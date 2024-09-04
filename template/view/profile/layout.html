@@ -1,0 +1,94 @@
+{% load static %}
+<div class="side-right col-lg-3">
+    <div class="side-right__inner">
+        <div class="profile-view-box box">
+            <div class="profile-view-box__inner">
+                <div class="p-avatar">
+                    <i class="mdi mdi-account-circle-outline mdi-48px text-black-50"></i>
+                </div>
+                <div class="p-name">
+                    <span class="p-name--text">الهام موالی</span>
+                </div>
+                <div class="p-action">
+                    <div class="p-action__inner">
+                        <div class="change_p-info">
+                            <span class="mdi mdi-account-settings"></span>
+                            <span class="text">تنظیمات پروفایل</span>
+                        </div>
+                        <span class="h-separate"></span>
+                        <div class="logout">
+                            <span class="mdi mdi-power"></span>
+                            <span class="text">خروج</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="profile-menu">
+            <div class="profile-menu__inner">
+                <div class="menus">
+                    <div class="menu">
+                        <div class="menu__inner">
+                            <span class="icon mdi mdi-shopping"></span>
+                            <a href="{% url 'home:product-orders' %}"><span class="text">سفارش‌ محصولات</span></a>
+                        </div>
+                    </div>
+                    <!-- <div class="menu">
+                        <div class="menu__inner">
+                            <span class="icon mdi mdi-format-paint"></span>
+                            <a href="./single-product-order.html"><span class="text">سفارش‌ خدمات</span></a>
+                        </div>
+                    </div> -->
+                    <div class="menu">
+                        <div class="menu__inner">
+                            <span class="icon navigate mdi mdi-chevron-down"></span>
+                            <span class="icon mdi mdi-message"></span>
+                            <span class="text">آدرس ها</span>
+                        </div>
+                        <div class="sub-menu p-menu-hidden">
+                            <span><a href="{% url 'home:profile_add_adress' %}"> افزودن آدرس جدید</a></span>
+                        </div>
+                        <div class="sub-menu p-menu-hidden">
+                            <span><a href="{% url 'home:profile' %}">لیست آدرس  ها</a></span>
+                        </div>
+                    </div>
+
+                    <div class="menu">
+                        <div class="menu__inner">
+                            <span class="icon mdi mdi-bell"></span>
+                            <a href="{% url 'home:notifications' %}"><span class="text">اعلان‌ها</span></a>
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <div class="menu__inner">
+
+                            <span class="icon mdi mdi-account"></span>
+                            <a href="{% url 'home:edit_personal' %}"><span class="text">اطلاعات فردی</span></a>
+                        </div>
+
+                    </div>
+                    <div class="menu">
+                        <div class="menu__inner">
+                            <span class="icon mdi mdi-heart"></span>
+                            <a href="{% url 'home:favorates' %}"><span class="text">علاقه‌مندی‌ها</span></a>
+                        </div>
+                    </div>
+
+                    <div class="menu">
+                        <div class="menu__inner">
+                            <span class="icon navigate mdi mdi-chevron-down"></span>
+                            <span class="icon mdi mdi-message"></span>
+                            <span class="text">تیکت‌ها</span>
+                        </div>
+                        <div class="sub-menu p-menu-hidden">
+                            <span><a href="{% url 'home:contact_view' %}"> افزودن تیکت جدید</a></span>
+                        </div>
+                        <div class="sub-menu p-menu-hidden">
+                            <span><a href="{% url 'home:list_ticket' %}">لیست تیکت ها</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+</div>

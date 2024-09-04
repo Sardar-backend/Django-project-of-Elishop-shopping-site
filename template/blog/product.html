@@ -1,458 +1,596 @@
-
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+{% for p in products %}
+<div class="menu__overlay--bg"></div>
+<div class="overlay--bg"></div>
 
-<section class="inner-page" id="product-page">
-    <div class="container-fluid" id="page-hero">
-        <div class="row">
-            <div class="col-12">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 px-0">
-                            <h1>گوشی موبایل سامسونگ مدل Galaxy A21s</h1>
-                            <p>دارای قابلیت دو سیم کارته و حافظه 128 گیگا بایت</p>
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">صفحه نخست</a></li>
-                                    <li class="breadcrumb-item"><a href="products.html">فروشگاه</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">گوشی موبایل</li>
-                                </ol>
-                            </nav>
+<div class="main">
+    <div class="container-fluid">
+        <div class="main__inner">
+            <div class="single-product-page">
+                <div class="single-product-page__inner">
+                     <div class="breadcrumbs hidden-sm">
+                        <div class="breadcrumbs__inner">
+                            <div class="items">
+                                <div class="item"><a href="#">خانه</a></div>
+                                <div class="item"><a href="#">دیجیتال</a></div>
+                                <div class="item"><a href="#">موبایل و گوشی</a></div>
+                                <div class="item">گوشی موبایل سامسونگ مدل Galaxy J7 Pro SM-J730F دو سیم‌ کارت ظرفیت 64
+                                    گیگابایت
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product__inner">
+                            <div class="row">
+                                <div class="product-gallery  col-lg-1 col-3">
+                                    <div class="product-gallery__inner">
+                                        <div class="items">
+                                            <a class="item" data-fancybox="pd-gallery" href="{% static './asset/images/2.jpg' %}"><img
+                                                        src="{% static './asset/images/2196691.jpg' %}" alt=""></a>
+                                            <a class="item" data-fancybox="pd-gallery"
+                                               href="{% static './asset/images/mobile-red.jpg' %}"><img
+                                                        src="{% static './asset/images/2196691.jpg' %}" alt=""></a>
+                                            <a class="item" data-fancybox="pd-gallery" href="{% static './asset/images/2.jpg' %}"><img
+                                                        src="{% static './asset/images/2196691.jpg' %}" alt=""></a>
+                                            <a class="item" data-fancybox="pd-gallery"
+                                               href="{% static './asset/images/mobile-red.jpg' %}"><img
+                                                        src="{% static './asset/images/2196691.jpg' %}" alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-picture col-lg-3 col-9">
+                                    <div class="product-picture__inner">
+                                        <img data-zoom-image="{% static './asset/images/2.jpg' %}" id="zoom_01"
+                                             src="{% static './asset/images/samsung-j7.jpg' %}" alt="">
+                                    </div>
+                                </div>
+                                <div class="product-details col-lg-6">
+                                    <div class="product-details__inner">
+                                        <div class="first-section">
+                                            <div class="first-section__inner">
+
+                                                 <h1 class="title"><span class="title--text">{{p.title}}</span>
+
+
+                                                </h1>
+                                            </div>
+                                        </div>
+                                        <div class="second-section">
+                                            <div class="second-section__inner">
+                                            <span class="brand"><span class="brand-key">برند</span><span
+                                                        class="brand-value">سامسونگ</span></span>
+                                                <span class="category"><span class="category-key">دسته بندی</span><span
+                                                            class="category-value">گوشی موبایل</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="third-section">
+                                            <div class="third-section__inner">
+                                            <span class="color">
+                                                <span class="color-key">رنگ‌ها</span>
+                                                <span class="items">
+
+                                                    <ul class="product-variants float-right ml-3">
+                                                        <li class="ui-variant item">
+
+                                                            <label class="ui-variant ui-variant--color">
+                                                                <span class="color-value"
+                                                                        style="background-color: rgb(43, 43, 43);">
+                                                                </span>
+                                                                <input type="radio" name="color"
+                                                                        class="variant-selector" value="5">
+                                                                <span class="ui-variant--check">مشکی</span>
+                                                            </label>
+                                                        </li>
+                                                        <li class="ui-variant item">
+
+                                                            <label class="ui-variant ui-variant--color">
+                                                                <span class="color-value"
+                                                                        style="background-color: rgb(0, 128, 0);"></span>
+                                                                <input type="radio" name="color"
+                                                                        class="variant-selector" value="6">
+                                                                <span class="ui-variant--check">سبز</span>
+                                                            </label>
+                                                        </li>
+                                                        <li class="ui-variant item">
+
+                                                            <label class="ui-variant ui-variant--color">
+                                                                <span class="color-value"
+                                                                      style="background-color: #4373ad;"></span>
+                                                                <input type="radio" name="color"
+                                                                        class="variant-selector" value="7">
+                                                                <span class="ui-variant--check">آبی</span>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+
+                                                </span>
+                                            </span>
+                                                <div class="share__like">
+                                                    <div class="share__like__inner">
+                                                    <span class="mdi mdi-share-variant">
+                                                        <span class="items">
+                                                            <span class="item"><span class="mdi mdi-send"></span></span>
+                                                            <span class="item"><span
+                                                                        class="mdi mdi-twitter"></span></span>
+                                                            <span class="item"><span
+                                                                        class="mdi mdi-whatsapp"></span></span>
+                                                        </span>
+                                                    </span>
+                                                        <span class="mdi mdi-heart-outline">
+                                                    </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="separate-line"></span>
+                                        <div class="fourth-section">
+                                            <div class="row fourth-section__inner">
+                                               <span class="code col-lg-12">
+                                                    <span class="code-key"> کد محصول : </span>
+                                                    <span class="code-value"> DI-656894</span>
+                                              </span>
+                                                <span class="dt-sl mt-4">
+                                                  <a class="btn-primary-cm bg-secondary btn-with-icon"><i
+                                                          class="mdi mdi-information"></i>
+                                      ناموجود
+                                    </a>
+                                            </span>
+                                            </div>
+                                        </div>
+                                        <span class="separate-line"></span>
+                                        <div class="fifth-section">
+                                            <div class="fifth-section__inner">
+                                                <div class="seller col-lg-6 col-6">
+                                                    <div class="seller__inner">
+                                            <span class="key">
+                                                <span class="key--icon mdi mdi-store"></span>
+                                                <span class="key--text">فروشنده:</span>
+                                            </span>
+                                                        <span class="value">دیجی لند</span>
+                                                    </div>
+                                                </div>
+                                                <div class="guaranty col-lg-6 col-6">
+                                                    <div class="guaranty__inner">
+                                                    <span class="key">
+                                                        <span class="key--icon mdi mdi-shield-check"></span>
+                                                        <span class="key--text">گارانتی:</span>
+                                                    </span>
+                                                        <span class="value">سام سرویس</span>
+                                                    </div>
+                                                </div>
+                                                <div class="transmit col-lg-6 col-6">
+                                                    <div class="transmit__inner">
+                                            <span class="key">
+                                                <span class="key--icon mdi mdi-truck-delivery"></span>
+                                            </span>
+                                                        <span class="value">ارسال از ۲روز آینده</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-info col-lg-2 col-12">
+                                    <div class="product-info__inner">
+                                        <div class="seller-number">
+                                            <div class="seller-number__inner">
+                                                <span class="mdi mdi-store"></span>
+                                                <span class="number">۶</span>
+                                                <span class="title">فروشنده دیگر</span>
+                                            </div>
+                                        </div>
+                                        <div class="separate-line"></div>
+                                        <div class="description">
+                                            <div class="description__inner">
+                                                <span class="title">ویژگی محصول</span>
+                                                <ul class="items">
+                                                    <li>نوع: گوشی موبایل</li>
+                                                    <li>باتری 4200 mA</li>
+                                                    <li>سنسور عنبیه چشم</li>
+                                                    <li>سنسور قند خون</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-sellers">
+                        <div class="product-sellers__inner">
+                            <div class="head-titles">
+                                <div class="head-titles-items">
+                                    <span class="head-titles-item col-lg-1-of-5">فروشنده</span>
+                                    <span class="head-titles-item col-lg-1-of-5">زمان ارسال</span>
+                                    <span class="head-titles-item col-lg-1-of-5">گارانتی</span>
+                                    <span class="head-titles-item col-lg-1-of-5">قیمت</span>
+                                    <span class="head-titles-item col-lg-1-of-5">خرید</span>
+                                </div>
+                            </div>
+                            <div class="items">
+                                <div class="item row">
+                                    <span class="item-brand col-lg-2 col-3">
+                                        <span class="item-brand__inner">
+                                            <span class="text">پرو کالا</span>
+                                            <span class="mdi mdi-check-decagram"></span>
+                                        </span>
+                                    </span>
+                                    <span class="item-transmit-delay col-lg-2 col-3">
+                                        <span class="item-transmit-delay--text">آماده ارسال</span>
+                                    </span>
+                                    <span class="item-guaranty col-lg-3 col-3">
+                                        <span class="item-guaranty--text">گارانتی ۱۸ ماه مایکروتل</span>
+                                    </span>
+                                    <span class="item-price col-lg-3 col-3">
+                                        <span class="item-price__inner">
+                                            <span class="number">۳,۲۰۰,۰۰۰</span>
+                                            <span class="unit">تومان</span>
+                                        </span>
+                                    </span>
+                                    <span class="item-add-to-card col-lg-2 col-12">
+                                         <span class="item-add-to-card__inner">
+                                             <span class="mdi mdi-cart-plus"></span>
+                                             <span class="text">افزودن به سبد خرید</span>
+                                         </span>
+                                    </span>
+                                </div>
+                                <div class="item row">
+                                    <span class="item-brand col-lg-2 col-3">
+                                        <span class="item-brand--text">موالی</span>
+                                    </span>
+                                    <span class="item-transmit-delay col-lg-2 col-3">
+                                        <span class="item-transmit-delay--text">ارسال از ۳ روز آینده</span>
+                                    </span>
+                                    <span class="item-guaranty col-lg-3 col-3">
+                                        <span class="item-guaranty--text">گارانتی ۱۸ ماه مایکروتل</span>
+                                    </span>
+                                    <span class="item-price col-lg-3 col-3">
+                                       <span class="item-price__inner">
+                                            <span class="number">۳,۴۰۰,۰۰۰</span>
+                                            <span class="unit">تومان</span>
+                                        </span>
+                                    </span>
+                                    <span class="item-add-to-card col-lg-2 col-12">
+                                         <span class="item-add-to-card__inner">
+                                             <span class="mdi mdi-cart-plus"></span>
+                                             <span class="text">افزودن به سبد خرید</span>
+                                         </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="wants-seller">
+                                <div class="wants-seller__inner">
+                                    <div class="row">
+                                        <div class="right col-lg-6 col-12">
+                                            <span class="mdi mdi-arrow-left-thick"></span>
+                                            <span class="bold">این محصول رو واسه فروش داری؟</span>
+                                            <span class="text">میتونی تو سریع ترین و بعترین حالت ممکن بفروشیش!</span>
+                                        </div>
+                                        <div class="left col-lg-6 col-12">
+                                            <div class="add-to-seller">
+                                                <a href="#">
+                                                <span class="add-to-seller__inner">
+                                                    <span class="mdi mdi-cart-arrow-up"></span>
+                                                    <span class="text">به فروشنده‌گان ما اضافه شوید</span>
+                                                </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-full-information">
+                        <div class="product-full-information__inner">
+                            <div class="tabs">
+                                <span class="tab active review" data-tab-id="1">
+                                    <span class="tab--icon mdi mdi-glasses"></span>
+                                    <span class="tab--text">نقدو بررسی</span>
+                                </span>
+                                <span class="tab properties" data-tab-id="2">
+                                    <span class="tab--icon mdi mdi-format-list-checkbox"></span>
+                                    <span class="tab--text">مشخصات</span>
+                                </span>
+                                <span class="tab  comments" data-tab-id="3">
+                                    <span class="tab--icon mdi mdi-message-text"></span>
+                                    <span class="tab--text">نظرات کاربران</span>
+                                </span>
+                                <span class="tab question-answer" data-tab-id="4">
+                                    <span class="tab--icon mdi mdi-comment-question"></span>
+                                    <span class="tab--text">پرسش و پاسخ</span>
+                                </span>
+                            </div>
+                            <div class="contents">
+                                <div class="review-content content-item show" data-self-tab-id="1">
+                                    <div class="review-content__inner">
+                                        <div class="title">
+                                            <div class="title-pre--text">معرفی مختصر برای:</div>
+                                            <div class="title-main--text">گوشی موبایل سامسونگ مدل Galaxy J7 Pro
+                                                SM-J730F
+                                                دو
+                                                سیم‌ کارت ظرفیت 64 گیگابایت
+                                            </div>
+                                        </div>
+                                        <div class="picture">
+                                            <img src="{% static './asset/images/samsung-j7-220-220.jpg' %}" alt="">
+                                        </div>
+                                        <div class="description">
+                                            <div class="desciption--text">
+                                                گوشی مدل «Y9 2019» از سری محصولات شرکت مطرح هوآوی است که با پنل IPS
+                                                LCD
+                                                ساخته‌شده و فاصله لبه صفحه‌نمایش در آن بسیار کم است. نمایشگر این
+                                                محصول
+                                                دارای
+                                                رزولوشن بالایی در مقایسه با گوشی‌های معمول ساخت هواوی دارد؛
+                                                به‌طوری‌که
+                                                در
+                                                اندازه‌ی 6.5 اینچی‌اش، حدود 396 پیکسل را در هر اینچ جا داده است. در
+                                                گوشی
+                                                نوا
+                                                Y9 2019 هوآوی نمایشگر تقریباً تمام قاب جلویی گوشی را پر کرده است.
+                                                این
+                                                مشخصه
+                                                در کنار لبه­‌های براق و بدنه از جنس شیشه که بارنگ‌های بسیار زیبا
+                                                مانند
+                                                شفق
+                                                قطبی، جلوه‌ای لوکس به هوآوی Y9 2019 بخشیده است. این بدنه‌ی زیبا در
+                                                مقابل
+                                                خط‌‌وخش مقاومت مطلوبی دارد. ویژگی دیگر Y9 2019 مجهز شدن به حسگر
+                                                اثرانگشت
+                                                است. این فناوری خطوط انگشت شما را با استفاده از فناوری جدید شناسایی
+                                                می­‌کند
+                                                و تنها با لمس انگشت شما قفل گوشی را باز می‌کند. حسگر اثرانگشت در این
+                                                گوشی،
+                                                در قاب پشتی جای گرفته است. علاوه بر این حسگر، دو دوربین که در یکی
+                                                سنسور
+                                                13
+                                                مگاپیکسلی و در دیگری 2 مگاپیکسل قرار دارد در قسمت پشتی این گوشی جای
+                                                گرفته‌اند. دوربین‌های سلفی Y9 2019 هم به سنسور 16 و 2 مگاپیکسلی مجهز
+                                                شده
+                                                است. دوریبن‌های دو مگاپیکسلی این گوشی کاربرد حسگر عمق دارند. قابلیت
+                                                اتصال به
+                                                شبکه‌ ارتباطی 4G با سرعت کاملاً مطلوب، بلوتوث نسخه­‌ی 5.0، نسخه­‌ی
+                                                8.1
+                                                از
+                                                اندروید و حذف کلید خانه که به نظر هوآوی هم دیگر نیازی به آن نیست، از
+                                                دیگر
+                                                ویژگی‌های جدید این گوشی هستند. ازنظر سخت‌افزاری هم این گوشی از
+                                                تراشه‌ی
+                                                Hisilicon Kirin 710 بهره می‌­برد که در آن پردازنده‌‌ای هشت‌هسته‌ا‌ی
+                                                و
+                                                قدرتمند قرارگرفته تا بتواند علاوه‌بر کارهای معمول، از قابلیت‌‌های
+                                                به‌روز
+                                                که
+                                                هوآوی این روزها روی آن تمرکز خاصی دارد، پشتیبانی کند. گوشی Y9 2019
+                                                محصولی
+                                                بسیار زیبا و با امکانات فراوان است که به عنوان گوشی مدرن و باتری
+                                                پرقدرت
+                                                4000
+                                                میلی‌آمپرساعتی به بازار عرضه شده است.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="properties-content content-item" data-self-tab-id="2">
+                                    <div class="properties-content__inner">
+                                        <div class="title">
+                                            <div class="title-pre--text">مشخصات برای:</div>
+                                            <div class="title-main--text">گوشی موبایل سامسونگ مدل Galaxy J7 Pro
+                                                SM-J730F دو سیم‌ کارت ظرفیت 64
+                                                گیگابایت
+                                            </div>
+                                        </div>
+                                        <div class="items">
+                                            <div class="item">
+                                                <div class="item-key col-lg-3">رنگ</div>
+                                                <div class="item-value col-lg-9"> سفید، نارنجی، سبز</div>
+                                            </div>
+                                            <div class="item">
+                                                <div class="item-key col-lg-3">وزن</div>
+                                                <div class="item-value col-lg-9">۳۸۰ گرم</div>
+                                            </div>
+                                            <div class="item">
+                                                <div class="item-key col-lg-3">پردازنده</div>
+                                                <div class="item-value col-lg-9">۴ هسته‌ای intel</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comments-content content-item" data-self-tab-id="3">
+                                    <div class="comments-content__inner">
+                                        <div class="title">
+                                            <div class="title-pre--text">نظرات خریداران برای:</div>
+                                            <div class="title-main--text"> گوشی موبایل سامسونگ مدل Galaxy J7 Pro
+                                                SM-J730F دو سیم‌ کارت ظرفیت 64 گیگابایت
+                                            </div>
+                                        </div>
+                                        <div class="rating">
+                                            <div class="rating__inner">
+                                                <div class="row">
+                                                    <div class="result-pd-rating col-lg-6 col-12">
+                                                        <div class="result-pd-rating__inner">
+                                                            <div class="items">
+                                                                <div class="item design">
+                                                                    <span class="item-name">طراحی و ظاهر</span>
+                                                                    <span class="item-bar"
+                                                                          data-bar-value="medium"></span>
+                                                                </div>
+                                                                <div class="item quality">
+                                                                    <span class="item-name">کیفیت ساخت</span>
+                                                                    <span class="item-bar" data-bar-value="good"></span>
+                                                                </div>
+                                                                <div class="item options">
+                                                                    <span class="item-name">امکانات</span>
+                                                                    <span class="item-bar"
+                                                                          data-bar-value="awful"></span>
+                                                                </div>
+                                                                <div class="item price">
+                                                                    <span class="item-name">ارزش خرید</span>
+                                                                    <span class="item-bar" data-bar-value="bad"></span>
+                                                                </div>
+                                                                <div class="item newly">
+                                                                    <span class="item-name">نوآوری</span>
+                                                                    <span class="item-bar"
+                                                                          data-bar-value="awesome"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="request-pd-rating col-lg-6 col-12">
+                                                        <div class="request-pd-rating__inner">
+                                                            <span class="head-title">شما هم میتونید درمورد این محصول نظر بدید</span>
+                                                            <span class="description">برای ثبت  نظر، لازم است ابتدا وارد حساب کاربری خود شوید. و این محصول را هم خریداری کرده باشید</span>
+                                                            <div class="request-button">
+                                                                <div class="request-button__inner">
+                                                                    <span class="icon mdi mdi-comment-plus"></span>
+                                                                    <span class="text">افزودن نظر جدید</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div style="display: none;" class="send-pd-rating">
+                                                    <div class="send-pd-rating__inner">
+                                                        <select id="pd-rating" name="rating" autocomplete="off">
+                                                            <option value="awful">خیلی‌بد</option>
+                                                            <option value="Bad">بد</option>
+                                                            <option value="Mediocre">معمولی</option>
+                                                            <option value="Good" selected="selected">خوب</option>
+                                                            <option value="Awesome">عالی</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comments">
+                                            <div class="comment">
+                                                <div class="top">
+                                                    <div class="avatar">
+                                                        <span class="mdi mdi-account-circle-outline"></span>
+                                                    </div>
+                                                    <div class="user-display-name">مرتضی کوهی</div>
+                                                    <div class="time">
+                                                        <span class="mdi mdi-clock-outline"></span>
+                                                        <span class="time--text">15 مرداد ۱۳۹۹</span>
+                                                    </div>
+                                                </div>
+                                                <div class="bottom">
+                                                    <div class="content">
+                                                        <span class="content--text">گوشی خوبیه. ۳ ماه اولش که خریدم باتریش عای بود ولی نمیدونم الان بعد یکسال کمی زود شارژ خالی میکنه. در کل نسبت به قیمتش عالیه!</span>
+                                                        <span class="like-dislike">
+                                                        <span class="like"><img class="like--img"
+                                                                                src="{% static './asset/images/like.png' %}"
+                                                                                alt=""><span
+                                                                class="like--text">۳۲</span></span>
+                                                        <span class="dislike"><img class="dislike--img"
+                                                                                   src="{% static './asset/images/dislike.png' %}"
+                                                                                   alt=""><span
+                                                                class="dislike--text">۹</span></span>
+                                                    </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="comment">
+                                                <div class="top">
+                                                    <div class="avatar"><span
+                                                            class="mdi mdi-account-circle-outline"></span></div>
+                                                    <div class="user-display-name">مرتضی کوهی</div>
+                                                    <div class="time">
+                                                        <span class="mdi mdi-clock-outline"></span>
+                                                        <span class="time--text">۱۳ اردیبهشت ۱۳۹۹</span>
+                                                    </div>
+                                                </div>
+                                                <div class="bottom">
+                                                    <div class="content">
+                                                        <span class="content--text">گوشی خوبیه. ۳ ماه اولش که خریدم باتریش عای بود ولی نمیدونم الان بعد یکسال کمی زود شارژ خالی میکنه. در کل نسبت به قیمتش عالیه!</span>
+                                                        <span class="like-dislike">
+                                                        <span class="like"><img class="like--img"
+                                                                                src="{% static './asset/images/like.png' %}"
+                                                                                alt=""><span
+                                                                class="like--text">۳۲</span></span>
+                                                        <span class="dislike"><img class="dislike--img"
+                                                                                   src="{% static './asset/images/dislike.png' %}"
+                                                                                   alt=""><span
+                                                                class="dislike--text">۹</span></span>
+                                                    </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="question-answer-content content-item" data-self-tab-id="4">
+                                    <div class="question-answer-content__inner">
+                                        <div class="title">
+                                            <div class="title-pre--text">
+                                                پرسش و پاسخ برای
+                                            </div>
+                                            <div class="title-main--text"> گوشی موبایل سامسونگ مدل Galaxy J7 Pro
+                                                SM-J730F دو سیم‌ کارت ظرفیت 64 گیگابایت
+                                            </div>
+                                        </div>
+                                        <form action="#" class="form" method="POST">
+                                            <div class="form__inner">
+                                                    <textarea placeholder="پرسش شما" class="col-lg-9"
+                                                              name="question-answer-filed" id="question-answer-filed"
+                                                              cols="60" rows="9"></textarea>
+                                                <div class="button-send col-lg-3">
+                                                    <div class="button-send__inner">
+                                                        <span class="icon mdi mdi-comment-question"></span>
+                                                        <span class="text">ارسال پرسش</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="comments">
+                                            <div class="comment">
+                                                <div class="top">
+                                                    <div class="avatar">
+                                                        <span class="mdi mdi-account-question-outline"></span>
+                                                    </div>
+                                                    <div class="user-display-name">مرتضی کوهی</div>
+                                                    <div class="time">
+                                                        <span class="mdi mdi-clock-outline"></span>
+                                                        <span class="time--text">۱۳ اردیبهشت ۱۳۹۹</span>
+                                                    </div>
+                                                </div>
+                                                <div class="bottom">
+                                                    <div class="content">
+                                                        <span class="content--text">گوشی خوبیه. ۳ ماه اولش که خریدم باتریش عای بود ولی نمیدونم الان بعد یکسال کمی زود شارژ خالی میکنه. در کل نسبت به قیمتش عالیه!</span>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="comment answer">
+                                                <div class="top">
+                                                    <div class="avatar"><span
+                                                            class="mdi mdi-lightbulb-on-outline"></span></div>
+                                                    <div class="user-display-name">پشتیبان سایت</div>
+                                                    <div class="time">
+                                                        <span class="mdi mdi-clock-outline"></span>
+                                                        <span class="time--text">۱۳ اردیبهشت ۱۳۹۹</span>
+                                                    </div>
+                                                </div>
+                                                <div class="bottom">
+                                                    <div class="content">
+                                                        <span class="content--text">این محصول ۳ روز قبل موجود شد اما متاسفانه الان موجودی نداریم</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="content">
-                    <div class="row">
-                        <div class="col-12 col-lg-5 px-lg-0">
-                            <div class="swiper-container gallery-top">
-                                <!-- Additional required wrapper -->
-                                <ul class="swiper-wrapper">
-                                    <!-- Slides -->
-                                    <li id="1" class="swiper-slide">
-                                        <a href="assets/images/products/p100.png" itemprop="contentUrl" data-size="900x710">
-                                            <img src="assets/images/products/p100.png" itemprop="thumbnail" alt="گوشی موبایل سامسونگ مدل Galaxy A21s" />
-                                        </a>
-                                    </li>
-                                    <li id="1" class="swiper-slide">
-                                        <a href="assets/images/products/p101.png" itemprop="contentUrl" data-size="900x710">
-                                            <img src="assets/images/products/p101.png" itemprop="thumbnail" alt="گوشی موبایل سامسونگ مدل Galaxy A21s" />
-                                        </a>
-                                    </li>
-                                    <li id="1" class="swiper-slide">
-                                        <a href="assets/images/products/p102.png" itemprop="contentUrl" data-size="900x710">
-                                            <img src="assets/images/products/p102.png" itemprop="thumbnail" alt="گوشی موبایل سامسونگ مدل Galaxy A21s" />
-                                        </a>
-                                    </li>
-                                    <li id="1" class="swiper-slide">
-                                        <a href="assets/images/products/p103.png" itemprop="contentUrl" data-size="900x710">
-                                            <img src="assets/images/products/p103.png" itemprop="thumbnail" alt="گوشی موبایل سامسونگ مدل Galaxy A21s" />
-                                        </a>
-                                    </li>
-                                    <!-- /Slides -->
-                                </ul>
-                                <!-- If we need navigation buttons -->
-                                <div title="قبلی" class="swiper-button-prev swiper-button-white"></div>
-                                <div title="بعدی" class="swiper-button-next swiper-button-white"></div>
-                            </div>
-
-                            <!-- Swiper -->
-                            <div class="swiper-container gallery-thumbs">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide" style="background-image:url('assets/images/products/p100.png')"></div>
-                                    <div class="swiper-slide" style="background-image:url('assets/images/products/p101.png')"></div>
-                                    <div class="swiper-slide" style="background-image:url('assets/images/products/p102.png')"></div>
-                                    <div class="swiper-slide" style="background-image:url('assets/images/products/p103.png')"></div>
-                                </div>
-                            </div>
-
-                            <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-                                <div class="pswp__bg"></div>
-                                <div class="pswp__scroll-wrap">
-                                    <div class="pswp__container">
-                                        <div class="pswp__item"></div>
-                                        <div class="pswp__item"></div>
-                                        <div class="pswp__item"></div>
-                                    </div>
-                                    <div class="pswp__ui pswp__ui--hidden">
-                                        <div class="pswp__top-bar">
-                                            <div class="pswp__counter"></div>
-                                            <button class="pswp__button pswp__button--close" title="بستن (Esc)"></button>
-                                            <button class="pswp__button pswp__button--fs" title="تمام صفحه"></button>
-                                            <button class="pswp__button pswp__button--zoom" title="بزرگنمایی"></button>
-                                            <div class="pswp__preloader">
-                                                <div class="pswp__preloader__icn">
-                                                    <div class="pswp__preloader__cut">
-                                                        <div class="pswp__preloader__donut"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button class="pswp__button pswp__button--arrow--left" title="قبلی"></button>
-                                        <button class="pswp__button pswp__button--arrow--right" title="بعدی"></button>
-                                        <div class="pswp__caption">
-                                            <div class="pswp__caption__center"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-7 mt-5 mt-lg-0 pl-lg-0" id="product-intro">
-                            <a href="product.html">
-                                <h1>گوشی موبایل سامسونگ مدل Galaxy A21s</h1>
-                            </a>
-                            <div class="stars-container">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <a href="#tabs-panel"><span>(نقد و بررسی)</span></a>
-                            </div>
-                            <div class="encode4365gbf265g43d-container py-2">
-                                <span class="pre-encode4365gbf265g43d">4.000.000</span>
-                                <span class="encode4365gbf265g43d">3.500.000 <span>تومان</span></span>
-                                <div class="badge badge-danger font-weight-light m-1 py-1 px-2">10%</div>
-                            </div>
-                            <p>این یک متن آزمایشی است که به زودی توسط نویسنده این سایت، تکمیل یا حذف خواهد شد. اگر شما نویسنده‌ی این سایت هستید، برای حذف یا ویرایش این صفحه، کافی است از طریق مرکز مدیریت سایت خود وارد بخش مربوطه شده و محتوای این صفحه را ویرایش یا حذف کنید.<br>
-                                صفحات و محتوای آزمایشی همیشه بخشی از محتوای پیش‌نمایش قالب و افزونه های وب هستند که شما بتوانید ارتباط درستی با پیش نمایش قالب گرفته و تصمیم مناسبی بگیرید.</p>
-                            <hr>
-                            <div class="variables">
-                                <div class="title">گزینه های موجود:</div>
-                                <div class="row">
-                                    <div class="col-12 col-sm-4 col-lg-3">
-                                        <div class="variable">
-                                            <div class="sub-title pt-2 pb-3">رنگ</div>
-                                            <span class="color-variable"><a href="#" class="red"></a></span>
-                                            <span class="color-variable"><a href="#" class="yellow"></a></span>
-                                            <span class="color-variable"><a href="#" class="blue"></a></span>
-                                            <span class="color-variable"><a href="#" class="black"></a></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-4 col-lg-3">
-                                        <div class="variable">
-                                            <div class="sub-title pt-2 pb-2">گارانتی</div>
-                                            <select name="" class="form-select">
-                                                <option value="">بدون گارانتی</option>
-                                                <option value="">گارانتی 6 ماهه</option>
-                                                <option value="">گارانت 12 ماهه</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-4 col-lg-3">
-                                        <div class="variable">
-                                            <div class="sub-title pt-2 pb-2">تعداد</div>
-                                            <input type="number" min="1" max="10" class="form-control" value="1">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cta-container pt-3 pt-md-5">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <a href="cart.html">
-                                            <div class="btn btn-success px-4 px-lg-2 px-xl-4 btn-add-to-basket"><i class="fa fa-shopping-cart"></i> افزودن به سبد خرید</div>
-                                        </a>
-                                        <br class="d-sm-none">
-                                        <div class="btn btn-outline-secondary encode43243d mt-1 mt-sm-0" data-toggle="tooltip" data-placement="top" title="افزودن به علاقه‌مندی"></div>
-                                        <a href="#"><div class="btn btn-outline-secondary encode43bf243d mt-1 mt-sm-0" data-toggle="tooltip" data-placement="top" title="مقایسه"></div></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Share Links -->
-                            <div class="pt-5" id="share-links">
-                                <span>اشتراک گذاری: </span>
-                                <a href="#" target="_blank"><span class="share-link"><img src="assets/images/social/twitter.png" alt="توئیتر" width="18px"></span></a>
-                                <a href="#" target="_blank"><span class="share-link"><img src="assets/images/social/insta.png" alt="اینستاگرام" width="18px"></span></a>
-                                <a href="#" target="_blank"><span class="share-link"><img src="assets/images/social/linkedin.png" alt="لینکدین" width="18px"></span></a>
-                                <a href="#" target="_blank"><span class="share-link"><img src="assets/images/social/facebook.png" alt="فیس بوک" width="18px"></span></a>
-                            </div>
-                            <!-- Share Links -->
-                        </div>
-
-                        <!-- Nav Tabs -->
-                            <div class="col-12">
-                                <div id="product-nav-tabs">
-                                    <div class="row pt-3 px-md-3">
-                                        <div class="col-12">
-                                            <div id="tabs-panel">
-                                                <button class="tab-item tablink px-3 selected" onclick="openTab(event,'html-tab')">نقد و بررسی</button>
-                                                <button class="tab-item tablink px-3" onclick="openTab(event,'details-tab')">جدول مشخصات</button>
-                                                <button class="tab-item tablink px-3" onclick="openTab(event,'comments-tab')">دیدگاه کاربران (2)</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-12 pt-2 px-0 px-lg-0">
-                                                <!-- HTML Tab -->
-                                                <div id="html-tab" class="tabs-container text-justify p-0 p-md-3">
-                                                    <p>این یک متن آزمایشی است که به زودی توسط نویسنده این سایت، تکمیل یا حذف خواهد شد. اگر شما نویسنده‌ی این سایت هستید، برای حذف یا ویرایش این صفحه، کافی است از طریق مرکز مدیریت سایت خود وارد بخش مربوطه شده و محتوای این صفحه را ویرایش یا حذف کنید.</p>
-                                                    <p>صفحات و محتوای آزمایشی همیشه بخشی از محتوای پیش‌نمایش قالب و افزونه های وب هستند که شما بتوانید ارتباط درستی با پیش نمایش قالب گرفته و تصمیم مناسبی بگیرید. این صفحات معمولا برای اطلاعات کلی در مورد سایت مثل «درباره ما»، «تماس با ما»، «فهرست» یا «نظرات شما» مفید هستند.</p>
-                                                    <p>بنابراین نگران ویرایش و بروزرسانی محتوای این نوع صفحات نباشید. شما می‌توانید به سادگی و تنها با چند کلیک وارد ناحیه مدیریت وب‌سایت خود شده و مطلب مربوطه را ویرایش کنید.</p>
-                                                    <p>این یک متن آزمایشی است که به زودی توسط نویسنده این سایت، تکمیل یا حذف خواهد شد. اگر شما نویسنده‌ی این سایت هستید، برای حذف یا ویرایش این صفحه، کافی است از طریق مرکز مدیریت سایت خود وارد بخش مربوطه شده و محتوای این صفحه را ویرایش یا حذف کنید. صفحات و محتوای آزمایشی همیشه بخشی از محتوای پیش‌نمایش قالب و افزونه های وب هستند که شما بتوانید ارتباط درستی با پیش نمایش قالب گرفته و تصمیم مناسبی بگیرید. این صفحات معمولا برای اطلاعات کلی در مورد سایت مثل «درباره ما»، «تماس با ما»، «فهرست» یا «نظرات شما» مفید هستند.</p>
-                                                </div>
-                                                <!-- /HTML Tab -->
-
-                                                <!-- Details Tab -->
-                                                <div id="details-tab" class="tabs-container px-0 px-md-3 pb-0 pb-md-3" style="display:none">
-                                                    <!-- Detail Section -->
-                                                    <div class="row">
-                                                        <div class="col-12 my-2">
-                                                            <span class="detail-title"><i class="fa fa-chevron-left small"></i> مشخصات کلی</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-12 col-md-3 font-weight-bold"><div class="bg-light p-2">طول</div></div>
-                                                        <div class="col-12 col-md-9 pr-md-0"><div class="bg-light p-2">32 سانتی متر</div></div>
-                                                    </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-12 col-md-3 font-weight-bold"><div class="bg-light p-2">عرض</div></div>
-                                                        <div class="col-12 col-md-9 pr-md-0"><div class="bg-light p-2">15 سانتی متر</div></div>
-                                                    </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-12 col-md-3 font-weight-bold"><div class="bg-light p-2">ارتفاع</div></div>
-                                                        <div class="col-12 col-md-9 pr-md-0"><div class="bg-light p-2">25 سانتی متر</div></div>
-                                                    </div>
-                                                    <!-- /Detail Section -->
-                                                    <!-- Detail Section -->
-                                                    <div class="row">
-                                                        <div class="col-12 my-2">
-                                                            <span class="detail-title"><i class="fa fa-chevron-left small"></i> صفحه نمایش</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-12 col-md-3 font-weight-bold"><div class="bg-light p-2">صفحه نمایش رنگی</div></div>
-                                                        <div class="col-12 col-md-9 pr-md-0"><div class="bg-light p-2">بله</div></div>
-                                                    </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-12 col-md-3 font-weight-bold"><div class="bg-light p-2">صفحه نمایش لمسی</div></div>
-                                                        <div class="col-12 col-md-9 pr-md-0"><div class="bg-light p-2">بله</div></div>
-                                                    </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-12 col-md-3 font-weight-bold"><div class="bg-light p-2">بازه‌ی اندازه صفحه نمایش</div></div>
-                                                        <div class="col-12 col-md-9 pr-md-0"><div class="bg-light p-2">6.0 اینچ و بزرگتر</div></div>
-                                                    </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-12 col-md-3 font-weight-bold"><div class="bg-light p-2">نسبت صفحه‌نمایش به بدنه</div></div>
-                                                        <div class="col-12 col-md-9 pr-md-0"><div class="bg-light p-2">87.4 درصد</div></div>
-                                                    </div>
-                                                    <!-- /Detail Section -->
-                                                </div>
-                                                <!-- /Details Tab -->
-
-                                                <!-- Comments Tab -->
-                                                <div id="comments-tab" class="tabs-container px-0 px-md-3 pb-0 pb-md-2" style="display:none">
-                                                    <div class="row">
-                                                        <div class="col-12 text-justify" id="comments">
-                                                            <div class="comments-container">
-                                                                <div class="container px-0">
-                                                                    <div class="row">
-                                                                        <div class="col-12 pt-2">
-                                                                            <!-- Show Comments -->
-                                                                            <div class="comment p-3 my-2">
-                                                                                <div class="sender-details">
-                                                                                    <div class="row">
-                                                                                        <div class="col-3 col-sm-2 col-md-1 pl-md-0 pl-lg-2 pl-xl-3">
-                                                                                            <img src="assets/images/user-no-image.jpg" alt="" class="rounded">
-                                                                                        </div>
-                                                                                        <div class="col-9 col-sm-10 col-md-11 pr-0 pr-md-2 pr-xl-0 pt-0 pt-lg-1">
-                                                                                            <div class="name">مصطفی کلانتری</div>
-                                                                                            <div class="date">ارسال شده در 18 تیر 1400</div>
-                                                                                        </div>
-                                                                                        <div class="col-12">
-                                                                                            <p>این یک متن آزمایشی است که به زودی توسط نویسنده این سایت، تکمیل یا حذف خواهد شد. اگر شما نویسنده‌ی این سایت هستید، برای حذف یا ویرایش این صفحه، کافی است از طریق مرکز مدیریت سایت خود وارد بخش مربوطه شده و محتوای این صفحه را ویرایش یا حذف کنید.</p>
-                                                                                            <span class="reply"><img src="assets/images/comment-reply.png" alt=""> ارسال پاسخ</span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-
-                                                                                <!-- Comment Reply -->
-                                                                                <div class="row justify-content-end">
-                                                                                    <div class="col-11 pt-2 pr-0">
-                                                                                        <div class="comment p-3">
-                                                                                            <div class="sender-details">
-                                                                                                <div class="row">
-                                                                                                    <div class="col-3 col-sm-2 col-md-1 pl-md-0 pl-lg-2 pl-xl-3">
-                                                                                                        <img src="assets/images/user-no-image.jpg" alt="" class="rounded">
-                                                                                                    </div>
-                                                                                                    <div class="col-9 col-sm-10 col-md-11 pr-0 pr-md-2 pr-xl-0 pt-0 pt-lg-1">
-                                                                                                        <div class="name">امین کیانی</div>
-                                                                                                        <div class="date">ارسال شده در 18 تیر 1400</div>
-                                                                                                    </div>
-                                                                                                    <div class="col-12">
-                                                                                                        <p>صفحات و محتوای آزمایشی همیشه بخشی از محتوای پیش‌نمایش قالب و افزونه های وب هستند که شما بتوانید ارتباط درستی با پیش نمایش قالب گرفته و تصمیم مناسبی بگیرید. این صفحات معمولا برای اطلاعات کلی در مورد سایت مثل «درباره ما»، «تماس با ما»، «فهرست» یا «نظرات شما» مفید هستند.</p>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <!-- /Comment Reply -->
-                                                                            </div>
-                                                                            <!-- /Show Comments -->
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <!-- Send Comment Form -->
-                                                            <div class="comments-container">
-                                                                <div class="row pt-4">
-                                                                    <div class="col-12"><h2>دیدگاه خود را ارسال کنید</h2></div>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <div class="col-12 py-3">
-                                                                        <form method="post" action="https://rubik-market-html.wbrk.ir/">
-                                                                            <div id="send-comment-form">
-                                                                                <p>نظر خود را برای این مطلب ارسال کنید. نشانی ایمیل شما منتشر نخواهد شد.</p>
-                                                                                <div class="row">
-                                                                                    <div class="col-12 px-3 pl-md-1 col-md-6">
-                                                                                        <div class="form-group my-1">
-                                                                                            <input type="text" class="form-control" placeholder="* نام شما" required oninvalid="this.setCustomValidity('لطفا نام خود را وارد کنید')" oninput="setCustomValidity('')">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-12 px-3 pr-md-1 col-md-6">
-                                                                                        <div class="form-group my-1">
-                                                                                            <input type="email" class="form-control text-start" placeholder="پست الکترونیک *" required oninvalid="this.setCustomValidity('لطفا پست الکترونیک خود را وارد کنید')" oninput="setCustomValidity('')">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-12">
-                                                                                        <div class="form-group my-1">
-                                                                                            <textarea class="form-control" id="" rows="4" placeholder="متن دیدگاه"></textarea>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-12">
-                                                                                        <div class="form-group my-1">
-                                                                                            <input type="submit" value="ارسال دیدگاه" class="btn btn-success px-5">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- /Send Comment Form -->
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- /Comments Tab -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Nav Tabs -->
-
-                        <!-- Suggested Products -->
-                        <div class="col-12 pt-5" id="suggested-products">
-                            <div class="title py-3 text-center">محصولات مرتبط</div>
-                            <div class="owl-carousel products-carousel">
-                                <!-- Product Item -->
-                                <div class="encode4326654321vfb item">
-                                    <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p303.png')"></div></a>
-                                    <div class="details p-3">
-                                        <div class="category">
-                                            <a href="products.html">گوشی موبایل</a>
-                                            &nbsp;/&nbsp;
-                                            <a href="products.html">سامسونگ</a>
-                                        </div>
-                                        <a href="product.html"><h2>مودم روتر ADSL2 Plus بی‌ سیم N300 دی-لینک مدل DSL-2740U</h2></a>
-                                        <div class="encode4365gbf265g43d">3.000.000 تومان</div>
-                                        <div class="rate">
-                                            <i class="fa fa-star-half-alt"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /Product Item -->
-                                <!-- Product Item -->
-                                <div class="encode4326654321vfb item">
-                                    <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p201.png')"></div></a>
-                                    <div class="details p-3">
-                                        <div class="category">
-                                            <a href="products.html">گوشی موبایل</a>
-                                            &nbsp;/&nbsp;
-                                            <a href="products.html">سامسونگ</a>
-                                        </div>
-                                        <a href="product.html"><h2>لپ تاپ 14 اینچی ایسوس مدل ZenBook UM433IQ - A5023</h2></a>
-                                        <div class="encode4365gbf265g43d">5.000.000 تومان</div>
-                                        <div class="rate">
-                                            <i class="fa fa-star-half-alt"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /Product Item -->
-                                <!-- Product Item -->
-                                <div class="encode4326654321vfb item">
-                                    <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p302.png')"></div></a>
-                                    <div class="details p-3">
-                                        <div class="category">
-                                            <a href="products.html">گوشی موبایل</a>
-                                            &nbsp;/&nbsp;
-                                            <a href="products.html">سامسونگ</a>
-                                        </div>
-                                        <a href="product.html"><h2>اسپیکر بلوتوثی قابل حمل تی اند جی مدل Tg-113</h2></a>
-                                        <div class="encode4365gbf265g43d">4.000.000 تومان</div>
-                                        <div class="rate">
-                                            <i class="fa fa-star-half-alt"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /Product Item -->
-                                <!-- Product Item -->
-                                <div class="encode4326654321vfb item">
-                                    <a href="product.html"><div class="image" style="background-image: url('assets/images/products/p203.png')"></div></a>
-                                    <div class="details p-3">
-                                        <div class="category">
-                                            <a href="products.html">گوشی موبایل</a>
-                                            &nbsp;/&nbsp;
-                                            <a href="products.html">سامسونگ</a>
-                                        </div>
-                                        <a href="product.html"><h2>لپ تاپ 15 اینچی ایسوس مدل VivoBook X543MA - A</h2></a>
-                                        <div class="encode4365gbf265g43d">3.000.000 تومان</div>
-                                        <div class="rate">
-                                            <i class="fa fa-star-half-alt"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <span class="encode43bf265g43d">(14 رای دهنده)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /Product Item -->
-                            </div>
-                        </div>
-                        <!-- /Suggested Products -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+</div>
+{% endfor %}
 {% endblock %}

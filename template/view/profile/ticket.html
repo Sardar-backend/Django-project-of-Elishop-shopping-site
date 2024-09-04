@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="menu__overlay--bg"></div>
+<div class="overlay--bg"></div>
+
+<div class="main">
+    <div class="container-fluid">
+        <div class="main__inner">
+            <div class="profile-page">
+                <div class="profile-page__inner">
+                    <div class="breadcrumbs">
+                        <div class="breadcrumbs__inner">
+                            <div class="items">
+                                <div class="item"><a href="#">خانه</a></div>
+                                <div class="item"><a href="#">پروفایل کاربری</a></div>
+                                <div class="item"><a href="#">تیکت ها</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrapper c-row no-wrapper">
+                        {% include './layout.html' %}
+                        <div class="side-left col-lg-9">
+                            <div class="side-left__inner">
+                                <div class="tickets">
+                                    <div class="tickets__inner">
+                                        <div class="profile-section-title">
+                                            <span class="mdi mdi-message"></span>
+                                            <span class="profile-section-title--text">تیکت‌ها</span>
+                                        </div>
+                                        <div class="ticket">
+                                            <div class="ticket__inner">
+                                                <span class="ticket-icon">
+                                                    <span class="mdi mdi-message"></span>
+                                                </span>
+                                                <div class="conversation">
+                                                    <div class="question"><span class="question-value">سلام، ببخشید می خواستم بدونم قیمتتاتون آپدیته یعنی من محصولی سفارش بدم همون قیمت سایت بدستم میرسه؟</span></div>
+                                                    <div class="answer">
+                                                        <span class="answer-value">سلام، بله قیمت ها آپیت شدن و میتونید با خیال راحت محصولتونو سفارش بدید</span>
+                                                    </div>
+                                                    <div class="question"><span class="question-value">خیلی ممنون، راستی محصول که سفارش دادم چند روزه دستم میرسه، اهواز هستیم.</span></div>
+                                                </div>
+                                                <span class="actions">
+                                                    <a href="#"><span class="delete">حذف</span></a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

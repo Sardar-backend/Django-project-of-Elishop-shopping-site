@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="menu__overlay--bg"></div>
+    <div class="overlay--bg"></div>
+
+    <div class="main">
+        <div class="container-fluid">
+            <div class="main__inner">
+                <div class="profile-page">
+                    <div class="profile-page__inner">
+                        <div class="breadcrumbs">
+                            <div class="breadcrumbs__inner">
+                                <div class="items">
+                                    <div class="item"><a href="#">خانه</a></div>
+                                    <div class="item"><a href="#">پروفایل کاربری</a></div>
+                                    <div class="item"><a href="#">ویرایش اطلاعات فردی</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wrapper c-row no-wrapper">
+                            {% include './layout.html' %}
+
+                            <div class="side-left col-lg-9">
+                                <form action="" method="post">{% csrf_token %}
+                                <div class="side-left__inner">
+                                    <div class="personal-info-view">
+                                        <div class="personal-info-view__inner">
+                                            <div class="c-row">
+                                                <div class="col-lg-6 no-padding">
+                                                    <div class="p-i-col">
+                                                        <div class="p-i-col__inner">
+                                                            <div class="key">نام ‌و نام‌خانوادگی</div>
+                                                            <input class="value form-control" placeholder="09029234589">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 no-padding">
+                                                    <div class="p-i-col">
+                                                        <div class="p-i-col__inner">
+                                                            <div class="key">شماره موبایل</div>
+
+                                                            <input class="value form-control" placeholder="09029234589">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="c-row">
+                                                <div class="col-lg-6 no-padding">
+                                                    <div class="p-i-col">
+                                                        <div class="p-i-col__inner">
+                                                            <div class="key">ایمیل</div>
+                                                            <input class="value form-control" placeholder="09029234589">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 no-padding">
+                                                    <div class="p-i-col">
+                                                        <div class="p-i-col__inner">
+                                                            <div class="key">کدملی</div>
+                                                            <input class="value " placeholder="09029234589">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="p-i-edit-link">
+                                                <button type="submit" class="p-i-edit-link--text"><p>ویرایش اطلاعات شخصی</p></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div></form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <div class="menu__overlay--bg"></div>
+    <div class="overlay--bg"></div>
+
+    <div class="main">
+        <div class="container-fluid">
+            <div class="main__inner">
+                <div class="profile-page">
+                    <div class="profile-page__inner">
+                        <div class="breadcrumbs">
+                            <div class="breadcrumbs__inner">
+                                <div class="items">
+                                    <div class="item"><a href="#">خانه</a></div>
+                                    <div class="item"><a href="#">پروفایل کاربری</a></div>
+                                    <div class="item"><a href="#">محصولات سفارش داده شده</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wrapper c-row no-wrapper">
+                            {% include './layout.html' %}
+
+                            <div class="side-left col-lg-9">
+                                <div class="side-left__inner">
+                                    <div class="orders">
+                                        <div class="orders__inner">
+                                            <div class="profile-section-title">
+                                                <span class="mdi mdi-shopping"></span>
+                                                <span class="profile-section-title--text">سفارش محصولات</span>
+                                            </div>
+                                            <table class="table">
+                                                <thead>
+                                                    <tr class="head-row">
+                                                        <th class="title">#</th>
+                                                        <th class="title">شماره سفارش</th>
+                                                        <th class="title">تاریخ ثبت سفارش</th>
+                                                        <th class="title">زمان تحویل سفارش</th>
+                                                        <th class="title">مبلغ قابل پرداخت</th>
+                                                        <th class="title">مبلغ کل</th>
+                                                        <th class="title">جزئیات</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="body-row">
+                                                        <td class="data">1</td>
+                                                        <td class="data">bskp-2456879</td>
+                                                        <td class="data">1397/05/25</td>
+                                                        <td class="data">1397/05/28</td>
+                                                        <td class="data price">1/589/200</td>
+                                                        <td class="data price">1/650/00</td>
+                                                        <td class="data"><a href="#">جزئیات</a></td>
+                                                    </tr>
+                                                    <tr class="body-row">
+                                                        <td class="data">1</td>
+                                                        <td class="data">bskp-2456879</td>
+                                                        <td class="data">1397/05/25</td>
+                                                        <td class="data">1397/05/28</td>
+                                                        <td class="data">1/589/200</td>
+                                                        <td class="data">1/650/00</td>
+                                                        <td class="data"><a href="#">جزئیات</a></td>
+                                                    </tr>
+                                                    <tr class="body-row">
+                                                        <td class="data">1</td>
+                                                        <td class="data">bskp-2456879</td>
+                                                        <td class="data">1397/05/25</td>
+                                                        <td class="data">1397/05/28</td>
+                                                        <td class="data">1/589/200</td>
+                                                        <td class="data">1/650/00</td>
+                                                        <td class="data"><a href="#">جزئیات</a></td>
+                                                    </tr>
+                                                    <tr class="body-row">
+                                                        <td class="data">1</td>
+                                                        <td class="data">bskp-2456879</td>
+                                                        <td class="data">1397/05/25</td>
+                                                        <td class="data">1397/05/28</td>
+                                                        <td class="data">1/589/200</td>
+                                                        <td class="data">1/650/00</td>
+                                                        <td class="data"><a href="#">جزئیات</a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

@@ -1,87 +1,146 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<section class="inner-page" id="contact-page">
-    <div class="container-fluid" id="page-hero">
-        <div class="row">
-            <div class="col-12">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 px-0">
-                            <h1>تماس با ما</h1>
-                            <p>با ما در ارتباط باشید.</p>
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">صفحه نخست</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">تماس با ما</li>
-                                </ol>
-                            </nav>
+
+<div class="menu__overlay--bg"></div>
+<div class="overlay--bg"></div>
+
+<div class="main">
+    <div class="container-fluid">
+        <div class="main__inner">
+            <div class="profile-page">
+                <div class="profile-page__inner">
+                    <div class="breadcrumbs">
+                        <div class="breadcrumbs__inner">
+                            <div class="items">
+                                <div class="item"><a href="#">خانه</a></div>
+                                <div class="item"><a href="#">پروفایل کاربری</a></div>
+                                <div class="item"><a href="#">آدرس‌ها</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrapper c-row no-wrapper">
+                        <div class="side-right col-lg-3">
+                            <div class="side-right__inner">
+                                <div class="profile-view-box box">
+                                    <div class="profile-view-box__inner">
+                                        <div class="p-avatar">
+                                            <i class="mdi mdi-account-circle-outline mdi-48px text-black-50"></i>
+                                        </div>
+                                        <div class="p-name">
+                                            <span class="p-name--text">الهام موالی</span>
+                                        </div>
+                                        <div class="p-action">
+                                            <div class="p-action__inner">
+                                                <div class="change_p-info">
+                                                    <span class="mdi mdi-account-settings"></span>
+                                                    <span class="text">تنظیمات پروفایل</span>
+                                                </div>
+                                                <span class="h-separate"></span>
+                                                <div class="logout">
+                                                    <span class="mdi mdi-power"></span>
+                                                    <span class="text">خروج</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="profile-menu">
+                                    <div class="profile-menu__inner">
+                                        <div class="menus">
+                                            <div class="menu">
+                                                <div class="menu__inner">
+                                                    <span class="icon mdi mdi-shopping"></span>
+                                                    <a href="./product-orders.html"><span
+                                                            class="text">سفارش‌ محصولات</span></a>
+                                                </div>
+                                            </div>
+                                            <div class="menu">
+                                                <div class="menu__inner">
+                                                    <span class="icon mdi mdi-format-paint"></span>
+                                                    <a href="./single-product-order.html"><span class="text">سفارش‌ خدمات</span></a>
+                                                </div>
+                                            </div>
+                                            <div class="menu">
+                                                <div class="menu__inner">
+                                                    <span class="icon mdi mdi-map-marker"></span>
+                                                    <span class="icon navigate mdi mdi-chevron-down"></span>
+                                                    <a href="./myprofile.html"><span class="text">آدرس‌ها</span></a>
+                                                </div>
+                                                <div class="sub-menu p-menu-hidden">
+                                                    <span><a href="./add-adress.html">افزودن آدرس</a></span>
+                                                </div>
+                                            </div>
+                                            <div class="menu">
+                                                <div class="menu__inner">
+                                                    <span class="icon mdi mdi-bell"></span>
+                                                    <a href="##"><span class="text">اعلان‌ها</span></a>
+                                                </div>
+                                            </div>
+                                            <div class="menu active">
+                                                <div class="menu__inner">
+                                                    <span class="icon navigate mdi mdi-chevron-down"></span>
+                                                    <span class="icon mdi mdi-account"></span>
+                                                    <a href="##"><span class="text">اطلاعات فردی</span></a>
+                                                </div>
+                                                <div class="sub-menu p-menu-hidden">
+                                                    <span><a href="./edit-personal-info.html">ویرایش اطلاعات فردی</a></span>
+                                                </div>
+                                            </div>
+                                            <div class="menu">
+                                                <div class="menu__inner">
+                                                    <span class="icon mdi mdi-heart"></span>
+                                                    <a href="./favorates.html"><span
+                                                            class="text">علاقه‌مندی‌ها</span></a>
+                                                </div>
+                                            </div>
+                                            <div class="menu">
+                                                <div class="menu__inner">
+                                                    <span class="icon mdi mdi-eye"></span>
+                                                    <a href="./recentlyVisit.html"><span
+                                                            class="text">بازدید های اخیر</span></a>
+                                                </div>
+                                            </div>
+                                            <div class="menu">
+                                                <div class="menu__inner">
+                                                    <span class="icon navigate mdi mdi-chevron-down"></span>
+                                                    <span class="icon mdi mdi-message"></span>
+                                                    <a href="./ticket.html"><span class="text">تیکت‌ها</span></a>
+                                                </div>
+                                                <div class="sub-menu p-menu-hidden">
+                                                    <span><a href="./add-ticket.html"> افزودن تیکت جدید</a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                </div>
+                        </div>
+                        <div class="side-left col-lg-9">
+                            <div class="side-left__inner">
+                                <div class="add-tickets">
+                                    <div class="add-tickets__inner">
+                                        <div class="profile-section-title">
+                                            <span class="mdi mdi-message-plus"></span>
+                                            <span class="profile-section-title--text">افزودن تیکت</span>
+                                        </div>
+                                        <label for="add-ticket--inp" class="add-ticket">
+                                        <span class="add-ticket--text text">متن تیکت شما</span>
+                                        <textarea rows="8" id="add-ticket--inp"
+                                                  placeholder="متن تیکت را اینجا بنویسید" name="add-ticket--inp"
+                                                  class="add-ticket--inp"></textarea>
+                                    </label>
+                                        <div class="submit-add-ticket">
+                                            <input type="submit" value="ارسال تیکت" class="submit-add-ticket--btn">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="content p-0 p-sm-3">
-                    <div class="row">
-                        <div class="col-12 col-lg-5 text-center" id="contact-page-info">
-                            <div class="info">
-                                <i class="fa fa-map-marked"></i>
-                                <div class="title">آدرس فروشگاه:</div>
-                                <div>ایران، تهران، جردن</div>
-                            </div>
-                            <div class="info">
-                                <i class="fa fa-phone"></i>
-                                <div class="title">تلفن تماس:</div>
-                                <div>02112345678</div>
-                                <div>09351234567</div>
-                            </div>
-                            <div class="info">
-                                <i class="fa fa-envelope"></i>
-                                <div class="title">پست الکترونیک:</div>
-                                <div>email@website.com</div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-7 p-4">
-                            <div class="title">ارسال پیام</div>
-                            <p>نظرات، پیشنهادات و انتقادات سازنده خود را از طریق فرم زیر با ما در میان بگذارید. ما در این فروشگاه اینترنتی همواره برای بهبود خدمات خود در تلاش هستیم.</p>
-                            <div class="form-group">
-                                <label for="name">نام شما :</label>
-                                <input type="text" class="form-control" id="name">
-                            </div>
-                            <div class="form-group">
-                                <label for="tel">تلفن تماس :</label>
-                                <input type="text" class="form-control" id="tel">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">پست الکترونیک :</label>
-                                <input type="text" class="form-control" id="email">
-                            </div>
-                            <div class="form-group">
-                                <label for="subject">موضوع پیام :</label>
-                                <input type="text" class="form-control" id="subject">
-                            </div>
-                            <div class="form-group">
-                                <label for="message">متن پیام :</label>
-                                <textarea name="" class="form-control" id="message" rows="3"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" value="ارسال پیام" class="btn btn-success">
-                            </div>
-                        </div>
-                        <div class="col-12 mt-4 px-0">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13877.455761926274!2d52.5714962!3d29.5931048!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xcc3a67871fb07f53!2z2YjYqCDYsdmI2KjbjNqpIC0gV2ViUnViaWs!5e0!3m2!1sen!2sca!4v1600581121318!5m2!1sen!2sca" width="100%" height="400" class="rounded"></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
+</div>
 <!-- Footer -->
 {% endblock %}

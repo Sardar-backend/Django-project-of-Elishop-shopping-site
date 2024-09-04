@@ -6,7 +6,7 @@ from taggit.managers import TaggableManager
 class Category(models.Model):
     name = models.CharField(max_length=255)
     def __str__(self):
-        return  "{},{}".format(self.id,self.name)
+        return  "{}".format(self.name)
 
 
 class product(models.Model):
@@ -22,6 +22,8 @@ class product(models.Model):
     counted_view = models.IntegerField(default=0)
     status = models.BooleanField(default=False)
     published_date = models.DateField(null=True)
+    count= models.IntegerField(default=0)
+    Ready_to_send = models.BooleanField(default=False)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
     class Meta:
@@ -70,6 +72,53 @@ class contact (models.Model):
 
     def __str__(self):
         return  "{} - {}".format(self.title,self.name)
+
+
+
+class Order (models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL ,null=True)
+    order_number = models.CharField(max_length=255)
+    Amount_payable = models.IntegerField(default=0)
+    Amount_total = models.IntegerField(default=0)
+    Order_registration_date = models.DateTimeField(auto_now_add=True)
+    Order_delivery_time = models.DateTimeField(default=None)
+    class Meta:
+        ordering = ['Order_registration_date']
+        verbose_name = "سفارش"
+        verbose_name_plural ="سفارشات"
+
+    def __str__(self):
+        return  "{} - {}".format(self.user,self.order_number)
+
+
+class adresses (models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL ,null=True)
+    recipient_name = models.CharField(max_length=255)
+    ostan = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)
+    mobile_recver = models.IntegerField(default=0)
+    Postal_code = models.IntegerField(default=0)
+    content = models.TextField()
+    created_date = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        ordering = ['-created_date']
+        verbose_name = "آدرس"
+        verbose_name_plural ="آدرس ها"
+
+    def __str__(self):
+        return  "{} - {}".format(self.recipient_name,self.user)
+
+
+
+
+
+
+
+
+
+
+
+
 class newsletter (models.Model):
     email = models.EmailField()
     created_date = models.DateTimeField(auto_now_add=True)
