@@ -2,11 +2,22 @@ from django import forms
 from home.models import contact, newsletter,comment,adresses,Order
 from captcha.fields import CaptchaField
 from django.contrib.auth.models import User
+# from captcha.fields import ReCaptchaField
+# from captcha.widgets import ReCaptchaV2Checkbox
+from django_recaptcha.fields import ReCaptchaField
+from django_recaptcha.widgets import ReCaptchaV2Invisible
+# from django_recaptcha.fields import ReCaptchaField
+
+class captcha (forms.Form):
+    captcha = ReCaptchaField()
+        # captcha = ReCaptchaField(widget=ReCaptchaV2Invisible)
+
 class contactform(forms.ModelForm):
-    captcha = CaptchaField()
+    # captcha = CaptchaField()
     class Meta:
         model =contact
-        fields='__all__'
+        fields=['name','content']
+        #fields=['name','content']
 
 class neeslettertform(forms.ModelForm):
 
@@ -18,7 +29,7 @@ class commentform(forms.ModelForm):
 
     class Meta:
         model=comment
-        fields=['name', 'title','content','email','pro']
+        fields=['name','cost','quality','Innovation','beauty','Services','Longevity', 'title','content','pro']
 
 class adressform(forms.ModelForm):
 

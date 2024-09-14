@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 {% for p in products %}
+{% load humanize %}
 <div class="menu__overlay--bg"></div>
 <div class="overlay--bg"></div>
 
@@ -108,6 +109,7 @@
 
                                                 </span>
                                             </span>
+                                            <form id="formlike" action="{% url 'home:favorates' %}" method="post">{% csrf_token %}<input type="hidden" name="product_id" value="{{p.id}}"></form>
                                                 <div class="share__like">
                                                     <div class="share__like__inner">
                                                     <span class="mdi mdi-share-variant">
@@ -119,15 +121,20 @@
                                                                         class="mdi mdi-whatsapp"></span></span>
                                                         </span>
                                                     </span>
-                                                        <span class="mdi mdi-heart-outline">
+                                                    {% if p in favorates %}
+                                                    <img class="iconlike mdi" src="{% static './asset/images/mdi--heart-outline.png' %}" alt="">
+                                                    {% else %}
+                                                    <span onclick="let form =document.querySelector('#formlike').submit()" class="mdi mdi-heart-outline">
                                                     </span>
+
+                                                    {% endif %}
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="separate-line"></span>
                                         <div class="fourth-section">
-                                            <div class="row fourth-section__inner">
+                                            <!-- <div class="row fourth-section__inner">
                                                <span class="code col-lg-12">
                                                     <span class="code-key"> کد محصول : </span>
                                                     <span class="code-value"> DI-656894</span>
@@ -138,20 +145,35 @@
                                       ناموجود
                                     </a>
                                             </span>
-                                            </div>
+                                            </div> -->
+
+                                            <div class="row fourth-section__inner">
+                                                <span class="code col-lg-12">
+                                                     <span class="code-key"> کد محصول : </span>
+                                                     <span class="code-value"> DI-۶۵۶۸۹۴</span>
+                                               </span>
+
+
+                                                 <span class="price d-flex align-items-center dt-sl ">
+                                                     <span class="price-key"> قیمت : </span>
+                                                     <span class="price-value">۳٫۲۰۰٫۰۰۰</span>
+                                                     <span class="price-unit">تومان</span>
+                                                 </span>
+                                                 <form id="form" action="{% url 'blog:add_to_cart'  product_id=p.id  %}" method="get"></form>
+                                                 <span class="add-to-card col-lg-12">
+                                                 <span onclick="let add=document.querySelector('#form').submit()" class="add-to-card__inner">
+                                                     <span class="icon mdi mdi-cart-plus"></span>
+                                                     <span class="text">افزودن به سبد خرید</span>
+                                                 </span>
+                                             </span>
+                                             </div>
+
+
                                         </div>
                                         <span class="separate-line"></span>
                                         <div class="fifth-section">
                                             <div class="fifth-section__inner">
-                                                <div class="seller col-lg-6 col-6">
-                                                    <div class="seller__inner">
-                                            <span class="key">
-                                                <span class="key--icon mdi mdi-store"></span>
-                                                <span class="key--text">فروشنده:</span>
-                                            </span>
-                                                        <span class="value">دیجی لند</span>
-                                                    </div>
-                                                </div>
+
                                                 <div class="guaranty col-lg-6 col-6">
                                                     <div class="guaranty__inner">
                                                     <span class="key">
@@ -175,14 +197,7 @@
                                 </div>
                                 <div class="product-info col-lg-2 col-12">
                                     <div class="product-info__inner">
-                                        <div class="seller-number">
-                                            <div class="seller-number__inner">
-                                                <span class="mdi mdi-store"></span>
-                                                <span class="number">۶</span>
-                                                <span class="title">فروشنده دیگر</span>
-                                            </div>
-                                        </div>
-                                        <div class="separate-line"></div>
+
                                         <div class="description">
                                             <div class="description__inner">
                                                 <span class="title">ویژگی محصول</span>
@@ -194,12 +209,13 @@
                                                 </ul>
                                             </div>
                                         </div>
+                                        <div class="separate-line"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="product-sellers">
+                    <!-- <div class="product-sellers">
                         <div class="product-sellers__inner">
                             <div class="head-titles">
                                 <div class="head-titles-items">
@@ -283,7 +299,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="product-full-information">
                         <div class="product-full-information__inner">
                             <div class="tabs">
@@ -299,20 +315,17 @@
                                     <span class="tab--icon mdi mdi-message-text"></span>
                                     <span class="tab--text">نظرات کاربران</span>
                                 </span>
-                                <span class="tab question-answer" data-tab-id="4">
+                                <!-- <span class="tab question-answer" data-tab-id="4">
                                     <span class="tab--icon mdi mdi-comment-question"></span>
                                     <span class="tab--text">پرسش و پاسخ</span>
-                                </span>
+                                </span> -->
                             </div>
                             <div class="contents">
                                 <div class="review-content content-item show" data-self-tab-id="1">
                                     <div class="review-content__inner">
                                         <div class="title">
                                             <div class="title-pre--text">معرفی مختصر برای:</div>
-                                            <div class="title-main--text">گوشی موبایل سامسونگ مدل Galaxy J7 Pro
-                                                SM-J730F
-                                                دو
-                                                سیم‌ کارت ظرفیت 64 گیگابایت
+                                            <div class="title-main--text">{{p.title}}
                                             </div>
                                         </div>
                                         <div class="picture">
@@ -320,57 +333,7 @@
                                         </div>
                                         <div class="description">
                                             <div class="desciption--text">
-                                                گوشی مدل «Y9 2019» از سری محصولات شرکت مطرح هوآوی است که با پنل IPS
-                                                LCD
-                                                ساخته‌شده و فاصله لبه صفحه‌نمایش در آن بسیار کم است. نمایشگر این
-                                                محصول
-                                                دارای
-                                                رزولوشن بالایی در مقایسه با گوشی‌های معمول ساخت هواوی دارد؛
-                                                به‌طوری‌که
-                                                در
-                                                اندازه‌ی 6.5 اینچی‌اش، حدود 396 پیکسل را در هر اینچ جا داده است. در
-                                                گوشی
-                                                نوا
-                                                Y9 2019 هوآوی نمایشگر تقریباً تمام قاب جلویی گوشی را پر کرده است.
-                                                این
-                                                مشخصه
-                                                در کنار لبه­‌های براق و بدنه از جنس شیشه که بارنگ‌های بسیار زیبا
-                                                مانند
-                                                شفق
-                                                قطبی، جلوه‌ای لوکس به هوآوی Y9 2019 بخشیده است. این بدنه‌ی زیبا در
-                                                مقابل
-                                                خط‌‌وخش مقاومت مطلوبی دارد. ویژگی دیگر Y9 2019 مجهز شدن به حسگر
-                                                اثرانگشت
-                                                است. این فناوری خطوط انگشت شما را با استفاده از فناوری جدید شناسایی
-                                                می­‌کند
-                                                و تنها با لمس انگشت شما قفل گوشی را باز می‌کند. حسگر اثرانگشت در این
-                                                گوشی،
-                                                در قاب پشتی جای گرفته است. علاوه بر این حسگر، دو دوربین که در یکی
-                                                سنسور
-                                                13
-                                                مگاپیکسلی و در دیگری 2 مگاپیکسل قرار دارد در قسمت پشتی این گوشی جای
-                                                گرفته‌اند. دوربین‌های سلفی Y9 2019 هم به سنسور 16 و 2 مگاپیکسلی مجهز
-                                                شده
-                                                است. دوریبن‌های دو مگاپیکسلی این گوشی کاربرد حسگر عمق دارند. قابلیت
-                                                اتصال به
-                                                شبکه‌ ارتباطی 4G با سرعت کاملاً مطلوب، بلوتوث نسخه­‌ی 5.0، نسخه­‌ی
-                                                8.1
-                                                از
-                                                اندروید و حذف کلید خانه که به نظر هوآوی هم دیگر نیازی به آن نیست، از
-                                                دیگر
-                                                ویژگی‌های جدید این گوشی هستند. ازنظر سخت‌افزاری هم این گوشی از
-                                                تراشه‌ی
-                                                Hisilicon Kirin 710 بهره می‌­برد که در آن پردازنده‌‌ای هشت‌هسته‌ا‌ی
-                                                و
-                                                قدرتمند قرارگرفته تا بتواند علاوه‌بر کارهای معمول، از قابلیت‌‌های
-                                                به‌روز
-                                                که
-                                                هوآوی این روزها روی آن تمرکز خاصی دارد، پشتیبانی کند. گوشی Y9 2019
-                                                محصولی
-                                                بسیار زیبا و با امکانات فراوان است که به عنوان گوشی مدرن و باتری
-                                                پرقدرت
-                                                4000
-                                                میلی‌آمپرساعتی به بازار عرضه شده است.
+                                            {{p.description}}
                                             </div>
                                         </div>
                                     </div>
@@ -379,9 +342,8 @@
                                     <div class="properties-content__inner">
                                         <div class="title">
                                             <div class="title-pre--text">مشخصات برای:</div>
-                                            <div class="title-main--text">گوشی موبایل سامسونگ مدل Galaxy J7 Pro
-                                                SM-J730F دو سیم‌ کارت ظرفیت 64
-                                                گیگابایت
+                                            <div class="title-main--text">{{p.title}}
+
                                             </div>
                                         </div>
                                         <div class="items">
@@ -445,10 +407,11 @@
                                                             <span class="head-title">شما هم میتونید درمورد این محصول نظر بدید</span>
                                                             <span class="description">برای ثبت  نظر، لازم است ابتدا وارد حساب کاربری خود شوید. و این محصول را هم خریداری کرده باشید</span>
                                                             <div class="request-button">
-                                                                <div class="request-button__inner">
+                                                                <form action="{% url 'home:comment_view' id=p.id %}" method="post">{% csrf_token %}
+                                                                <button class="request-button__inner">
                                                                     <span class="icon mdi mdi-comment-plus"></span>
                                                                     <span class="text">افزودن نظر جدید</span>
-                                                                </div>
+                                                                </button></form>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -467,59 +430,36 @@
                                             </div>
                                         </div>
                                         <div class="comments">
+                                        {% for comment in comments %}
+
                                             <div class="comment">
-                                                <div class="top">
-                                                    <div class="avatar">
-                                                        <span class="mdi mdi-account-circle-outline"></span>
-                                                    </div>
-                                                    <div class="user-display-name">مرتضی کوهی</div>
-                                                    <div class="time">
-                                                        <span class="mdi mdi-clock-outline"></span>
-                                                        <span class="time--text">15 مرداد ۱۳۹۹</span>
-                                                    </div>
+                                            <div class="top">
+                                                <div class="avatar">
+                                                    <span class="mdi mdi-account-circle-outline"></span>
                                                 </div>
-                                                <div class="bottom">
-                                                    <div class="content">
-                                                        <span class="content--text">گوشی خوبیه. ۳ ماه اولش که خریدم باتریش عای بود ولی نمیدونم الان بعد یکسال کمی زود شارژ خالی میکنه. در کل نسبت به قیمتش عالیه!</span>
-                                                        <span class="like-dislike">
-                                                        <span class="like"><img class="like--img"
-                                                                                src="{% static './asset/images/like.png' %}"
-                                                                                alt=""><span
-                                                                class="like--text">۳۲</span></span>
-                                                        <span class="dislike"><img class="dislike--img"
-                                                                                   src="{% static './asset/images/dislike.png' %}"
-                                                                                   alt=""><span
-                                                                class="dislike--text">۹</span></span>
-                                                    </span>
-                                                    </div>
+                                                <div class="user-display-name">{{comment.name}}</div>
+                                                <div class="time">
+                                                    <span class="mdi mdi-clock-outline"></span>
+                                                    <span class="time--text">{{comment.created_date|naturalday}}</span>
                                                 </div>
                                             </div>
-                                            <div class="comment">
-                                                <div class="top">
-                                                    <div class="avatar"><span
-                                                            class="mdi mdi-account-circle-outline"></span></div>
-                                                    <div class="user-display-name">مرتضی کوهی</div>
-                                                    <div class="time">
-                                                        <span class="mdi mdi-clock-outline"></span>
-                                                        <span class="time--text">۱۳ اردیبهشت ۱۳۹۹</span>
-                                                    </div>
-                                                </div>
-                                                <div class="bottom">
-                                                    <div class="content">
-                                                        <span class="content--text">گوشی خوبیه. ۳ ماه اولش که خریدم باتریش عای بود ولی نمیدونم الان بعد یکسال کمی زود شارژ خالی میکنه. در کل نسبت به قیمتش عالیه!</span>
-                                                        <span class="like-dislike">
-                                                        <span class="like"><img class="like--img"
-                                                                                src="{% static './asset/images/like.png' %}"
-                                                                                alt=""><span
-                                                                class="like--text">۳۲</span></span>
-                                                        <span class="dislike"><img class="dislike--img"
-                                                                                   src="{% static './asset/images/dislike.png' %}"
-                                                                                   alt=""><span
-                                                                class="dislike--text">۹</span></span>
-                                                    </span>
-                                                    </div>
+                                            <div class="bottom">
+                                                <div class="content">
+                                                    <span class="content--text">{{comment.content}}</span>
+                                                    <span class="like-dislike">
+                                                    <span class="like"><img class="like--img"
+                                                                            src="{% static './asset/images/like.png' %}"
+                                                                            alt=""><span
+                                                            class="like--text">{{comment.likes}}</span></span>
+                                                    <span class="dislike"><img class="dislike--img"
+                                                                               src="{% static './asset/images/dislike.png' %}"
+                                                                               alt=""><span
+                                                            class="dislike--text">۹</span></span>
+                                                </span>
                                                 </div>
                                             </div>
+                                            </div>
+                                        {% endfor %}
                                         </div>
                                     </div>
                                 </div>

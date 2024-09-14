@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <div class="menu__overlay--bg"></div>
+    <div class="overlay--bg"></div>
+    <div class="main">
+        <div class="container-fluid">
+            <div class="main__inner">
+                <div class="notfound-page">
+                    <div class="notfound-page__inner">
+                        <div class="row">
+                            <div class="col-12 px-res-1">
+                                <div class="dt sl nf-sn pt-3 pb-5">
+                                    <div class="cart-page cart-empty">
+                                        <div class="circle-box-icon">
+                                            <i class="mdi mdi-cart-remove"></i>
+                                        </div>
+                                        <p class="cart-empty-title">سبد خرید شما خالیست!</p>
+                                        <p>می‌توانید برای مشاهده محصولات بیشتر به صفحات زیر بروید:</p>
+                                        <div class="cart-empty-links mb-5">
+                                            <a href="#" class="border-bottom-dt after">لیست مورد علاقه من</a>
+                                            <a href="#" class="border-bottom-dt">محصولات پرفروش روز</a>
+                                        </div>
+                                        <a href="#" class="btn-primary-cm">
+
+                                        ادامه خرید در
+                                        پروکالا
+
+                                    </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

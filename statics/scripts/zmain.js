@@ -15,6 +15,7 @@ $(document).ready(function () {
 });
 
 
+
 $(document).ready(function () {
     // add swiper main slider to home page
     let discountSlider = new Swiper('.discounts-slider__inner', {
@@ -485,7 +486,7 @@ jQuery(document).ready(function () {
             beforeSend: function () {
                 jQuery(".loading-svg").toggleClass("hidden");
             }
-            
+
         })
     })
 

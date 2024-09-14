@@ -28,23 +28,28 @@
                                             <span class="mdi mdi-message"></span>
                                             <span class="profile-section-title--text">تیکت‌ها</span>
                                         </div>
+                                        {% for item in tickets %}
                                         <div class="ticket">
                                             <div class="ticket__inner">
                                                 <span class="ticket-icon">
                                                     <span class="mdi mdi-message"></span>
                                                 </span>
                                                 <div class="conversation">
-                                                    <div class="question"><span class="question-value">سلام، ببخشید می خواستم بدونم قیمتتاتون آپدیته یعنی من محصولی سفارش بدم همون قیمت سایت بدستم میرسه؟</span></div>
+
+                                                    <div class="question"><span class="question-value">{{item.content}}</span></div>
+                                                    {% if item.answer %}
+
                                                     <div class="answer">
-                                                        <span class="answer-value">سلام، بله قیمت ها آپیت شدن و میتونید با خیال راحت محصولتونو سفارش بدید</span>
+                                                        <span class="answer-value">{{item.answer}}</span>
                                                     </div>
-                                                    <div class="question"><span class="question-value">خیلی ممنون، راستی محصول که سفارش دادم چند روزه دستم میرسه، اهواز هستیم.</span></div>
+                                                    {% endif %}
                                                 </div>
-                                                <span class="actions">
+                                                <!-- <span class="actions">
                                                     <a href="#"><span class="delete">حذف</span></a>
-                                                </span>
+                                                </span> -->
                                             </div>
                                         </div>
+                                        {% endfor %}
                                     </div>
                                 </div>
                             </div>

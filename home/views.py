@@ -1,13 +1,16 @@
 from typing import Any
-from django.shortcuts import render , HttpResponseRedirect
+from django.shortcuts import render , HttpResponseRedirect , HttpResponse ,get_object_or_404 ,redirect
 from home.models import product , adresses
-from home.models import Categorys , Category
+from home.models import Categorys , Category , contact
 from django.core.paginator import Paginator
-from home.form import contactform , neeslettertform ,adressform
+from home.form import contactform , neeslettertform ,adressform , captcha
 from django.contrib import messages
 from django.views.generic import TemplateView , ListView
+from django.contrib.auth.decorators import login_required
+from blog.cart import Cart
 
 # Create your views here.
+@login_required(login_url='/')
 def contact_view(request):
     if request.method == 'POST':
         form = contactform(request.POST)
@@ -17,7 +20,15 @@ def contact_view(request):
         else:
             messages.add_message(request,messages.ERROR,'متاسفانه پیام شما ارسال نشد')
     form = contactform()
-    return render(request, 'view/profile/add-ticket.html',{'form':form})
+    username=request.user.id
+    context ={'form':form,'username':username}
+    cart =Cart(request)
+    context['CartNumber'] =len(cart)
+    context['Cart'] =cart
+    context['total'] =cart.get_total_price()
+    return render(request, 'view/profile/add-ticket.html',context)
+
+@login_required(login_url='/')
 def add_adress(request):
     if request.method == 'POST':
         form = adressform(request.POST)
@@ -27,14 +38,25 @@ def add_adress(request):
         else:
             messages.add_message(request,messages.ERROR,'متاسفانه پیام شما ارسال نشد')
     form = adressform()
-    return render(request, 'view/profile/add-adress.html',{'form':form})
+    context ={'form':form}
+    cart =Cart(request)
+    context['CartNumber'] =len(cart)
+    context['Cart'] =cart
+    context['total'] =cart.get_total_price()
+    return render(request, 'view/profile/add-adress.html',context)
+
 class category_view(TemplateView):
     template_name = 'view/category.html'
     def get_context_data(self, **kwargs):
         context =  super().get_context_data(**kwargs)
         category = Category.objects.all()
         context['categorys'] = list(category)
+        cart =Cart(self.request)
+        context['CartNumber'] =len(cart)
+        context['Cart'] =cart
+        context['total'] =cart.get_total_price()
         return context
+
 
 class products_view(ListView):
     template_name = 'view/products.html'
@@ -43,6 +65,14 @@ class products_view(ListView):
     # ordering = '-created_date'
     paginate_by = 12
     context_object_name= 'products'
+
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        cart =Cart(self.request)
+        context['CartNumber'] =len(cart)
+        context['Cart'] =cart
+        context['total'] =cart.get_total_price()
+        return context
 
 
 class products_exist (ListView):
@@ -56,8 +86,59 @@ class products_exist (ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['exist'] = 'فقط کالا های موجود'
-        # context["now"] = timezone.now()
+        cart =Cart(self.request)
+        context['CartNumber'] =len(cart)
+        context['Cart'] =cart
+        context['total'] =cart.get_total_price()
         return context
+
+class cheapest (ListView):
+    template_name = 'view/products.html'
+    queryset = product.objects.filter(status=True)
+    ordering = 'price'
+    # ordering = '-created_date'
+    paginate_by = 12
+    context_object_name= 'products'
+
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        cart =Cart(self.request)
+        context['CartNumber'] =len(cart)
+        context['Cart'] =cart
+        context['total'] =cart.get_total_price()
+        return context
+
+class expensive (ListView):
+    template_name = 'view/products.html'
+    queryset = product.objects.filter(status=True)
+    ordering = '-price'
+    # ordering = '-created_date'
+    paginate_by = 12
+    context_object_name= 'products'
+
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        cart =Cart(self.request)
+        context['CartNumber'] =len(cart)
+        context['Cart'] =cart
+        context['total'] =cart.get_total_price()
+        return context
+
+class discounts (ListView):
+    template_name = 'view/products.html'
+    queryset = product.objects.filter(status=True)
+    ordering = '-Discoust'
+    # ordering = '-created_date'
+    paginate_by = 12
+    context_object_name= 'products'
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        cart =Cart(self.request)
+        context['CartNumber'] =len(cart)
+        context['Cart'] =cart
+        context['total'] =cart.get_total_price()
+        return context
+
 
 class products_ready(ListView):
     template_name = 'view/products'
@@ -67,9 +148,20 @@ class products_ready(ListView):
     context_object_name = 'products'
     def get_context_data(self, **kwargs):
         context =  super().get_context_data(**kwargs)
+        cart =Cart(self.request)
+        context['CartNumber'] =len(cart)
+        context['Cart'] =cart
+        context['total'] =cart.get_total_price()
         context['exist'] = 'فقط کالا های آماده ارسال'
         return context
 
+    # def get_context_data(self, **kwargs):
+    #     context =  super().get_context_data(**kwargs)
+    #     cart =Cart(self.request)
+    #     context['CartNumber'] =len(cart)
+    #     context['Cart'] =cart
+    #     context['total'] =cart.get_total_price()
+    #     return context
 
 def products_views(request,cat_name):
     Product = product.objects.filter(status=True)
@@ -78,6 +170,10 @@ def products_views(request,cat_name):
     page_number = request.GET.get('page')
     x = x.get_page(page_number)
     context = {'products':x}
+    cart =Cart(request)
+    context['CartNumber'] =len(cart)
+    context['Cart'] =cart
+    context['total'] =cart.get_total_price()
     return render(request, 'view/products.html',context)
 
 
@@ -86,6 +182,8 @@ def products_views(request,cat_name):
 #     xx= Productss.filter(category__name=name)
 #     contextt = {'products':xx}
 #     return render(request, 'view/prose.html',contextt)
+
+
 def newsletter(request):
     if request.method == 'POST':
         form = neeslettertform(request.POST)
@@ -95,40 +193,111 @@ def newsletter(request):
     else:
         return HttpResponseRedirect('/')
 
+
+@login_required(login_url='/')
 def profile(request):
-    #item= adresses.objects.filter(user=request.user.id)
-    item= adresses.objects.all()
+    item= adresses.objects.filter(user=request.user.id)
+    # item= adresses.objects.all()
     x=item.count()
-    ite = [1,2,3,4,5,6,7,8,9]
-    context = {'adress':ite,
-               x:'x'}
+    # ite = [1,2,3,4,5,6,7,8,9]
+    context = {'adress':item,'x':x}
+    cart =Cart(request)
+    context['CartNumber'] =len(cart)
+    context['Cart'] =cart
+    context['total'] =cart.get_total_price()
     return render(request, 'view/profile/profile.html', context)
 # def add_adress(request):
 #     return render(request, 'view/profile/add-adress.html')
-
+@login_required(login_url='/')
 def edit_personal(request):
     return render(request, 'view/profile/edit-personal-info.html')
-
+@login_required(login_url='/')
 def favorates(request):
-    return render(request, 'view/profile/favorates.html')
+    if request.method == 'POST':
+        #p=product.objects.filter(id=request.POST.get('product_id'))
+        p=get_object_or_404(product,pk=request.POST.get('product_id'))
+        p.favorites.add(request.user)
+        return redirect(request.META.get('HTTP_REFERER'))
+    favorates= product.objects.filter(favorites__id=request.user.id)
+    context= {'favorates':favorates}
+    cart =Cart(request)
+    context['CartNumber'] =len(cart)
+    context['Cart'] =cart
+    context['total'] =cart.get_total_price()
+    return render(request, 'view/profile/favorates.html', context)
 
-
+@login_required(login_url='/')
 def list_ticket(request):
-    return render(request, 'view/profile/ticket.html')
+    tickets= contact.objects.filter(name=request.user.id)
+    context= {'tickets':tickets}
+    cart =Cart(request)
+    context['CartNumber'] =len(cart)
+    context['Cart'] =cart
+    context['total'] =cart.get_total_price()
+    return render(request, 'view/profile/ticket.html',context)
 
+@login_required(login_url='/')
 def product_orders(request):
-    return render(request, 'view/profile/product-orders.html')
+    context= {}
+    cart =Cart(request)
+    context['CartNumber'] =len(cart)
+    context['Cart'] =cart
+    context['total'] =cart.get_total_price()
+    return render(request, 'view/profile/product-orders.html',context)
 
-def notifications(request):
-    return render(request, 'view/profile/notification.html')
 
 
+def comment (request,id):
+    x = get_object_or_404(product,id=id,status=True)
+    t= request.user
+    context = {'product':x,'t':t}
+    cart =Cart(request)
+    context['CartNumber'] =len(cart)
+    context['Cart'] =cart
+    context['total'] =cart.get_total_price()
+    return render(request, 'view/comments.html',context)
 class about (TemplateView):
     template_name = 'view/about.html'
 
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        cart =Cart(self.request)
+        context['CartNumber'] =len(cart)
+        context['Cart'] =cart
+        context['total'] =cart.get_total_price()
+        return context
+
+class privacy (TemplateView):
+    template_name = 'view/privacy.html'
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        cart =Cart(self.request)
+        context['CartNumber'] =len(cart)
+        context['Cart'] =cart
+        context['total'] =cart.get_total_price()
+        return context
 
 class home_view (TemplateView):
     template_name = 'view/index.html'
+
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        cart =Cart(self.request)
+        context['CartNumber'] =len(cart)
+        context['Cart'] =cart
+        context['total'] =cart.get_total_price()
+        return context
+
+class faq_view (TemplateView):
+    template_name = 'view/faq.html'
+
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        cart =Cart(self.request)
+        context['CartNumber'] =len(cart)
+        context['Cart'] =cart
+        context['total'] =cart.get_total_price()
+        return context
 
     # def get_context_data(self, **kwargs):
     #     return super().get_context_data(**kwargs)

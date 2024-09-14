@@ -6,7 +6,7 @@
 
 <div class="menu__overlay--bg"></div>
 <div class="overlay--bg"></div>
-<div class="main" data-category-name="category-cup-coffe">
+<div class="main" data-category-name="category-cup-coffe"><br>
     <div class="container-fluid">
         <div class="main__inner">
             <div class="search-page">
@@ -115,7 +115,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="box colors-box">
+                                        <!-- <div class="box colors-box">
                                             <div class="box__inner colors-box__inner has-drop-down">
                                                 <div class="box-title">
                                                     <span class="text">رنگ ها</span>
@@ -160,7 +160,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="box existing-pd-box">
 
 
@@ -239,9 +239,9 @@
                                                         rd.addEventListener('click',function() {
                                                            let ggg =  r.innerHTML
                                                           let ff=  ro.innerHTML
-                                                          let i = "ssasastyyss"
+
                                                           t.value=ggg.replace(',','')
-                                                          console.log(ff)
+
                                                           ruo.value=ff.replace(',','')
                                                     })
                                                     </script>
@@ -260,6 +260,7 @@
                                                 <span class="text">مرتب سازی بر اساس:</span>
                                             </div>
                                             <div class="filter" data-sort-id="1">
+
                                             <span class="filter--text">
                                                 پرفروش‌ترین
                                             </span>
@@ -269,20 +270,31 @@
                                                 مرتبط‌ترین
                                             </span>
                                             </div> -->
-                                            <div class="filter" data-sort-id="3">
+                                            <!-- <form id="cheapest" action="" method="get"><input type="hidden" name="cheapest" value="true"></form>
+                                            <div onclick="let cheapest =document.querySelector('#cheapest').submit()" class="filter" data-sort-id="3">
+
                                             <span class="filter--text">
                                                 ارزان‌ترین
                                             </span>
+                                            </div> -->
+
+                                            <div class="filter {% if request.path == '/products_cheapest/' %} active {% endif %} " data-sort-id="3">
+                                                <a href="{% url 'home:cheapest' %}">
+                                                    <span class="filter--text">
+                                                        ارزان‌ترین
+                                                    </span></a>
                                             </div>
-                                            <div class="filter" data-sort-id="4">
-                                            <span class="filter--text">
-                                                گران‌ترین
-                                            </span>
+                                            <div class="filter  {% if request.path == '/products_expensive/' %} active {% endif %}" data-sort-id="4">
+                                            <a href="{% url 'home:expensive' %}">
+                                                <span class="filter--text">
+                                                    گران‌ترین
+                                                </span></a>
                                             </div>
-                                            <div class="filter" data-sort-id="5">
+                                            <div class="filter {% if request.path == '/products_discounts/' %} active {% endif %} " data-sort-id="5">
+                                            <a href="{% url 'home:discounts' %}">
                                             <span class="filter--text">
                                                 بیشترین تخفیف
-                                            </span>
+                                            </span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -292,12 +304,12 @@
                                         <div class="products__inner">
                         {% for pro in products  %}
 
-  				      	<div class="product col-lg-3 no-padding"><a href="{% url 'blog:product_single' pid=5 %}">
+  				      	<div class="product col-lg-3 no-padding"><a href="{% url 'blog:product_single' pid=pro.id %}">
                                                 <div class="product__inner mb-3">
                                                     <div class="has-discount">
-							<div class="colors">
+							<!-- <div class="colors">
                                                             <div class="colors__inner">
-                                                                <!--Be Carefull Maximum of colors Must Not More Than 4 colors -->
+
                                                                 <span class="color"
                                                                       style="background-color: blue;"></span>
                                                                 <span class="color"
@@ -308,7 +320,7 @@
                                                                       style="background-color: mediumseagreen;"></span>
                                                                 <span class="mdi mdi-plus"></span>
                                                             </div>
-                                                        </div>
+                            </div> -->
 							<span class="has-discount--text">فروش ویژه</span>
 						    </div>
                                                     <div class="picture">
@@ -318,7 +330,7 @@
 							<span class="title--text">{{pro.title}}</span>
                                                     </div>
                                                     <div class="price">
-                                                        <span class="price--text">۲۳۴٫۰۰۰</span>
+                                                        <span class="price--text">{{pro.price}}</span>
                                                         <span class="price--unit">تومان</span>
                                                     </div>
                                                 </div>
@@ -330,14 +342,24 @@
                                         <div class="row ">
                                             <div class="col-12">
                                                 <div class="pagination mb-3">
-                                                    <a href="#" class="prev"><i class="mdi mdi-chevron-double-right"></i></a>
-                                                    <a href="#" class="active-page">1</a>
-                                                    <a href="#">2</a>
-                                                    <a href="#">3</a>
-                                                    <a href="#">4</a>
-                                                    <a href="#">...</a>
-                                                    <a href="#">8</a>
-                                                    <a href="#" class="next"><i class="mdi mdi-chevron-double-left"></i></a>
+                                                    <ul>
+                                                        {% if page_obj.has_previous %}
+                                                            <a href="?page={{page_obj.previous_page_number}}" class="prev"><i class="mdi mdi-chevron-double-right"></i></a>
+
+                                                        {% endif %}
+                                                    <!-- <a href="#" class="active-page">1</a> -->
+                                                     {% for i in page_obj.paginator.page_range %}
+                                                        <a {% if page_obj.number == i %} class="active-page" {% endif %} href="?page={{i}}">{{i}}</a>
+
+                                                     {% endfor %}
+
+                                                    <!-- <a href="#">...</a>
+                                                    <a href="#">8</a> -->
+
+                                                    {% if page_obj.has_next %}
+                                                        <a href="?page={{page_obj.next_page_number}}" class="next"><i class="mdi mdi-chevron-double-left"></i></a>
+                                                    {% endif %}
+                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>

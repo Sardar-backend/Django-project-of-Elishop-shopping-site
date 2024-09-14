@@ -7,19 +7,20 @@
                     <i class="mdi mdi-account-circle-outline mdi-48px text-black-50"></i>
                 </div>
                 <div class="p-name">
-                    <span class="p-name--text">الهام موالی</span>
+                    <span class="p-name--text">{{request.user.username}}</span>
                 </div>
                 <div class="p-action">
                     <div class="p-action__inner">
-                        <div class="change_p-info">
+                        <div class="change_p-info"><a href="{% url 'home:edit_personal' %}">
                             <span class="mdi mdi-account-settings"></span>
                             <span class="text">تنظیمات پروفایل</span>
-                        </div>
+                        </a></div>
                         <span class="h-separate"></span>
-                        <div class="logout">
+
+                        <div class="logout"><a href="{% url 'accounts:login_view' %}">
                             <span class="mdi mdi-power"></span>
                             <span class="text">خروج</span>
-                        </div>
+                        </a></div>
                     </div>
                 </div>
             </div>
@@ -53,12 +54,7 @@
                         </div>
                     </div>
 
-                    <div class="menu">
-                        <div class="menu__inner">
-                            <span class="icon mdi mdi-bell"></span>
-                            <a href="{% url 'home:notifications' %}"><span class="text">اعلان‌ها</span></a>
-                        </div>
-                    </div>
+
                     <div class="menu">
                         <div class="menu__inner">
 

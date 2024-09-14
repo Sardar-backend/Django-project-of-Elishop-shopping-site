@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <div class="menu__overlay--bg"></div>
+    <div class="overlay--bg"></div>
+    <div class="main">
+        <div class="container-fluid">
+            <div class="main__inner">
+                <div class="cart-page">
+                    <div class="cart-page__inner">
+                        <div class="breadcrumbs">
+                            <div class="breadcrumbs__inner">
+                                <div class="items">
+                                    <div class="item"><a href="#">خانه</a></div>
+                                    <div class="item"><a href="#">سبد خرید</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="c-row">
+                            <div class="cart-main-bar col-lg-8 col-12">
+                                <div class="cart-main-bar__inner">
+                                    <div class="cart-items">
+                                        {% for item in cart %}
+
+                                        <div class="cart-item" data-pd-id="43296">
+                                            <div class="cart-item__inner">
+                                                <form id="ff{{item.product.id}}" action="{% url 'blog:remove_from_cart' product_id=item.product.id %}" method="get"></form>
+                                                <span onclick="let fff =document.querySelector('#ff{{item.product.id}}').submit()" class="close">
+                                                <span class="mdi mdi-close"></span>
+                                                </span>
+                                                <div class="picture col-3">
+                                                    <img src="{% static 'asset/images/samsung-j7.jpg' %}" alt="">
+                                                </div>
+
+                                                <div class="content">
+                                                    <div class="title"><span class="title--text">{{item.product.title}}</span>
+                                                    </div>
+                                                    <div class="seller">
+                                                        <span class="key">فروشنده:</span>
+                                                        <span class="value">باستینک</span>
+                                                    </div>
+                                                    <div class="feature-detail">
+                                                        <span class="key">رنگ:</span>
+                                                        <span class="value">سفید</span>
+                                                    </div>
+                                                </div>
+                                                <div class="quantity">
+                                                    <span class="key">تعداد:</span>
+                                                    <span class="value">۳ عدد</span>
+                                                    <span class="counter">
+                                                    <span class="mdi mdi-plus"></span>
+                                                    <span class="mdi mdi-minus"></span>
+                                                    </span>
+                                                </div>
+                                                <div class="cost hidden-sm">
+                                                    <span class="number">{{item.product.price}}</span>
+                                                    <span class="unit hidden-sm">تومان</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                        <!-- <div class="cart-item" data-pd-id="43256">
+                                            <div class="cart-item__inner">
+                                                <span class="close">
+                                                <span class="mdi mdi-close"></span>
+                                                </span>
+                                                <div class="picture col-3">
+                                                    <img src="{% static 'asset/images/samsung-j7.jpg' %}" alt="">
+                                                </div>
+                                                <div class="content">
+                                                    <div class="title"><span class="title--text">گوشی ساموسنگ مدل j7</span>
+                                                    </div>
+                                                    <div class="seller">
+                                                        <span class="key">فروشنده:</span>
+                                                        <span class="value">باستینک</span>
+                                                    </div>
+                                                    <div class="feature-detail">
+                                                        <span class="key">رنگ:</span>
+                                                        <span class="value">سفید</span>
+                                                    </div>
+                                                </div>
+                                                <div class="quantity">
+                                                    <span class="key">تعداد:</span>
+                                                    <span class="value">۲ عدد</span>
+                                                    <span class="counter">
+                                                    <span class="mdi mdi-plus"></span>
+                                                    <span class="mdi mdi-minus"></span>
+                                                    </span>
+                                                </div>
+                                                <div class="cost hidden-sm">
+                                                    <span class="number">۴٫۳۲۵٫۰۰۰</span>
+                                                    <span class="unit hidden-sm">تومان</span>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cart-side-bar col-lg-4 col-12">
+                                <div class="cart-side-bar__inner">
+                                    <div class="invoice invoice-item">
+                                        <div class="invoice__inner">
+                                            <div class="original-price invoice-item">
+                                                <span class="key">مبلغ کل</span>
+                                                <span class="value">{{total}}</span>
+                                            </div>
+                                            <div class="profits invoice-item">
+                                                <span class="key">سود شما از خرید</span>
+                                                <span class="value">{{totalDiscoust}}</span>
+                                            </div>
+                                            <div class="transmit-price invoice-item">
+                                                <span class="key">هزینه ارسال</span>
+                                                <span class="value">وابسته به آدرس</span>
+                                            </div>
+                                            <div class="separate-line"></div>
+                                            <div class="payment-price">
+                                                <div class="key">مبلغ قابل پرداخت</div>
+                                                <div class="value">
+                                                    ۱٫۴۳۲٫۰۰۰
+                                                </div>
+                                            </div>
+                                            <div class="payment-process-button">
+                                                <div class="payment-process-button__inner">ادامه ثبت سفارش</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

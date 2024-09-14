@@ -1,5 +1,6 @@
 from django import template
 from home.models import product
+from blog.cart import Cart
 register = template.Library()
 
 @register.inclusion_tag('tagstemp/p.html')
@@ -16,16 +17,12 @@ def lates_s():
     Product = product.objects.filter(status=True)
     Product = Product.filter(category__name="تجهیزات جانبی گوشی").order_by('updated_date')[:7]
     return {'products':Product}
+
 @register.inclusion_tag('tagstemp/p.html')
 def lates_l():
-    Product = product.objects.filter(status=True)
-    Product = Product.filter(category__name="لبنیات").order_by('updated_date')[:4]
+    Product = product.objects.filter(status=True).order_by('-counted_view')[:10]
     return {'products':Product}
-@register.inclusion_tag('tagstemp/p.html')
-def lates_po():
-    Product = product.objects.filter(status=True)
-    Product = Product.filter(category__name="پروتئینی").order_by('updated_date')[:4]
-    return {'products':Product}
+
 @register.inclusion_tag('tagstemp/p.html')
 def lates_r():
     Product = product.objects.filter(status=True)
@@ -38,3 +35,14 @@ def profile_sidbar():
     # Product = product.objects.filter(status=True)
     # Product = Product.filter(category__name="روعن گیاهی").order_by('updated_date')[:4]
     # return {'products':Product}
+
+@register.inclusion_tag('tagstemp/cart.html')
+def cart_fotter():
+    cart = request.session.cart
+    return {'cart': cart}
+
+@register.simple_tag(takes_context=True)
+def get_user_info(context):
+    request = context['request']
+    user = request.user
+    return f"User: {user.username}" if user.is_authenticated else "Guest"

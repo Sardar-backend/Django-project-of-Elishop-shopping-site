@@ -26,20 +26,23 @@
                                 <div class="side-left__inner">
                                     <div class="add-tickets">
                                         <div class="add-tickets__inner">
+                                            <form action="{% url 'home:contact_view' %}" method="post">{% csrf_token %}
+                                                <input type="hidden" name="name" value="{{username}}">
+                                                <!-- <input type="hidden" name="answer" value="   "> -->
                                             <div class="profile-section-title">
                                                 <span class="mdi mdi-message-plus"></span>
                                                 <span class="profile-section-title--text">افزودن تیکت</span>
                                             </div>
                                             <label for="add-ticket--inp" class="add-ticket">
                                             <span class="add-ticket--text text">متن تیکت شما</span>
-                                            <textarea rows="8" id="add-ticket--inp"
-                                                      placeholder="متن تیکت را اینجا بنویسید" name="add-ticket--inp"
+                                            <textarea  rows="8" name="content"
+                                                      placeholder="متن تیکت را اینجا بنویسید"
                                                       class="add-ticket--inp"></textarea>
                                         </label>
                                             <div class="submit-add-ticket">
                                                 <input type="submit" value="ارسال تیکت" class="submit-add-ticket--btn">
                                             </div>
-                                        </div>
+                                        </form></div>
                                     </div>
                                 </div>
                             </div>

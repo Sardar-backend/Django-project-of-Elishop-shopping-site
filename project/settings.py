@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'taggit',
     'debug_toolbar',
     'drf_yasg',
+    'django_recaptcha',
     'home.apps.HomeConfig',
     'django.contrib.sitemaps',
     'django_summernote',
@@ -161,3 +162,6 @@ MEDIA_URL = '/medias/'
 MEDIA_ROOT = BASE_DIR / 'medias'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+RECAPTCHA_PUBLIC_KEY ="6LccmxwqAAAAAFC4fYmbevZ6BmgcXS9AFFeBqazp"
+RECAPTCHA_PRIVATE_KEY ="6LccmxwqAAAAAItyWaIBHusXLAAEtuOfa3c6ZqOm"

@@ -45,7 +45,7 @@
                                                 <div class="discount-item">
                                                     <div class="discount-item__inner">
                                                         <a class="link" href="#"></a>
-                                                        <div class="col-lg-6 col-6">
+                                                        <div  class="col-lg-6 col-6">
                                                             <div class="picture"
                                                                  style="background-image: url({% static './asset/images/1595855055.jpg' %})">
                                                             </div>
@@ -453,7 +453,7 @@
                                                 <span class="item--text">لپتاپ Apple</span>
                                             </div>
                                             <div class="item" data-discount-id="7">
-                                                <span class="item--text">لپتاپ vivo</span>
+                                                <span class="item--text">{{cart}}</span>
                                             </div>
                                             <div class="item" data-discount-id="8">
                                                 <span class="item--text">لپتاپ Sony</span>
@@ -481,15 +481,19 @@
                             <div class="banners">
                                 <div class="row banners__inner ">
                                     <div class="banner col-lg-3 col-6 mb-2">
+                                        <a href="{% url 'home:pros' cat_name="آرایشی و بهداشتی" %}">
                                         <img src="{% static './asset/images/meat.jpg' %}" alt="">
-                                    </div>
+                                    </a></div>
                                     <div class="banner col-lg-3 col-6 mb-2">
+                                        <a href="{% url 'home:pros' cat_name="آرایشی و بهداشتی" %}">
                                         <img src="{% static './asset/images/deosorant.jpg' %}" alt="">
-                                    </div>
+                                        </a></div>
                                     <div class="banner col-lg-3 col-6 mb-2">
+                                        <a href="{% url 'home:pros' cat_name="آرایشی و بهداشتی" %}">
                                         <img src="{% static './asset/images/handwashing.jpg' %}" alt="">
-                                    </div>
+                                        </a> </div>
                                     <div class="banner col-lg-3 col-6 mb-2">
+                                        <a href="{% url 'blog:limit' %}">
                                         <img src="{% static './asset/images/powerbank.jpg' %}" alt="">
                                     </div>
                                 </div>
@@ -544,117 +548,7 @@
                                         <a class="head-title--link" href="#">مشاهده همه</a>
                                     </div>
                                     <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <a href="#" class="swiper-slide__inner">
-                                                <div class="product-head">
-                                                    <div class="rating-stars">
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star"></i>
-                                                        <i class="mdi mdi-star"></i>
-                                                        <i class="mdi mdi-star"></i>
-                                                    </div>
-                                                    <div class="discount">
-                                                        <span>30%</span>
-                                                    </div>
-                                                </div>
-
-                                                <span class="picture">
-						    <img src="{% static './asset/images/5e7b5e5f71e02.jpg' %}" alt=""></span>
-                                                <span class="title">گوشی موبایل سامسونگ مدل Galaxy Note۲۰ Ultra SM-N۹۸۵F/DS دو سیم کارت ظرفیت ۲۵۶ گیگابایت</span>
-                                                <span class="price">
-                            			    <span class="price--number">۲۴٫۵۰۰</span>
-                                                    <span class="price--unit">تومان</span>
-                                                    </span>
-                                            </a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <a href="#" class="swiper-slide__inner">
-                                                <div class="product-head">
-                                                    <div class="rating-stars">
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star"></i>
-                                                    </div>
-
-                                                </div>
-                                                <span class="picture">
-                            			   <img src="{% static './asset/images/1596098747.jpg' %}" alt=""></span>
-                                                <span class="title">گوشی موبایل سامسونگ مدل Galaxy A11 SM-A115F/DS دو سیم کارت ظرفیت 32 گیگابایت با 2 گیگابایت رم</span>
-                                                <span class="price">
-                            			    <span class="price--number">۲۴٫۵۰۰</span>
-                                                    <span class="price--unit">تومان</span>
-                                                    </span>
-                                            </a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <a href="#" class="swiper-slide__inner">
-                                                <div class="product-head">
-                                                    <div class="rating-stars">
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star"></i>
-                                                        <i class="mdi mdi-star"></i>
-                                                    </div>
-
-                                                </div>
-
-                                                <span class="picture"><img src="{% static './asset/images/mobile-green.jpg' %}"
-                                                                           alt=""></span>
-                                                <span class="title">گوشی موبایل سامسونگ مدل Galaxy A31 SM-A315FEDT/DS دو سیم کارت     ظرفیت 128 گیگابایت</span>
-                                                <span class="price">
-                           			    <span class="price--number">۲۴٫۵۰۰</span>
-                                                    <span class="price--unit">تومان</span>
-                                                    </span>
-                                            </a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <a href="#" class="swiper-slide__inner">
-                                                <div class="product-head">
-                                                    <div class="rating-stars">
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star"></i>
-                                                        <i class="mdi mdi-star"></i>
-                                                    </div>
-
-                                                </div>
-
-                                                <span class="picture">
-                           			   <img src="{% static './asset/images/mobile-red.jpg' %}" alt=""></span>
-                                                <span class="title">گوشی موبایل سامسونگ مدل Galaxy Note10 Lite SM-N770F/DS دو سیم کارت ظرفیت 128 گیگابایت</span>
-                                                <span class="price">
-                           			    <span class="price--number">۲۴٫۵۰۰</span>
-                                                    <span class="price--unit">تومان</span>
-                                                    </span>
-                                            </a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <a href="#" class="swiper-slide__inner">
-                                                <div class="product-head">
-                                                    <div class="rating-stars">
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star active"></i>
-                                                    </div>
-
-                                                </div>
-
-                                                <span class="picture"><img src="{% static './asset/images/mobile-blue.jpg' %}"
-                                                                           alt=""></span>
-                                                <span class="title">گوشی موبایل سامسونگ مدل Galaxy Note۲۰ Ultra SM-N۹۸۵F/DS دو سیم کارت ظرفیت ۲۵۶ گیگابایت</span>
-                                                <span class="price">
-                           			    <span class="price--number">۲۴٫۵۰۰</span>
-                                                    <span class="price--unit">تومان</span>
-                                                    </span>
-                                            </a>
-                                        </div>
+                                        {% lates_l %}
                                     </div>
                                     <!-- Add Arrows -->
                                     <div class="prev-slide-button"><span class="mdi mdi-chevron-right"></span></div>
@@ -668,11 +562,13 @@
                             <div class="banners">
                                 <div class="row banners__inner">
                                     <div class="banner col-lg-6 col-12 mb-2">
+                                        <a href="{% url 'home:pros' cat_name="آرایشی و بهداشتی" %}">
                                         <img src="{% static './asset/images/5e6b665fe306b.jpg' %}" alt="">
-                                    </div>
+                                    </a></div>
                                     <div class="banner col-lg-6 col-12 mb-2">
+                                        <a href="{% url 'home:pros' cat_name="خانه و آشپزخانه" %}">
                                         <img src="{% static './asset/images/game_and_software.jpg' %}" alt="">
-                                    </div>
+                                    </a></div>
                                 </div>
                             </div>
                         </div>
@@ -695,6 +591,7 @@
                             </div>
                     </section>
                     <section class="eighth-section col-lg-12 col-12 mb-2">
+                        <a href="{% url 'home:pros' cat_name="آرایشی و بهداشتی" %}">
                         <div class="eighth-section__inner">
                             <div class="banners">
                                 <div class="banners__inner">
@@ -703,7 +600,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div></a>
                     </section>
                     <section class="ninth-section col-lg-12">
                         <div class="ninth-section__inner">
@@ -714,37 +611,37 @@
                                     </div>
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
-                                            <a href="#" class="swiper-slide__inner">
+                                            <a href="blog/search/?p=panasonic" class="swiper-slide__inner">
                                                     <span class="picture"><img src="{% static './asset/images/panasonic.png' %}"
                                                                                alt=""></span>
                                             </a>
                                         </div>
                                         <div class="swiper-slide">
-                                            <a href="#" class="swiper-slide__inner">
+                                            <a href="blog/search/?p=adata" class="swiper-slide__inner">
                                                     <span class="picture"><img src="{% static './asset/images/adata.png' %}"
                                                                                alt=""></span>
                                             </a>
                                         </div>
                                         <div class="swiper-slide">
-                                            <a href="#" class="swiper-slide__inner">
+                                            <a href="blog/search/?p=xvision" class="swiper-slide__inner">
                                                     <span class="picture"><img src="{% static './asset/images/xvision.png' %}"
                                                                                alt=""></span>
                                             </a>
                                         </div>
                                         <div class="swiper-slide">
-                                            <a href="#" class="swiper-slide__inner">
+                                            <a href="blog/search/?p=samsung" class="swiper-slide__inner">
                                                     <span class="picture"><img src="{% static './asset/images/samsung.png' %}"
                                                                                alt=""></span>
                                             </a>
                                         </div>
                                         <div class="swiper-slide">
-                                            <a href="#" class="swiper-slide__inner">
+                                            <a href="blog/search/?p=parskhazar" class="swiper-slide__inner">
                                                     <span class="picture"><img src="{% static './asset/images/parskhazar.png' %}"
                                                                                alt=""></span>
                                             </a>
                                         </div>
                                         <div class="swiper-slide">
-                                            <a href="#" class="swiper-slide__inner">
+                                            <a href="blog/search/?p=shahab" class="swiper-slide__inner">
                                                     <span class="picture"><img src="{% static './asset/images/shahab.png' %}"
                                                                                alt=""></span>
                                             </a>

@@ -1,29 +1,122 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<head><link rel="stylesheet" href="{% static 'asset/css/bootstrap.rtl.min.css' %}"></head>
+<style>
+    .float-left{
+        margin:  14px 0   14px 0 !important;
+    }
+    .item--text{
+        font-weight: 300!important;
+        font-size: 14px!important;
+        direction: rtl!important;
+        font-family: iranyekan!important;
+        color: #424242!important;
+    }
+    .reg-log--text{
+        cursor: pointer!important;
+        line-height: 48px!important;
+        text-align: center!important;
+        direction: rtl!important;
+        font-family: iranyekan!important;
+        color: #424242!important;
+        font-size: 14px!important;
+    }
+    a{
+        text-decoration:none!important;
+    }
+</style>
+<!-- <style>
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
 
+    /* Accordion Styles */
+    .accordion {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+
+    .accordion-item {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .accordion-item:last-child {
+        border-bottom: none;
+    }
+
+    .accordion-header {
+        background-color: #007bff;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .accordion-button {
+        background-color: #007bff;
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 15px;
+        text-align: right;
+        border: none;
+        outline: none;
+        transition: background-color 0.3s;
+    }
+
+    .accordion-button:not(.collapsed) {
+        background-color: #0056b3;
+    }
+
+    .accordion-button:focus {
+        box-shadow: none;
+    }
+
+    .accordion-button::after {
+        margin-left: 10px;
+    }
+
+    .accordion-body {
+        padding: 20px;
+        background-color: #f5f5f5;
+        line-height: 1.8;
+        font-size: 14px;
+        color: #333;
+        border-radius: 0 0 5px 5px;
+    }
+
+    /* Hover and transition effects */
+    .accordion-button:hover {
+        background-color: #0056b3;
+        cursor: pointer;
+    }
+
+    .accordion-body p {
+        margin: 0;
+    }
+
+    .accordion-body {
+        display: block;
+    }
+
+    .mt-3 {
+        margin-top: 1rem;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .accordion-button {
+            font-size: 14px;
+        }
+
+        .accordion-body {
+            font-size: 13px;
+        }
+    }
+</style> -->
+<br><br><br><br><br><br><br>
 <section class="inner-page" id="faq-page">
-    <div class="container-fluid" id="page-hero">
-        <div class="row">
-            <div class="col-12">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 px-0">
-                            <h1>سوالات متداول</h1>
-                            <p>پاسخ به سوالاتی که برای اکثر کاربران پیش می آید.</p>
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">صفحه نخست</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">سوالات متداول</li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -31,18 +124,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="accordion mt-3" id="accordionExample">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            محصولات این فروشگاه دارای چه مدت گارانتی و ضمانت بازگشت وجه هستند؟
-                                        </button>
-                                    </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <p>این یک متن آزمایشی است که به زودی توسط نویسنده این سایت، تکمیل یا حذف خواهد شد. اگر شما نویسنده‌ی این سایت هستید، برای حذف یا ویرایش این صفحه، کافی است از طریق مرکز مدیریت سایت خود وارد بخش مربوطه شده و محتوای این صفحه را ویرایش یا حذف کنید.</p>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingTwo">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -99,5 +181,5 @@
         </div>
     </div>
 </section>
-
+<script src="{% static 'asset/js/bootstrap.bundle.min.js' %}"></script>
 {% endblock %}

@@ -36,17 +36,17 @@
                                                 </div>
                                             </div></a>
                                         </div>
-                                        {% for adress in iterable %}
+                                        {% for item in adress %}
                                             <div class="card-item-address col-lg-6 ">
                                             <div class="card-item-address__inner ">
                                                 <div class="icon ">
                                                     <span class="mdi mdi-map-marker "></span>
                                                 </div>
                                                 <div class="getter-name ">
-                                                    <div class="getter--text ">علی ابراهیمی</div>
+                                                    <div class="getter--text ">{{item.user.username}}</div>
                                                 </div>
                                                 <div class="getter-location ">
-                                                    <span class="getter-location--text ">استان هزمرگان، شهر بندر لنگه، خیابان شهید اصغری، کوچه بهار۳</span>
+                                                    <span class="getter-location--text ">{{item.content}}</span>
                                                 </div>
                                                 <div class="separate-line "></div>
                                                 <div class="c-row ">
@@ -54,23 +54,24 @@
                                                         <div class="getter-mobile__inner ">
                                                             <span class="mdi mdi-phone "></span>
                                                             <span class="key ">موبایل:</span>
-                                                            <span class="value ">09100152871</span>
+                                                            <span class="value ">{{item.mobile_recver}}</span>
                                                         </div>
                                                     </div>
                                                     <div class="getter-post-code col-lg-6 ">
                                                         <div class="getter-post-code__inner ">
                                                             <span class="mdi mdi-mailbox "></span>
                                                             <span class="key ">کد پستی:</span>
-                                                            <span class="value ">665686654</span>
+                                                            <span class="value ">{{item.Postal_code}}</span>
                                                         </div>
                                                     </div>
                                                     <div class="actions ">
-                                                        <div class="edit ">
-                                                            <span class="edit--text ">ویرایش</span>
+                                                        <form id="#qw{{item.id}}" action="{% url 'blog:delete_adresses' pid=item.id %}" method="post"> {% csrf_token %} </form>
+                                                        <div onclick="let form =document.getElementById('#qw{{item.id}}').submit()" class="edit ">
+                                                            <span style="color: red;" class="edit--text ">حذف</span>
                                                         </div>
-                                                        <div class="remove ">
+                                                        <!-- <div onclick="let form =document.getElementById('#qw{{item.id}}')" class="remove ">
                                                             <div class="remove--text ">حذف</div>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                 </div>
                                             </div>

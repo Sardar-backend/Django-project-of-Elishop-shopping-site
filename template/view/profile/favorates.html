@@ -26,9 +26,11 @@
                                 <div class="side-left__inner">
                                     <div class="favorites card-items">
                                         <div class="favorites__inner card-items__inner">
-                                            <div class="card-item-favorite col-lg-6 col-12">
+
+                                            {% for item in favorates %}
+                                            <div class="card-item-favorite col-lg-6 col-12 mt-3"><form id="#sys{{item.id}}" action="{% url 'blog:delete_favorates' pid=item.id %}" method="post"> {% csrf_token %} </form>
                                                 <div class="card-item-favorite__inner">
-                                                    <a href="#"></a>
+
                                                     <div class="picture">
                                                         <img src="{% static './asset/images/5e7b690b53767.jpg' %}" alt="">
                                                     </div>
@@ -37,21 +39,23 @@
                                                             <span class="mdi mdi-heart"></span>
                                                         </div>
                                                         <div class="title">
-                                                            <span class="title--text">گوشی سامسونگ مدل j7 prime 2018</span>
+                                                            <span class="title--text">{{item.title}}</span>
                                                         </div>
                                                         <div class="price">
-                                                            <span class="price-number">85,000</span>
+                                                            <span class="price-number">{{item.price}}</span>
                                                             <span class="price-unit">تومان</span>
                                                         </div>
                                                         <div class="link">
-                                                            <a href="#" class="btn">مشاهده محصول</a>
-                                                            <button class="remove-btn"><i
-                                                                    class="mdi mdi-trash-can-outline"></i></button>
+                                                            <a href="{% url 'blog:product_single' pid=item.id %}" class="btn">مشاهده محصول</a>
+                                                            <button onclick="let form=document.getElementById('#sys{{item.id}}').submit()"class="remove-btn">
+                                                                <i class="mdi mdi-trash-can-outline"></i>
+                                                            </button>
 
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>

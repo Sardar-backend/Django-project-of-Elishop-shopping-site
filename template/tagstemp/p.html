@@ -1,7 +1,7 @@
  {% load static %}
  {% for po in products %}
  <div class="swiper-slide ">
-    <a href="#" class="swiper-slide__inner">
+    <a href="{% url 'blog:product_single' pid=po.id %}" class="swiper-slide__inner">
         <div class="product-head">
             <div class="rating-stars">
                 <i class="mdi mdi-star active"></i>
@@ -16,9 +16,9 @@
         <span class="picture">
                 <img src="{% static './asset/images/mobile-green.jpg' %}"
                      alt=""></span>
-        <span class="title">گوشی موبایل شیائومی مدل Redmi Note 8 Pro m1906g7G دو سیم‌ کارت ظرفیت 128 گیگابایت</span>
+        <span class="title">{{po.title}}</span>
         <span class="price">
-<span class="price--number">۲۴٫۵۰۰</span>
+<span class="price--number">{{po.price}}</span>
             <span class="price--unit">تومان</span>
             </span>
     </a>

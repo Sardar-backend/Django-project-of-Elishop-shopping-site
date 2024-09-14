@@ -10,22 +10,25 @@ class Category(models.Model):
 
 
 class product(models.Model):
-    author = models.ForeignKey(User, on_delete=models.SET_NULL ,null=True)
+    # author = models.ForeignKey(User, on_delete=models.SET_NULL ,null=True)
     image = models.ImageField(upload_to='products/',default='products/product-1.png')
     # category = models.ManyToManyField(category)
     title = models.CharField(max_length=255)
-    tags =TaggableManager()
+    # tags =TaggableManager()
+    brand= models.CharField(max_length=255,null=True)
     description = models.TextField()
     category = models.ManyToManyField(Category)
     price = models.FloatField(default=0)
     Discoust =models.IntegerField(default=0)
     counted_view = models.IntegerField(default=0)
+    favorites = models.ManyToManyField(User)
     status = models.BooleanField(default=False)
     published_date = models.DateField(null=True)
     count= models.IntegerField(default=0)
     Ready_to_send = models.BooleanField(default=False)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
+
     class Meta:
         ordering = ['created_date']
         verbose_name = "محصول"
@@ -41,8 +44,13 @@ class comment (models.Model):
     name =models.CharField(max_length=255,default=None)
     title = models.CharField(max_length=255)
     content = models.TextField()
+    cost= models.IntegerField(default=0)
+    quality = models.IntegerField(default=0)
+    Innovation = models.IntegerField(default=0)
+    beauty = models.IntegerField(default=0)
+    Services = models.IntegerField(default=0)
+    Longevity = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
-    email = models.EmailField(default=None)
     status = models.BooleanField(default=False)
     created_date = models.DateTimeField(auto_now_add=True)
     class Meta:
@@ -59,10 +67,12 @@ class Categorys (models.Model):
      def __str__(self):
          return  " {}".format(self.name)
 class contact (models.Model):
-    name = models.CharField(max_length=255)
-    email = models.EmailField()
-    telephon = models.IntegerField(default=0)
-    title = models.CharField(max_length=255)
+    #name = models.CharField(max_length=255)
+    name =  models.ForeignKey(User, on_delete=models.CASCADE)
+    # email = models.EmailField()
+    # telephon = models.IntegerField(default=0)
+    # title = models.CharField(max_length=255)
+    answer = models.TextField(null=True,default=None)
     content = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
     class Meta:
@@ -71,7 +81,7 @@ class contact (models.Model):
         verbose_name_plural ="پیغام ها"
 
     def __str__(self):
-        return  "{} - {}".format(self.title,self.name)
+        return  "{}     {} ".format(self.name,self.answer)
 
 
 

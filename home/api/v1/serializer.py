@@ -12,7 +12,7 @@ class Postserializer(serializers.ModelSerializer):
 
     class Meta:
         model = product
-        fields = ['id','category','author','title','description','Discoust']
+        fields = ['id','category','title','description','Discoust']
     # def to_representation(self, instance):
     #     rep = super().to_representation(instance)
     #     rep['category'] = Categoryserializer(instance.category).data
@@ -21,4 +21,4 @@ class Postserializer(serializers.ModelSerializer):
 class commentserializer(serializers.ModelSerializer):
     class Meta:
         model = comment
-        fields = ['id','pro','name' ,'title'  ,'likes', 'email','status' ,'created_date']
+        fields = ['id','pro','name'   ,'likes','status' ,'created_date']

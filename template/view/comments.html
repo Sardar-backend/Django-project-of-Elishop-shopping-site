@@ -1,0 +1,340 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="menu__overlay--bg"></div>
+<div class="overlay--bg"></div>
+    <div class="main">
+        <div class="container-fluid ">
+            <div class="main__inner">
+                <div class="notfound-page">
+                    <div class="notfound-page__inner">
+
+                        <!-- Start Product -->
+                        <div class="nf-sn mb-5 dt-sl">
+                            <form action="{% url 'blog:product_single' pid=5 %}" method="post">{% csrf_token %}
+                                <input type="hidden" name="name" value="{{t.username}}" >
+                                <!-- <input type="hidden" name="email" value="{{t}}" > -->
+                                <input type="hidden" name="pro" value="5" >
+                            <div class="c-row">
+                                <!-- Product Thumbnail-->
+                                <div class="col-lg-4 col-md-6 pb-5">
+                                    <div class="product-thumbnail text-center">
+                                        <a href="#">
+                                            <img
+                                                    src="{% static './asset/images/5e7b5e5f71e02.jpg' %}"
+                                                    class="img-fluid"
+                                                    alt="#">
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Product Info -->
+                                <div class="col-lg-8 col-md-6 pb-5">
+                                    <div class="product-info dt-sl">
+                                        <div class="product-title dt-sl">
+                                            <h1>
+                                                {{product.title}}
+                                            </h1>
+                                            <h3></h3>
+                                        </div>
+
+                                        <div class="comments-product-attributes px-3">
+						                <div class="row">
+                                                <div class="col-sm-6 col-12 mb-3">
+                                                    <div class="comments-product-attributes-title">
+                                                        ارزش خرید به نسبت قیمت
+                                                    </div>
+
+                                                    <div class="d-flex">
+                                                    <input type="range"
+                                                            name="cost"
+                                                            class="product-point cla"
+                                                            max="100"
+                                                            step = 25
+                                                            id="slider-point-1"
+                                                            />
+                                                    <div class="slider-point-1 mr-3" ></div></div>
+                                                </div>
+                                                <div class="col-sm-6 col-12 mb-3">
+                                                    <div class="comments-product-attributes-title">
+                                                        کیفیت ساخت
+                                                    </div>
+
+                                                    <div class="d-flex">
+                                                        <input type="range"
+                                                                name="quality"
+                                                                class="product-point cla"
+                                                                max="100"
+                                                                step = 25
+                                                                id="slider-point-2"
+                                                                />
+                                                        <div class="slider-point-2 mr-3" ></div></div>
+                                                </div>
+
+                                                <div class="col-sm-6 col-12 mb-3">
+                                                    <div class="comments-product-attributes-title">
+                                                        نوآوری
+                                                    </div>
+
+                                                    <div class="d-flex">
+                                                        <input type="range"
+                                                                name="Innovation"
+                                                                class="product-point cla"
+                                                                max="100"
+                                                                step = 25
+                                                                id="slider-point-3"
+                                                                />
+                                                        <div class="slider-point-3 mr-3" ></div></div>
+                                                </div>
+                                                <div class="col-sm-6 col-12 mb-3">
+                                                    <div class="comments-product-attributes-title">
+                                                        زیبایی
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <input type="range"
+                                                         name="beauty"
+                                                                class="product-point cla"
+                                                                max="100"
+                                                                step = 25
+                                                                id="slider-point-4"
+                                                                />
+                                                        <div class="slider-point-4 mr-3" ></div></div>
+                                                </div>
+
+                                                <div class="col-sm-6 col-12 mb-3">
+                                                    <div class="comments-product-attributes-title">
+                                                        خدمات پس از فروش
+                                                    </div>
+
+                                                    <div class="d-flex">
+                                                        <input type="range"
+                                                                name="Services"
+                                                                class="product-point cla"
+                                                                max="100"
+                                                                step = 25
+                                                                id="slider-point-5"
+                                                                />
+                                                        <div class="slider-point-5 mr-3" ></div></div>
+                                                </div>
+                                                <div class="col-sm-6 col-12 mb-3">
+                                                    <div class="comments-product-attributes-title">
+                                                        طول عمر
+                                                    </div>
+
+                                                    <div class="d-flex">
+                                                        <input type="range"
+                                                                name="Longevity"
+                                                                class="product-point cla"
+                                                                max="100"
+                                                                step = 25
+                                                                id="slider-point-6"
+                                                                />
+                                                        <div class="slider-point-6 mr-3" ></div></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="c-row comments-add-col--content">
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-ui">
+                                        <form class="px-5">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <label for="title" class="form-comment-title mb-2">عنوان نظر شما
+                                                        (اجباری)</label>
+                                                    <div class="form-comment">
+                                                        <input
+                                                                name="title"
+                                                                id="title"
+                                                                class="input-ui pr-2"
+                                                                type="text"
+                                                                placeholder="عنوان نظر خود را بنویسید">
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="col-12 form-comment-title--positive mt-4 mb-3" id="hhh">
+                                                    <div class="form-comment-title mb-2 pr-2">
+                                                        نقاط قوت
+                                                    </div>
+                                                    <div id="advantages" class="form-comment">
+                                                        <div class="ui-input--add-point">
+                                                            <input
+                                                                    onkeypress="key(event)"
+                                                                    placeholder="پس از نوشتن اینتر را بزنید"
+
+                                                                    class="input-ui pr-2 ui-input-field"
+                                                                    type="text"
+                                                                    id="advantageinput"
+
+                                                            >
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 form-comment-title--negative mt-2">
+                                                    <div class="form-comment-title mb-2 pr-2">
+                                                        نقاط ضعف
+                                                    </div>
+                                                    <div id="disadvantages" class="form-comment">
+                                                        <div class="ui-input--add-point">
+                                                            <input
+                                                                    onkeypress="keyFoible(event)"
+                                                                    placeholder="پس از نوشتن اینتر را بزنید"
+                                                                    class="input-ui pr-2 ui-input-field"
+                                                                    type="text"
+                                                                    id="disadvantage-input"
+                                                                    autocomplete="off"
+                                                            >
+
+                                                        </div>
+
+                                                    </div>
+                                                </div> -->
+                                                <div class="col-12 mt-5">
+                                                    <label for="body" class="form-comment-title mb-2">متن نظر شما
+                                                        (اجباری)</label>
+                                                    <div class="form-comment">
+                                                <textarea
+                                                        id="body"
+                                                        name="content"
+                                                        class="input-ui pr-2 pt-2"
+                                                        rows="7"
+                                                        placeholder="متن خود را  اینجا بنویسید...">
+                                                </textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 px-0">
+                                                    <p class="d-block">با “ثبت نظر” موافقت خود را با
+                                                        <a href="#"
+                                                           class="border-bottom-dt"
+                                                           target="_blank">
+                                                            قوانین انتشار محتوا
+                                                        </a>
+                                                        در پرو ‌کالا اعلام می‌کنم.
+                                                    </p>
+                                                    <button
+                                                            type="submit"
+                                                            class="btn btn-lg btn btn-primary px-3 them-bg-color">
+                                                        ثبت نظر
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <h3>دیگران را با نوشتن نظرات خود، برای انتخاب این محصول راهنمایی کنید.</h3>
+                                    <div class="desc-comment">
+                                        <p>لطفا پیش از ارسال نظر، خلاصه قوانین زیر را مطالعه کنید:</p>
+                                        <p>فارسی بنویسید و از کیبورد فارسی استفاده کنید. بهتر است از فضای خالی
+                                            (Space)
+                                            بیش‌از‌حدِ معمول، شکلک یا ایموجی استفاده نکنید و از کشیدن حروف یا
+                                            کلمات با
+                                            صفحه‌کلید بپرهیزید.</p>
+                                        <p>نظرات خود را براساس تجربه و استفاده‌ی عملی و با دقت به نکات فنی ارسال
+                                            کنید؛
+                                            بدون
+                                            تعصب به محصول خاص، مزایا و معایب را بازگو کنید و بهتر است از ارسال
+                                            نظرات
+                                            چندکلمه‌‌ای خودداری کنید.</p>
+                                        <p>بهتر است در نظرات خود از تمرکز روی عناصر متغیر مثل قیمت، پرهیز
+                                            کنید.</p>
+                                        <p>به کاربران و سایر اشخاص احترام بگذارید. پیام‌هایی که شامل محتوای
+                                            توهین‌آمیز و
+                                            کلمات نامناسب باشند، حذف می‌شوند.</p>
+                                        <p>از ارسال لینک‌های سایت‌های دیگر و ارایه‌ی اطلاعات شخصی خودتان مثل
+                                            شماره تماس،
+                                            ایمیل و آی‌دی شبکه‌های اجتماعی پرهیز کنید.</p>
+                                        <p>با توجه به ساختار بخش نظرات، از پرسیدن سوال یا درخواست راهنمایی در
+                                            این بخش
+                                            خودداری کرده و سوالات خود را در بخش «پرسش و پاسخ» مطرح کنید.</p>
+                                        <p>هرگونه نقد و نظر در خصوص سایت دیجی‌کالا، خدمات و درخواست کالا را با
+                                            ایمیل
+                                            <a href="mailto:info@digikala.com">
+                                                info@digikala.com
+                                            </a>
+                                            یا با شماره‌ی
+
+                                            <a href="tel: +982161930000">
+                                                ۶۱۹۳۰۰۰۰ - ۰۲۱
+                                            </a>
+                                            در میان بگذارید و از نوشتن آن‌ها در بخش نظرات خودداری کنید.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                        <!-- End Product -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" name="Strengths[]" value="">
+<!-- <script>
+    let input1 = document.querySelector('#advantageinput')
+    let f = document.querySelector('#hhh');
+    input1.addEventListener('keypress',function(e) {
+        f.innerHTML += '<p>dsdsds</p>';
+
+
+                //    f.innerHTML+='<div class="form-comment-dynamic-labels js-advantages-list" ><span class="comment_point good" ><span id="good">'+ input1.value +'</span><i class="mdi mdi-close mdi-18px cursor-pointer"></i></span></div>'
+
+        //if (e.keyCode==13){
+
+        //    f.innerHTML+='<div class="form-comment-dynamic-labels js-advantages-list" ><span class="comment_point good" ><span id="good">'+ input1.value +'</span><i class="mdi mdi-close mdi-18px cursor-pointer"></i></span></div>'
+        //}
+    });
+</script> -->
+<script>
+    //let input1 = document.querySelector('#advantageinput')
+    let f = document.querySelector('#advantages');
+    let a = 1
+    function key (event){
+        if(event.keyCode==13){
+            f.innerHTML+='<div class="form-comment-dynamic-labels js-advantages-list" ><span class="comment_point good" ><span id="good"><input type="hidden" name="Strengths['+ a +']" value="'+ event.target.value +'">'+ event.target.value +'</span><i class="mdi mdi-close mdi-18px cursor-pointer"></i></span></div>'
+            a++
+        }}
+    let disadvantages = document.querySelector('#disadvantages');
+    let b = 1
+    function keyFoible(event){
+        if(event.keyCode==13){
+            disadvantages.innerHTML+='<div class="form-comment-dynamic-labels js-disadvantages-list"><span class="comment_point bad"><span>'+ event.target.value +'</span><input type="hidden" name="foible['+ b +']" value="'+ event.target.value +'">'+'<i class="mdi mdi-close mdi-18px cursor-pointer"></i></span></div>'
+        b++
+        }
+    }
+
+
+
+
+
+    let cla = document.querySelectorAll('.cla');
+    cla.forEach(function(e){
+        //console.log(e);
+        e.addEventListener("change", function(){
+           let a = document.getElementsByClassName(e.id);
+           switch (e.value){
+            case '0' :
+            a[0].innerHTML="خیلی بد"
+             break;
+            case '25' :
+            a[0].innerHTML="بد"
+             break;
+            case '50' :
+            a[0].innerHTML="معمولی"
+             break;
+            case '75' :
+            a[0].innerHTML="خوب"
+             break;
+            case '100' :
+            a[0].innerHTML="خیلی خوب"
+             break;
+           }
+
+       })});
+
+</script>
+    {% endblock %}

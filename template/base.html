@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="{% static 'asset/css/app.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Ionicons -->
-    <!-- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
+    <!-- <link rel="stylesheet" href="{% static 'asset/css/bootstrap.rtl.min.css' %}"> -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <!-- <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
     <!-- iCheck -->
 
     <!-- Google Font: Source Sans Pro -->
-    <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
     <meta name="csrf-token" content="4343kjj4i3o434kjhk3j4k3">
     <!-- <script>
@@ -24,6 +25,7 @@
         SERVER_NAME
         ']; ?>';
     </script> -->
+
 </head>
 <style>
     .tt{
@@ -56,10 +58,27 @@
         width: 10%;
         height: 10%;
     }
-
+    .favorites__inner .card-items__inner{
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+    }
+    .iconlike{
+        width: 7%;
+        height: 7%;
+    }
+    .share__like__inner{
+        display: flex !important;
+        justify-content: flex-end !important;
+    }
+    .foo{
+        display: flex !important;
+        justify-content: space-around !important;
+    }
 </style>
 <body>
-<header class="header">
+
+<header class="header">;;
     <div class="header__inner">
         <div class="container-fluid hidden-lg">
             <div class="top">
@@ -109,7 +128,7 @@
 
                             {% else %}
 
-                            <span data-dialog="reg-log__dialog" class="reg-log--text">ورود/ثبت ‌نام</span>
+                            <a href="{% url 'accounts:login_view' %}"><span data-dialog="reg-log__dialog" class="reg-log--text">ورود/ثبت ‌نام</span></a>
 
                             {% endif %}
 
@@ -125,11 +144,10 @@
                         <div class="relative mg-rl-auto">
                             <div class="main__menu__inner ">
                                 <ul class="items hidden-sm">
-                                    <li data-id="1" data-parent-id="" class="item"><span class="underLine">
-:
+                                    <li  class="item"><span class="underLine">
                                         </span><a class="item--link" href="{% url 'home:pros' cat_name="کالای دیجیتال" %}"> کالای دیجیتال</a>
                                     </li>
-                                    <li data-id="2" data-parent-id="" class="item"><span class="underLine">
+                                    <li  class="item"><span class="underLine">
 
                                         </span><a class="item--link" href="{% url 'home:pros' cat_name="آرایشی و بهداشتی" %}">آرایشی و بهداشتی </a>
                                     </li>
@@ -140,7 +158,7 @@
                                         <a class="item--link" href="{% url 'home:pros' cat_name="مد و پوشاک" %}">مد و پوشاک </a>
                                     </li>
                                     <li data-id="5" data-parent-id="" class="item"><span class="underLine"></span>
-                                        <a class="item--link" href="{% url 'home:pros' cat_name="آشپزخانه" %}"> خانه و آشپزخانه</a>
+                                        <a class="item--link" href="{% url 'home:pros' cat_name="خانه و آشپزخانه" %}"> خانه و آشپزخانه</a>
                                     </li>
                                     <li data-id="6" data-parent-id="" class="item"><span class="underLine"></span><a
                                             class="item--link" href="{% url 'home:pros' cat_name="کتاب لوازم تحریر هنر" %}">کتاب، لوازم تحریر و هنر</a>
@@ -158,17 +176,20 @@
                                             <div class="cart__inner__button">
                                                 <span class="icon--cart mdi mdi-cart"></span>
                                                 <span class="text">سبد خرید</span>
-                                                <span class="number">۲</span>
+                                                {% if CartNumber %}
+
+                                                <span class="number">{{CartNumber}}</span>
+                                                {% endif %}
                                                 <span class="icon--chevron mdi mdi-chevron-down"></span>
                                             </div>
                                             <div class="cart__inner__basket">
                                                 <div class="header">
                                                     <div class="basket-total">
                                                         <span>تعداد</span>
-                                                        <span> 2 </span>
+                                                        <span>{{CartNumber}} </span>
                                                         <span>کالا</span>
                                                     </div>
-                                                    <a href="#" class="basket-link">
+                                                    <a href="{% url 'blog:cart_detail' %}" class="basket-link">
                                                         مشاهده سبد خرید
                                                         <span></span>
                                                     </a>
@@ -176,26 +197,29 @@
                                                 <div class="product-lists">
                                                     <ul class="items">
                                                         <li>
-                                                            <a class="cart-box-list-item">
-                                                                    <span class="basket-item-close">
-                                                                <span class="mdi mdi-close"></span>
-                                                                    </span>
-                                                                <div class="cart-item-image">
-                                                                    <img src="{% static './asset/images/mobile-red.jpg' %}" alt="">
-                                                                </div>
-                                                                <div class="cart-item-content">
-                                                                    <p class="cart-item-title">
-                                                                        گوشی موبایل اپل مدل iPhone 11 Pro Max A2220 دو
-                                                                        سیم‌ کارت ظرفیت 256 گیگابایت
-                                                                    </p>
-                                                                    <div class="basket-total">
-                                                                        <small> قیمت :</small>
-                                                                        <small> 12,315,000</small>
-                                                                        <small>تومان</small>
+                                                            {% for item in Cart %}
+
+                                                                <a class="cart-box-list-item">
+                                                                    <form id="ww{{item.product.id}}" action="{% url 'blog:remove_from_cart' product_id=item.product.id  %}" method="get"></form>
+                                                                        <span onclick="let ds =document.querySelector('#ww{{item.product.id}}').submit()" class="basket-item-close">
+                                                                    <span class="mdi mdi-close"></span>
+                                                                        </span>
+                                                                    <div class="cart-item-image">
+                                                                        <img src="{% static './asset/images/mobile-red.jpg' %}" alt="">
                                                                     </div>
-                                                                </div>
-                                                            </a>
-                                                            <a class="cart-box-list-item">
+                                                                    <div class="cart-item-content">
+                                                                        <p class="cart-item-title">
+                                                                            {{item.product.title}}
+                                                                        </p>
+                                                                        <div class="basket-total">
+                                                                            <small> قیمت :</small>
+                                                                            <small> {{item.product.price}}</small>
+                                                                            <small>تومان</small>
+                                                                        </div>
+                                                                    </div>
+                                =                                </a>
+                                                            {% endfor %}
+                                                            <!-- <a class="cart-box-list-item">
                                                                     <span class="basket-item-close">
                                                                 <span class="mdi mdi-close"></span>
                                                                     </span>
@@ -215,7 +239,7 @@
                                                                     </div>
 
                                                                 </div>
-                                                            </a>
+                                                            </a> -->
                                                         </li>
 
 
@@ -225,11 +249,11 @@
                                                     <div class="basket-total">
                                                         <small> مبلغ قابل پرداخت :</small>
                                                         <div class="basket-total">
-                                                            <small> 26,631,000</small>
+                                                            <small>{{total}}</small>
                                                             <span>تومان</span>
                                                         </div>
                                                     </div>
-                                                    <a href="#" class="basket-link">
+                                                    <a href="{% url 'blog:cart_detail' %}" class="basket-link">
                                                         <div class="checkout">
                                                             <div class="checkout--text">تسویه حساب</div>
                                                         </div>
@@ -543,7 +567,7 @@
     <div id="reg-log__dialog" class="reg-log__dialog">
         <div class="reg-log__dialog__inner">
             <div class="dialog__overlay"></div>
-            <div class="dialog__content">
+            <!-- <div class="dialog__content">
                 <div class="header">
                     <div class="close-dialog"><span class="mdi mdi-close" data-dialog-close></span></div>
                     <div class="logOrRegStatus"><span id="logOrRegStatus--text"></span></div>
@@ -567,6 +591,10 @@
                                         <input name="password" id="log-password" placeholder="رمز عبور" type="password"
                                                class="password--inp">
                                     </div>
+
+                                        <script src='https://www.google.com/recaptcha/api.js?hl=fa'></script>
+                                    {{form.captcha}}
+
                                     <div class="remember-me">
                                         <label class="brand-item__inner" for="remember-me">
                                                             <span class="md-checkbox">
@@ -594,47 +622,42 @@
                                 <div class="reg-btn"><a id="ffrr" href="#">ثبت نام</a></div>
                             </div>
                         </div>
-                        <!-- sxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
                         <div id="reggg" style="display: none;" class="register__form col-md-8">
 
-                             <!-- <script>var account_image="./asset/images/account.png"; jQuery("#account--image").attr("src", account_image); </script> -->
                               <div class="register__form__inner">
                                 <form method="POST" action="{% url 'accounts:signup_view' %}"  >
                                     {% csrf_token %}
                                 <h4 class="title">ثبت‌نام در پروکالا</h4>
                                 <span class="show-status"></span>
-                                 <div class="mobile">
+                                 <div class="">
                                     <span class="mdi mdi-phone"></span>
                                      <input name="username"   placeholder="نام کاربری" type="text"  class="user--inp">
                                     </div>
-                                    <!-- <div class="email">
-                                        <span class="mdi mdi-email"></span>
-                                        <input name="email" id="reg-email" placeholder="پست الکترونیکی" type="email"  class="email--inp">
-                                    </div> -->
+
                                     <div class="password"><span class="mdi mdi-lock"></span>
                                          <input name="password1"  placeholder="رمز عبور" type="password"  class="password--inp">
                                     </div>
                                     <div class="password"><span class="mdi mdi-lock"></span>
                                          <input name="password2"  placeholder="تکرار رمز عبور" type="password"  class="password--inp">
                                     </div>
+                                    <div class="password">
+                                        <script src='https://www.google.com/recaptcha/api.js?hl=fa'></script>
+                                        {{form.captcha}}
+                                    </div>
+
                                     <div class="privacy-policy-check"><span class="arrow mdi mdi-arrow-left-bold"></span>
                                         <label class="privacy-policy-check__inner" for="privacy-policy-check">
                                             <span class="md-checkbox"> <input class="privacy-policy-check--inp"  id="privacy-policy-check" type="checkbox">
                                                 <label for="privacy-policy-check">سیاست حریم خصوصی<a href="http://proKala.com/privacy-policy">پروکالا</a>را خواندم و آن را قبول دارم</label> </span> </label></div>
-                                        <!-- <div class="privacy-policy-check">
-                                            <span class="arrow mdi mdi-arrow-left-bold"></span>
-                                            <label class="privacy-policy-check__inner" for="privacy-policy-check">
-                                                 <span class="md-checkbox">
-                                                    <input class="privacy-policy-check--inp" name="reg-privacy-policy-check--inp" id="privacy-policy-check" type="checkbox">
-                                                    <label for="privacy-policy-check">سیاست حریم خصوصی<a href="http://proKala.com/privacy-policy">پروکالا</a>را خواندم و آن را قبول دارم</label> </span> </label></div> -->
+
                                                     <div class="submit-register"> <button type="submit" class="submit-register--btn"><span class="text">ثبت‌نام در پروکالا</span> <span class="mdi mdi-loading"></span></button> </div> </form> </div>     </div>     <div id="ffhhh" style="display: none;" class="log__ref col-md-4"> <div class="log__ref__inner"> <div class="log--image"><img id="account--image" src="./asset/images/account.png" alt=""></div><div class="log--text">قبلا ثبت‌نام کرده‌اید؟</div><div class="log-btn"><a id="zxcv" href="#">ورود به پروکالا</a></div></div></div>
 
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
-<script>
+<!-- <script>
     let flag = true;
     let zxcv= document.querySelector('#zxcv');
     let ffrr= document.querySelector('#ffrr');
@@ -655,7 +678,7 @@
         ffhhh.style.display="block";
 
     })
-</script>
+</script> -->
 </header>
 
 {% block content %}
@@ -674,31 +697,31 @@
                             <span class="row items">
                     <span class="item col-lg-2 col-6">
                      <span class="item__inner">
-                           <span class="item-picture"><img src="{% static './asset/images/original.svg" alt=""></span>
+                           <span  class="item-picture"><img src="{% static './asset/images/original.svg' %}" alt=""></span>
                             <span class="item-title">ضمانت اصل بودن کالا</span>
                             </span>
                             </span>
                             <span class="item col-lg-2 col-6">
                         <span class="item__inner">
-                           <span class="item-picture"><img src="{% static './asset/images/7day_moneyback.svg" alt=""></span>
+                           <span class="item-picture"><img src="{% static './asset/images/7day_moneyback.svg' %}" alt=""></span>
                             <span class="item-title">۷ روز ضمانت بازگشت</span>
                             </span>
                             </span>
                             <span class="item col-lg-2 col-6">
                         <span class="item__inner">
-                           <span class="item-picture"><img src="{% static './asset/images/location-payment.svg" alt=""></span>
+                           <span class="item-picture"><img src="{% static './asset/images/location-payment.svg' %}" alt=""></span>
                             <span class="item-title">پرداخت در محل</span>
                             </span>
                             </span>
                             <span class="item col-lg-2 col-6">
                         <span class="item__inner">
-                           <span class="item-picture"><img src="{% static './asset/images/7day_moneyback.svg" alt=""></span>
+                           <span class="item-picture"><img src="{% static './asset/images/7day_moneyback.svg' %}" alt=""></span>
                             <span class="item-title">پشتیبانی ۲۴ ساعته</span>
                             </span>
                             </span>
                             <span class="item col-lg-2 col-12">
                         <span class="item__inner">
-                           <span class="item-picture"><img src="{% static './asset/images/express.svg" alt=""></span>
+                           <span class="item-picture cdcdc"><img src="{% static './asset/images/express.svg' %}" alt=""></span>
                             <span class="item-title">تحویل اکسپرس</span>
                             </span>
                             </span>
@@ -707,31 +730,24 @@
             </div>
 
             <div class="main-area">
-                <div class="row main-area__inner">
+                <div class="row main-area__inner foo">
                     <div class="more-links col-12 col-md-6 col-lg-3">
                         <div class="more-links__inner">
-                            <span class="head-title">راهنمای خرید از فروشگاه</span>
+                            <span class="head-title">دسترسی سریع</span>
                             <span class="items">
-                                <a href="#" class="item"><span class="item--text">نحوه ثبت سفارش</span></a>
-                                    <a href="#" class="item"><span class="item--text">شیوه‌های پرداخت</span></a>
-                                    <a href="#" class="item"><span class="item--text">رویه ارسال سفارش</span></a>
-                                    </span>
+                                <a href="{% url 'home:index' %}" class="item"><span class="item--text">صفحه نخست</span></a>
+                                <a href="{% url 'home:category_view' %}" class="item"><span class="item--text">دسته بندی</span></a>
+                                <a href="{% url 'home:faq' %}" class="item"><span class="item--text">سوالات متداول</span></a>
+                                <a href="{% url 'home:about' %}" class="item"><span class="item--text">درباره ما</span></a>
+                                <a href="{% url 'home:profile' %}" class="item"><span class="item--text">ناحیه کاربری</span></a>
+                                <!-- <a href="{% url 'home:category_view' %}" class="item"><span class="item--text"></span></a> -->
+                                </span>
                         </div>
                     </div>
+
                     <div class="more-links col-12 col-md-6 col-lg-3">
                         <div class="more-links__inner">
-                            <span class="head-title">خدمات مشتریان</span>
-                            <span class="items">
-                                <a href="#" class="item"><span class="item--text">پاسخ به پرسش‌های متداول</span></a>
-                                    <a href="#" class="item"><span
-                                            class="item--text">رویه‌های بازگرداندن کالا</span></a>
-                                    <a href="#" class="item"><span class="item--text">شرایط استفاده</span></a>
-                                    </span>
-                        </div>
-                    </div>
-                    <div class="more-links col-12 col-md-6 col-lg-3">
-                        <div class="more-links__inner">
-                            <span class="head-title">خدمات مشتریان</span>
+                            <span class="head-title">گروه های محصولات</span>
                             <span class="items">
                                 <a href="#" class="item"><span class="item--text">پاسخ به پرسش‌های متداول</span></a>
                                     <a href="#" class="item"><span
@@ -756,19 +772,12 @@
                 <div class="row main-area__inner">
                     <div class="more-links col-12 col-md-6 col-lg-7">
                         <div class="more-links__inner">
-                            <h1 class="site-title">خدمات مشتریان</h1>
+                            <h1 class="site-title"></h1>
                             <span class="items">
                                 <a href="#" class="item">
                                     <span class="item--text-description">
-                                        <p>
-                                پرو  کالا به عنوان یکی از قدیمی‌ترین فروشگاه های اینترنتی با بیش از یک دهه تجربه، با
-                                پایبندی به سه اصل کلیدی، پرداخت در
-                                محل، 7 روز ضمانت بازگشت کالا و تضمین اصل‌بودن کالا، موفق شده تا همگام با فروشگاه‌های
-                                معتبر جهان، به بزرگ‌ترین فروشگاه
-                                اینترنتی ایران تبدیل شود. به محض ورود به پرو  کالا با یک سایت پر از کالا رو به رو
-                                می‌شوید! هر آنچه که نیاز دارید و به
-                                ذهن شما خطور می‌کند در اینجا پیدا خواهید کرد.
-</p>
+                                        <p>الی شاپ یک پلتفرم آنلاین است که انواع محصولات متنوع و باکیفیت را با قیمت‌های مناسب عرضه می‌کند. با تنوع بالا و ارسال سریع، تجربه‌ای آسان و مطمئن برای خرید آنلاین را به مشتریان ارائه می‌دهیم. هدف ما جلب رضایت مشتریان با ارائه محصولات برتر و خدمات پشتیبانی عالی است .الی شاپ به ارائه بهترین تجربه خرید برای کاربران و ارتقاء مهارت‌های ذهنی آن‌ها متعهد است.</p>
+
                                     </span>
                                     </a>
                                     </span>
@@ -791,7 +800,7 @@
                             <span class="items">
                                 <a href="#" class="item">
                                     <span class="item--text-description">
-                                        <p>کلیه حقوق برای این سایت و قالب محفوظ است</p>
+                                        <p>کلیه حقوق برای این سایت  محفوظ است</p>
                                     </span>
                                 </a>
                             </span>
@@ -832,7 +841,7 @@
 </div>
 </body>
 <script src="{% static 'asset/js/app.js' %}"></script>
-
+<script>let d =document.querySelectorAll('img');d.forEach(function (params) {params.addEventListener('contextmenu', event => event.preventDefault());});</script>
 </html>
 
 
