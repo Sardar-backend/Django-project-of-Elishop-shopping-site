@@ -13,7 +13,11 @@ class Cart:
     def add(self, product, quantity=1, override_quantity=False):
         product_id = str(product.id)
         if product_id not in self.cart:
-            self.cart[product_id] = {'quantity': 0, 'price': str(product.price)}
+            self.cart[product_id] = {
+                'quantity': 0,
+                'price': str(product.price),
+                'discount': str(product.Discoust) if hasattr(product, 'Discoust') else '0'  # تخفیف به محصول اضافه می‌شود
+            }
         if override_quantity:
             self.cart[product_id]['quantity'] = quantity
         else:
@@ -36,9 +40,8 @@ class Cart:
         for Product in products:
             cart[str(Product.id)]['product'] = Product
         for item in cart.values():
-            # item['title'] = item['title']
             item['price'] = Decimal(item['price'])
-
+            item['discount'] = Decimal(item['discount'])  # تبدیل تخفیف به عدد Decimal
             item['total_price'] = item['price'] * item['quantity']
             yield item
 
@@ -48,6 +51,13 @@ class Cart:
     def get_total_price(self):
         return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
 
+    def get_total_discount(self):
+        """محاسبه جمع تخفیف‌های سبد خرید"""
+        return sum((Decimal(item['price']) * Decimal(item['discount'])/100) * item['quantity'] for item in self.cart.values())
+
     def clear(self):
         del self.session['cart']
         self.save()
+
+    # def get_total_price(self):
+    #     return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())

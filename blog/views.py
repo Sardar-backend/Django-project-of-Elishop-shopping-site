@@ -1,10 +1,13 @@
 from django.shortcuts import render ,get_list_or_404 ,HttpResponse,get_object_or_404 ,redirect
-from home.models import product ,adresses ,comment
+from home.models import product ,adresses ,comment ,Color
 from home.form import commentform
 from django.contrib import messages
 from django.views.generic import TemplateView , ListView
 from django.db.models import Q
 from .cart import Cart
+from django.http import FileResponse
+import os
+
 # Create your views here.
 
 
@@ -16,17 +19,30 @@ def product_view(request,pid):
             messages.add_message(request,messages.SUCCESS,'کامنت شما با موفقیت ارسال شد')
         else:
             messages.add_message(request,messages.ERROR,'متاسفانه کامنت شما ارسال نشد')
-    p = get_list_or_404(product,pk=pid,status=True)
+    p =get_object_or_404 (product,pk=pid,status=True)
+    price = p.price * (p.Discoust)/100
     c= product.objects.filter(id=pid)
     favorates= product.objects.filter(favorites__id=request.user.id)
+    color= Color.objects.filter(product__id=p.id)
     comments =comment.objects.filter(pro=pid,status=True)
+
+
+    lencomments = len(comments) if len(comments)!=0 else 1
     v=c[0].counted_view +1
     product.objects.filter(id=pid).update(counted_view=v)
-    context = {'products':p ,'comments':comments,'favorates':favorates}
+    context = {'p':p ,'comments':comments,'favorates':favorates,'price':price}
     cart =Cart(request)
     context['CartNumber'] =len(cart)
+    context['colorlist']=color
     context['Cart'] =cart
     context['total'] =cart.get_total_price()
+    context['average_cost'] =sum(item.cost for item in comments) /lencomments
+    context['average_Quality'] =sum(item.quality for item in comments) /lencomments
+    context['average_Innovation'] =sum(item.Innovation for item in comments) /lencomments
+    context['average_Beauty'] =sum(item.beauty for item in comments) /lencomments
+    context['average_Longevity'] =sum(item.Longevity for item in comments) /lencomments
+    context['average_Services'] =sum(item.Services for item in comments) /lencomments
+    context['product_url'] =  request.build_absolute_uri()
     return render(request, 'blog/product.html',context)
 
 def search_view (request):
@@ -87,6 +103,9 @@ def delete_adresses (request,pid):
         return redirect(request.META.get('HTTP_REFERER'))
 
 
+def download_file(request):
+    file_path = os.path.join('medias', 'MyResume-314[www.cvbuilder.me].pdf')  # مسیر به پوشه‌ی فایل‌ها
+    return FileResponse(open(file_path, 'rb'))
 
 
 
@@ -110,7 +129,8 @@ def cart_detail(request):
     context['CartNumber'] =len(cart)
     context['Cart'] =cart
     context['total'] =cart.get_total_price()
-    # context['totalDiscoust'] =cart.get_total_Discoust()
+    context['totalDiscount'] =cart.get_total_discount()
+    context['finalPrice'] = cart.get_total_price() - cart.get_total_discount()
     if len(cart):
         return render(request, 'Cart/mycart.html', context)
     return render(request, 'Cart/mycartEmpty.html', context)

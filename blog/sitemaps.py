@@ -1,5 +1,5 @@
 from django.contrib.sitemaps import Sitemap
-from home.models import product
+from home.models import product  ,Category
 
 class BlogSitemap(Sitemap):
     changefreq = "weekly"
@@ -8,5 +8,11 @@ class BlogSitemap(Sitemap):
     def items(self):
         return product.objects.filter(status=True)
 
+    def items(self):
+        return product.objects.filter(status=True)
+
+    def items(self):
+        return Category.objects.all()
+
     def lastmod(self, obj):
-        return obj.updated_date
+        return obj.created_date

@@ -2,32 +2,74 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from taggit.managers import TaggableManager
+from django.core.validators import MaxValueValidator, MinValueValidator
+from django.contrib.auth.models import AbstractUser
+import json
+class Rating(models.IntegerChoices):
+    ONE_STAR = 1, 'One Star'
+    TWO_STARS = 2, 'Two Stars'
+    THREE_STARS = 3, 'Three Stars'
+    FOUR_STARS = 4, 'Four Stars'
+    FIVE_STARS = 5, 'Five Stars'
 
+
+class CustomUser(AbstractUser):
+    # age = models.IntegerField(null=True, blank=True)
+    # bio = models.TextField(null=True, blank=True)
+    phone = models.IntegerField(null=True, blank=True)
+    meli = models.IntegerField(null=True, blank=True)
+    card = models.CharField(null=True, blank=True , max_length=255)
+    image =models.ImageField(upload_to='UserProfile/',default='categorys/422.jpg')
+    # groups = models.ManyToManyField(
+    #     'auth.Group',
+    #     related_name='customuser_set',  # تغییر نام رابطه معکوس
+    #     blank=True
+    # )
+    # user_permissions = models.ManyToManyField(
+    #     'auth.Permission',
+    #     related_name='customuser_set',  # تغییر نام رابطه معکوس
+    #     blank=True
+    # )
+
+
+class Color(models.Model):
+    name = models.CharField(max_length=255)
+    EnglishName = models.CharField(max_length=255)
+    def __str__(self):
+        return  "{}".format(self.name)
 class Category(models.Model):
     name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='categorys/',default='categorys/422.jpg')
+    created_date = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return  "{}".format(self.name)
 
+    def get_absolute_url(self):
+        return reverse('home:pros',kwargs={'cat_name':self.name})
 
 class product(models.Model):
-    # author = models.ForeignKey(User, on_delete=models.SET_NULL ,null=True)
+
     image = models.ImageField(upload_to='products/',default='products/product-1.png')
     # category = models.ManyToManyField(category)
     title = models.CharField(max_length=255)
     # tags =TaggableManager()
+    code = models.CharField(max_length=255,null=True)
     brand= models.CharField(max_length=255,null=True)
     description = models.TextField()
     category = models.ManyToManyField(Category)
+    stars = models.IntegerField(choices=Rating.choices,validators=[MinValueValidator(1), MaxValueValidator(5)],default=Rating.THREE_STARS)
     price = models.FloatField(default=0)
     Discoust =models.IntegerField(default=0)
     counted_view = models.IntegerField(default=0)
-    favorites = models.ManyToManyField(User)
+    favorites = models.ManyToManyField(CustomUser,blank=True)
     status = models.BooleanField(default=False)
     published_date = models.DateField(null=True)
+    color=models.ManyToManyField(Color, blank=True)
     count= models.IntegerField(default=0)
     Ready_to_send = models.BooleanField(default=False)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
+
 
     class Meta:
         ordering = ['created_date']
@@ -61,14 +103,16 @@ class comment (models.Model):
     def __str__(self):
         return  "{} - {}".format(self.title,self.status)
 
-class Categorys (models.Model):
-     name = models.ForeignKey(Category, on_delete=models.CASCADE ,null=True)
-     image = models.ImageField(upload_to='products/',default='products/product-1.png')
-     def __str__(self):
-         return  " {}".format(self.name)
+    def get_absolute_url(self):
+        return reverse('home:comment_view',kwargs={'id':self.id})
+# class Categorys (models.Model):
+#      name = models.ForeignKey(Category, on_delete=models.CASCADE ,null=True)
+#      image = models.ImageField(upload_to='products/',default='products/product-1.png')
+#      def __str__(self):
+#          return  " {}".format(self.name)
 class contact (models.Model):
     #name = models.CharField(max_length=255)
-    name =  models.ForeignKey(User, on_delete=models.CASCADE)
+    name =  models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     # email = models.EmailField()
     # telephon = models.IntegerField(default=0)
     # title = models.CharField(max_length=255)
@@ -86,7 +130,7 @@ class contact (models.Model):
 
 
 class Order (models.Model):
-    user = models.ForeignKey(User, on_delete=models.SET_NULL ,null=True)
+    user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL ,null=True)
     order_number = models.CharField(max_length=255)
     Amount_payable = models.IntegerField(default=0)
     Amount_total = models.IntegerField(default=0)
@@ -102,7 +146,7 @@ class Order (models.Model):
 
 
 class adresses (models.Model):
-    user = models.ForeignKey(User, on_delete=models.SET_NULL ,null=True)
+    user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL ,null=True)
     recipient_name = models.CharField(max_length=255)
     ostan = models.CharField(max_length=255)
     city = models.CharField(max_length=255)
@@ -129,13 +173,3 @@ class adresses (models.Model):
 
 
 
-class newsletter (models.Model):
-    email = models.EmailField()
-    created_date = models.DateTimeField(auto_now_add=True)
-    class Meta:
-        ordering = ['-created_date']
-        verbose_name = "ایمیل"
-        verbose_name_plural ="ایمیل ها"
-
-    def __str__(self):
-        return  "-> {}".format(self.email)

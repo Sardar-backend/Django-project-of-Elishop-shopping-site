@@ -1,11 +1,37 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-{% for p in products %}
+
 {% load humanize %}
 <div class="menu__overlay--bg"></div>
 <div class="overlay--bg"></div>
+<style>
+    .avatar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 1rem !important;
+    }
 
+    .avatar .lil {
+        position: relative;
+        display: inline-block;
+    }
+
+    .avatar .li {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #ccc;
+    }
+
+    .avatar i {
+        background-size: cover;
+        background-position: center;
+    }
+
+</style>
 <div class="main">
     <div class="container-fluid">
         <div class="main__inner">
@@ -27,7 +53,7 @@
                         <div class="product__inner">
                             <div class="row">
                                 <div class="product-gallery  col-lg-1 col-3">
-                                    <div class="product-gallery__inner">
+                                    <!-- <div class="product-gallery__inner">
                                         <div class="items">
                                             <a class="item" data-fancybox="pd-gallery" href="{% static './asset/images/2.jpg' %}"><img
                                                         src="{% static './asset/images/2196691.jpg' %}" alt=""></a>
@@ -40,12 +66,12 @@
                                                href="{% static './asset/images/mobile-red.jpg' %}"><img
                                                         src="{% static './asset/images/2196691.jpg' %}" alt=""></a>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="product-picture col-lg-3 col-9">
                                     <div class="product-picture__inner">
                                         <img data-zoom-image="{% static './asset/images/2.jpg' %}" id="zoom_01"
-                                             src="{% static './asset/images/samsung-j7.jpg' %}" alt="">
+                                             src="{{p.image.url}}" alt="">
                                     </div>
                                 </div>
                                 <div class="product-details col-lg-6">
@@ -62,7 +88,7 @@
                                         <div class="second-section">
                                             <div class="second-section__inner">
                                             <span class="brand"><span class="brand-key">برند</span><span
-                                                        class="brand-value">سامسونگ</span></span>
+                                                        class="brand-value">{{p.brand}}</span></span>
                                                 <span class="category"><span class="category-key">دسته بندی</span><span
                                                             class="category-value">گوشی موبایل</span></span>
                                             </div>
@@ -74,39 +100,24 @@
                                                 <span class="items">
 
                                                     <ul class="product-variants float-right ml-3">
+                                                        {% for item in colorlist %}
+
                                                         <li class="ui-variant item">
 
                                                             <label class="ui-variant ui-variant--color">
                                                                 <span class="color-value"
-                                                                        style="background-color: rgb(43, 43, 43);">
+                                                                        style="background-color: {{item.EnglishName}};">
                                                                 </span>
                                                                 <input type="radio" name="color"
                                                                         class="variant-selector" value="5">
-                                                                <span class="ui-variant--check">مشکی</span>
+                                                                <span class="ui-variant--check">{{item.name}}</span>
                                                             </label>
                                                         </li>
-                                                        <li class="ui-variant item">
-
-                                                            <label class="ui-variant ui-variant--color">
-                                                                <span class="color-value"
-                                                                        style="background-color: rgb(0, 128, 0);"></span>
-                                                                <input type="radio" name="color"
-                                                                        class="variant-selector" value="6">
-                                                                <span class="ui-variant--check">سبز</span>
-                                                            </label>
-                                                        </li>
-                                                        <li class="ui-variant item">
-
-                                                            <label class="ui-variant ui-variant--color">
-                                                                <span class="color-value"
-                                                                      style="background-color: #4373ad;"></span>
-                                                                <input type="radio" name="color"
-                                                                        class="variant-selector" value="7">
-                                                                <span class="ui-variant--check">آبی</span>
-                                                            </label>
-                                                        </li>
+                                                        {% endfor %}
                                                     </ul>
-
+                                                    <!-- <a href="https://twitter.com/intent/tweet?url={{product_url }}&text=این+محصول+را+ببینید!" target="_blank"><span class="share-link"><img src="assets/images/social/twitter.png" alt="توئیتر" height="25px"> توئیتر</span></a>
+                                                    <a href="https://t.me/share/url?url={{product_url }}&text=این+محصول+را+ببینید!" target="_blank"><span class="share-link"><img style="width: 2% !important;" src="assets/images/social/telgrampng.parspng.com_.png" alt="فیس بوک" height="25px">تلگرام</span></a>
+                                                    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{product_url }}&title=عنوان+محصول&summary=خلاصه+محصول" target="_blank"><span class="share-link"><img src="assets/images/social/linkedin.png" alt="لینکدین" height="25px"> لینکدین</span></a> -->
                                                 </span>
                                             </span>
                                             <form id="formlike" action="{% url 'home:favorates' %}" method="post">{% csrf_token %}<input type="hidden" name="product_id" value="{{p.id}}"></form>
@@ -114,11 +125,10 @@
                                                     <div class="share__like__inner">
                                                     <span class="mdi mdi-share-variant">
                                                         <span class="items">
-                                                            <span class="item"><span class="mdi mdi-send"></span></span>
-                                                            <span class="item"><span
-                                                                        class="mdi mdi-twitter"></span></span>
-                                                            <span class="item"><span
-                                                                        class="mdi mdi-whatsapp"></span></span>
+                                                            <span class="item"><a href="https://t.me/share/url?url={{product_url }}&text=این+محصول+را+ببینید!" target="_blank" ><span class="mdi mdi-send"></span></a></span>
+                                                            <span class="item"><a href="https://twitter.com/intent/tweet?url={{product_url }}&text=این+محصول+را+ببینید!" target="_blank"><span class="share-link"><span class="mdi mdi-twitter"></span></a></span>
+                                                            <span class="item"><a href="https://api.whatsapp.com/send?text={{ product_url }}" target="_blank" title="اشتراک در واتساپ" ><span
+                                                                        class="mdi mdi-whatsapp"></span></a></span>
                                                         </span>
                                                     </span>
                                                     {% if p in favorates %}
@@ -150,13 +160,13 @@
                                             <div class="row fourth-section__inner">
                                                 <span class="code col-lg-12">
                                                      <span class="code-key"> کد محصول : </span>
-                                                     <span class="code-value"> DI-۶۵۶۸۹۴</span>
+                                                     <span class="code-value"> {{p.code}}</span>
                                                </span>
 
 
                                                  <span class="price d-flex align-items-center dt-sl ">
                                                      <span class="price-key"> قیمت : </span>
-                                                     <span class="price-value">۳٫۲۰۰٫۰۰۰</span>
+                                                     <span class="price-value">{{price }}</span>
                                                      <span class="price-unit">تومان</span>
                                                  </span>
                                                  <form id="form" action="{% url 'blog:add_to_cart'  product_id=p.id  %}" method="get"></form>
@@ -329,7 +339,7 @@
                                             </div>
                                         </div>
                                         <div class="picture">
-                                            <img src="{% static './asset/images/samsung-j7-220-220.jpg' %}" alt="">
+                                            <img src="{{p.image.url}}" alt="">
                                         </div>
                                         <div class="description">
                                             <div class="desciption--text">
@@ -349,7 +359,12 @@
                                         <div class="items">
                                             <div class="item">
                                                 <div class="item-key col-lg-3">رنگ</div>
-                                                <div class="item-value col-lg-9"> سفید، نارنجی، سبز</div>
+                                                <div class="item-value col-lg-9">
+                                                    {% for item in colorlist %}
+                                                    {{item.name}}
+                                                {% endfor %}
+
+                                                </div>
                                             </div>
                                             <div class="item">
                                                 <div class="item-key col-lg-3">وزن</div>
@@ -378,26 +393,27 @@
                                                             <div class="items">
                                                                 <div class="item design">
                                                                     <span class="item-name">طراحی و ظاهر</span>
-                                                                    <span class="item-bar"
-                                                                          data-bar-value="medium"></span>
+                                                                    <input type="range" name="" value="{{average_Beauty}}" disabled id="">
                                                                 </div>
                                                                 <div class="item quality">
                                                                     <span class="item-name">کیفیت ساخت</span>
-                                                                    <span class="item-bar" data-bar-value="good"></span>
+                                                                    <input type="range" name="" value="{{average_Quality}}" disabled id="">
                                                                 </div>
                                                                 <div class="item options">
-                                                                    <span class="item-name">امکانات</span>
-                                                                    <span class="item-bar"
-                                                                          data-bar-value="awful"></span>
+                                                                    <span class="item-name">طول عمر</span>
+                                                                    <input type="range" name="" value="{{average_Longevity}}" disabled id="">
+                                                                </div>
+                                                                <div class="item options">
+                                                                    <span class="item-name">خدمات پس از فروش</span>
+                                                                    <input type="range" name="" value="{{average_Services}}" disabled id="">
                                                                 </div>
                                                                 <div class="item price">
                                                                     <span class="item-name">ارزش خرید</span>
-                                                                    <span class="item-bar" data-bar-value="bad"></span>
+                                                                    <input type="range" value="{{average_cost}}" disabled name="">
                                                                 </div>
                                                                 <div class="item newly">
                                                                     <span class="item-name">نوآوری</span>
-                                                                    <span class="item-bar"
-                                                                          data-bar-value="awesome"></span>
+                                                                    <input type="range" name="" value="{{average_Innovation}}" disabled id="">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -435,7 +451,9 @@
                                             <div class="comment">
                                             <div class="top">
                                                 <div class="avatar">
-                                                    <span class="mdi mdi-account-circle-outline"></span>
+                                                                       <i class="lil mdi-48px text-black-50">
+                                                        <img class="li" src="{{ request.user.image.url }}" alt="Profile">
+                                                    </i>
                                                 </div>
                                                 <div class="user-display-name">{{comment.name}}</div>
                                                 <div class="time">
@@ -532,5 +550,5 @@
         </div>
     </div>
 </div>
-{% endfor %}
+
 {% endblock %}

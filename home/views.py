@@ -1,14 +1,14 @@
 from typing import Any
 from django.shortcuts import render , HttpResponseRedirect , HttpResponse ,get_object_or_404 ,redirect
 from home.models import product , adresses
-from home.models import Categorys , Category , contact
+from home.models import  Category , contact
 from django.core.paginator import Paginator
-from home.form import contactform , neeslettertform ,adressform , captcha
+from home.form import contactform  ,adressform , captcha , Userform
 from django.contrib import messages
 from django.views.generic import TemplateView , ListView
 from django.contrib.auth.decorators import login_required
 from blog.cart import Cart
-
+from django.contrib.auth.forms import AuthenticationForm , UserCreationForm
 # Create your views here.
 @login_required(login_url='/')
 def contact_view(request):
@@ -51,6 +51,7 @@ class category_view(TemplateView):
         context =  super().get_context_data(**kwargs)
         category = Category.objects.all()
         context['categorys'] = list(category)
+        context['Categorys'] = list(category)[5:]
         cart =Cart(self.request)
         context['CartNumber'] =len(cart)
         context['Cart'] =cart
@@ -141,7 +142,7 @@ class discounts (ListView):
 
 
 class products_ready(ListView):
-    template_name = 'view/products'
+    template_name = 'view/products.html'
     queryset = product.objects.filter(status=True,Ready_to_send= True)
     ordering = 'created_date'
     paginate_by = 12
@@ -184,14 +185,7 @@ def products_views(request,cat_name):
 #     return render(request, 'view/prose.html',contextt)
 
 
-def newsletter(request):
-    if request.method == 'POST':
-        form = neeslettertform(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/')
-    else:
-        return HttpResponseRedirect('/')
+
 
 
 @login_required(login_url='/')
@@ -210,6 +204,12 @@ def profile(request):
 #     return render(request, 'view/profile/add-adress.html')
 @login_required(login_url='/')
 def edit_personal(request):
+    if request.method == 'POST':
+        form = Userform(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('home:index')
+        return HttpResponse('no')
     return render(request, 'view/profile/edit-personal-info.html')
 @login_required(login_url='/')
 def favorates(request):

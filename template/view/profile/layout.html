@@ -1,10 +1,38 @@
 {% load static %}
+<style>
+    .p-avatar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .p-avatar .lil {
+        position: relative;
+        display: inline-block;
+    }
+
+    .p-avatar .li {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #ccc;
+    }
+
+    .p-avatar i {
+        background-size: cover;
+        background-position: center;
+    }
+
+</style>
 <div class="side-right col-lg-3">
     <div class="side-right__inner">
         <div class="profile-view-box box">
             <div class="profile-view-box__inner">
                 <div class="p-avatar">
-                    <i class="mdi mdi-account-circle-outline mdi-48px text-black-50"></i>
+                    <i class="lil mdi-48px text-black-50">
+                        <img class="li" src="{{ request.user.image.url }}" alt="Profile">
+                    </i>
                 </div>
                 <div class="p-name">
                     <span class="p-name--text">{{request.user.username}}</span>

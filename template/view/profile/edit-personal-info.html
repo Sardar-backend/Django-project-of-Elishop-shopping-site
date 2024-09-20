@@ -31,17 +31,37 @@
                                                 <div class="col-lg-6 no-padding">
                                                     <div class="p-i-col">
                                                         <div class="p-i-col__inner">
-                                                            <div class="key">نام ‌و نام‌خانوادگی</div>
-                                                            <input class="value form-control" placeholder="09029234589">
+
+                                                            <div class="key">نام کاربری ‌</div>
+                                                            <input name="username" class="value form-control"  placeholder="{{request.user}}">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 no-padding">
                                                     <div class="p-i-col">
                                                         <div class="p-i-col__inner">
-                                                            <div class="key">شماره موبایل</div>
+                                                            <div class="key">عکس پروفایل</div>
 
-                                                            <input class="value form-control" placeholder="09029234589">
+                                                            <input name="image" type="file" class="value form-control"   >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="c-row">
+                                                <div class="col-lg-6 no-padding">
+                                                    <div class="p-i-col">
+                                                        <div class="p-i-col__inner">
+                                                            <div class="key">نام ‌</div>
+                                                            <input name="first_name" class="value form-control"  placeholder="{{request.user.first_name}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 no-padding">
+                                                    <div class="p-i-col">
+                                                        <div class="p-i-col__inner">
+                                                            <div class="key">نام خانوادگی</div>
+
+                                                            <input name="last_name" class="value form-control"  placeholder="{{request.user.last_name}}" >
                                                         </div>
                                                     </div>
                                                 </div>
@@ -51,7 +71,7 @@
                                                     <div class="p-i-col">
                                                         <div class="p-i-col__inner">
                                                             <div class="key">ایمیل</div>
-                                                            <input class="value form-control" placeholder="09029234589">
+                                                            <input name="email" class="value form-control"  placeholder="{{request.user.email}}" >
                                                         </div>
                                                     </div>
                                                 </div>
@@ -59,13 +79,33 @@
                                                     <div class="p-i-col">
                                                         <div class="p-i-col__inner">
                                                             <div class="key">کدملی</div>
-                                                            <input class="value " placeholder="09029234589">
+                                                            <input name="meli" class="value " class="form-control"  placeholder="{{request.user.meli}}" >
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="c-row">
+                                                <div class="col-lg-6 no-padding">
+                                                    <div class="p-i-col">
+                                                        <div class="p-i-col__inner">
+                                                            <div class="key">شماره تلفن</div>
+                                                            <input name="phone" class="value form-control"  placeholder="{{request.user.phone}}" >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 no-padding">
+                                                    <div class="p-i-col">
+                                                        <div class="p-i-col__inner">
+                                                            <div class="key">شماره کارت جهت مرجوع وجه</div>
+                                                            <input name="card" class="value " class="form-control"  placeholder="{{request.user.card}}" >
+
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="p-i-edit-link">
-                                                <button type="submit" class="p-i-edit-link--text"><p>ویرایش اطلاعات شخصی</p></button>
+                                                <button  type="submit" class="aba p-i-edit-link--text"><p>ویرایش اطلاعات شخصی</p></button>
                                             </div>
                                         </div>
                                     </div>

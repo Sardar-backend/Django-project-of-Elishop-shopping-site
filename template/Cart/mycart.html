@@ -48,7 +48,7 @@
                                                 </div>
                                                 <div class="quantity">
                                                     <span class="key">تعداد:</span>
-                                                    <span class="value">۳ عدد</span>
+                                                    <span class="value">{{item.quantity}} عدد</span>
                                                     <span class="counter">
                                                     <span class="mdi mdi-plus"></span>
                                                     <span class="mdi mdi-minus"></span>
@@ -108,7 +108,7 @@
                                             </div>
                                             <div class="profits invoice-item">
                                                 <span class="key">سود شما از خرید</span>
-                                                <span class="value">{{totalDiscoust}}</span>
+                                                <span class="value">{{totalDiscount}}</span>
                                             </div>
                                             <div class="transmit-price invoice-item">
                                                 <span class="key">هزینه ارسال</span>
@@ -118,7 +118,7 @@
                                             <div class="payment-price">
                                                 <div class="key">مبلغ قابل پرداخت</div>
                                                 <div class="value">
-                                                    ۱٫۴۳۲٫۰۰۰
+                                                    {{finalPrice}}
                                                 </div>
                                             </div>
                                             <div class="payment-process-button">

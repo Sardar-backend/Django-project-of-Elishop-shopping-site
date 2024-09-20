@@ -17,40 +17,7 @@
                             <div class="search-side-bar col-lg-3 col-12">
                                 <div class="search-side-bar__inner">
                                     <div class="boxes">
-                                        <div class="box categories-box">
-                                            <div class="box__inner categories-box__inner">
-                                                <div class="box-title">دسته‌بندی نتایج</div>
-                                                <div class="box-content">
-                                                    <ul class="items">
-                                                        <li class="item"><a class="arrow-left" href="#">خانه و
-                                                                آشپزخانه</a></li>
-                                                        <div class="show-more">
-                                                            <ul class="items">
-                                                                <li class="item"><a class="arrow-down"
-                                                                                    href="#">آشپزخانه</a></li>
-                                                                <div class="show-more">
-                                                                    <ul class="items">
-                                                                        <li class="item"><a class="arrow-down active"
-                                                                                            href="#">تهیه و سرو چای و
-                                                                                قهوه</a></li>
-                                                                        <div class="show-more">
-                                                                            <ul class="child">
-                                                                                <li class="child-item"><a
-                                                                                            href="#">قوری</a></li>
-                                                                                <li class="child-item"><a href="#">کتری
-                                                                                        و قوری</a></li>
-                                                                                <li class="child-item"><a href="#">سرویس
-                                                                                        چای خوری</a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </ul>
-                                                                </div>
-                                                            </ul>
-                                                        </div>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                         <div class="box search-box">
                                             <div class="box__inner search-box__inner">
                                                 <div class="box-title">جستجو در نتایج</div>
@@ -65,55 +32,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="box brands-box">
-                                            <div class="box__inner brands-box__inner has-drop-down">
-                                                <div class="box-title">
-                                                    <span class="text">برندها</span>
-                                                    <span class="icon mdi mdi-window-minimize"></span>
-                                                </div>
-                                                <div class="box-content">
-                                                    <form action="{% url 'blog:search' %}">
-                                                    <div class="search-in-brands">
-                                                        <input name="p" class="search-in-brands--input" type="text"
-                                                               placeholder="نام محصول یا برند را بنویسید">
-                                                        <button class="search-in-brands--btn"><span
-                                                                    class="mdi mdi-magnify"></span></button>
-                                                    </div>
-                                                    <div class="brands">
-                                                        <div class="brand-item">
-                                                            <label class="brand-item__inner" for="samsung">
-                                                            <span class="md-checkbox">
-                                                                <input class="fa-title" id="samsung" data-brand-id="254"
-                                                                       type="checkbox">
-                                                                <label for="samsung">سامسونگ</label>
-                                                            </span>
-                                                                <span class="en-title">Samsung</span>
-                                                            </label>
-                                                        </div>
-                                                        <div class="brand-item">
-                                                            <label class="brand-item__inner" for="huawei">
-                                                            <span class="md-checkbox">
-                                                                <input class="fa-title" id="huawei" data-brand-id="261"
-                                                                       type="checkbox">
-                                                                <label for="huawei">هوآوی</label>
-                                                            </span>
-                                                                <span class="en-title">Huawei</span>
-                                                            </label>
-                                                        </div>
-                                                        <div class="brand-item">
-                                                            <label class="brand-item__inner" for="apple">
-                                                            <span class="md-checkbox">
-                                                                <input class="fa-title" id="apple" data-brand-id="287"
-                                                                       type="checkbox">
-                                                                <label for="apple">آپل</label>
-                                                            </span>
-                                                                <span class="en-title">Apple</span>
-                                                            </label>
-                                                        </div>
-                                                    </div></form>
-                                                </div>
-                                            </div>
-                                        </div>
+
 
                                         <!-- <div class="box colors-box">
                                             <div class="box__inner colors-box__inner has-drop-down">
@@ -187,9 +106,8 @@
                                                 <div class="box-title">
                                                     <span>فقط کالاهای آماده ارسال</span>
 
-
-                                                    <a  href="{% url 'home:ready' %}"><button style="background-color: greenyellow; border-radius:15px " type="submit" class="mr-1 p-2">فعال</button></a>
-                                                    <a href="{% url 'home:products_view' %}"><button style="background-color: red; color:white; border-radius:15px" type="submit" class="mr-1 p-2">غیر فعال</button></a>
+                                                    <a href="{% url 'home:ready' %}"><button type="submit" class="mr-3">فعال</button></a>
+                                                    <a href="{% url 'home:products_view' %}"><button type="submit" class="mr-1">غیر فعال</button></a>
                                                     <!-- <input type="checkbox" id="id-name--2" name="set-name"
                                                            class="switch-input">
 
@@ -304,7 +222,7 @@
                                         <div class="products__inner">
                         {% for pro in products  %}
 
-  				      	<div class="product col-lg-3 no-padding"><a href="{% url 'blog:product_single' pid=pro.id %}">
+  				      	<div class="product col-lg-3 no-padding"><a href="{% url 'blog:product_view' pid=pro.id %}">
                                                 <div class="product__inner mb-3">
                                                     <div class="has-discount">
 							<!-- <div class="colors">
@@ -324,7 +242,7 @@
 							<span class="has-discount--text">فروش ویژه</span>
 						    </div>
                                                     <div class="picture">
-							<img src="{% static 'asset/images/117624541.jpg' %}" alt="">
+							<img src="{{pro.image.url}}" alt="">
                                                     </div>
                                                     <div class="title">
 							<span class="title--text">{{pro.title}}</span>

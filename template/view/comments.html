@@ -13,7 +13,7 @@
 
                         <!-- Start Product -->
                         <div class="nf-sn mb-5 dt-sl">
-                            <form action="{% url 'blog:product_single' pid=5 %}" method="post">{% csrf_token %}
+                            <form action="{% url 'blog:product_view' pid=5 %}" method="post">{% csrf_token %}
                                 <input type="hidden" name="name" value="{{t.username}}" >
                                 <!-- <input type="hidden" name="email" value="{{t}}" > -->
                                 <input type="hidden" name="pro" value="5" >

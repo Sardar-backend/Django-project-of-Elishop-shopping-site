@@ -1,11 +1,14 @@
  {% load static %}
  {% for po in products %}
  <div class="swiper-slide ">
-    <a href="{% url 'blog:product_single' pid=po.id %}" class="swiper-slide__inner">
+    <a href="{% url 'blog:product_view' pid=po.id %}" class="swiper-slide__inner">
         <div class="product-head">
             <div class="rating-stars">
+                {{ po.stars  }}
+
+
                 <i class="mdi mdi-star active"></i>
-                <i class="mdi mdi-star active"></i>
+
                 <i class="mdi mdi-star active"></i>
                 <i class="mdi mdi-star active"></i>
                 <i class="mdi mdi-star"></i>
@@ -14,7 +17,7 @@
         </div>
 
         <span class="picture">
-                <img src="{% static './asset/images/mobile-green.jpg' %}"
+                <img src="{{po.image.url}}"
                      alt=""></span>
         <span class="title">{{po.title}}</span>
         <span class="price">

@@ -4,7 +4,7 @@
 {% block content %}
 <head>    <link rel="stylesheet" href="{% static 'asset/css/app.css' %}">
 
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta name="csrf-token" content="4343kjj4i3o434kjhk3j4k3">
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -35,7 +35,12 @@
         .item-picture{
             margin-bottom: 25%;
         }
-
+        i{
+            color: rgb(255, 255, 255) !important;
+        }
+        p , h2 , span{
+            font-family: iranyekan !important
+        }
     </style>
 <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 <br><br><br><br><br>
@@ -53,20 +58,22 @@
                 <div class="about-content">
                     <div class="about-heading">
                         <h2>درباره من</h2>
-                        <span>مرجع قالب و اسکریپت های فارسی</span>
+                        <span>محمد جواد سردار </span>
                     </div>
-                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد </p>
-                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد </p>
+                </div>
+                <p>برنامه‌نویس فریلنسر Back-End با تجربه چندین ساله در توسعه و پیاده‌سازی راهکارهای نرم‌افزاری با استفاده از زبان‌های برنامه‌نویسی مانند Python و php. مهارت در طراحی و بهینه‌سازی پایگاه‌های داده، ایجاد RESTful APIs و کار با فریم‌ورک‌های مختلف مانند لاراول و جنگو. توانایی کار در تیم‌های چندرشته‌ای و ارتباط موثر با سایر بخش‌ها. علاقه‌مند به مواجهه با چالش‌های جدید و به‌روز ماندن با تکنولوژی‌های نوین جهت ارائه راه‌حل‌های کارآمد و مقیاس‌پذیر.</p>
+                <p>متعهد به ارائه راه‌حل‌های باکیفیت و کارآمد با تمرکز بر نیازها و اهداف کارفرما. تجربه در توسعه سایت‌های فروشگاهی و مدیریت محتوای آنلاین با تمرکز بر عملکرد بالا و بهینه‌سازی تجربه کاربری. توانمند در انجام پروژه‌ها به صورت مستقل و همچنین در محیط‌های فریلنسری با هدف تحویل به‌موقع و ارائه نتایج مطلوب برای مشتریان</p>
+                <!--About Social Icons-->
                     <!--About Social Icons-->
                     <div class="social-icons">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-dribbble"></i></a>
-                        <a href="#"><i class="fa fa-google-plus"></i></a>
-                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                        <a class="ico" target="_blank" href="https://www.instagram.com/sardar.devloper"  ><i class="ico fab fa-instagram"></i></a>    <!-- اینستاگرام -->
+                        <a class="ico" target="_blank" href="https://www.linkedin.com/in/mohammadjavad-sardar-48044a308"><i class="ico fab fa-linkedin"></i></a>     <!-- لینکدین -->
+                        <a class="ico" target="_blank" href="https://t.me/Sardar_backend"><i class="ico fab fa-telegram"></i></a>     <!-- تلگرام -->
+                        <a class="ico" target="_blank" href="https://github.com/Sardar-backend"><i class="ico fab fa-github"></i></a>
+
                     </div>
                     <span class="about-button">
-                        <a class="main-btn" href="#">دانلود رزومه</a>
+                        <a class="main-btn" href="{% url 'blog:download_file' %}">دانلود رزومه</a>
                     </span>
                 </div>
             </div>

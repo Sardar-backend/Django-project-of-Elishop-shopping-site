@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import product , comment , Category , Categorys , contact , newsletter ,adresses ,Order
+from .models import product , comment , Category  , contact  ,adresses ,Order,Color, CustomUser
 from django_summernote.admin import SummernoteModelAdmin
 # Register your models here.
 class postAdmin(SummernoteModelAdmin):
@@ -12,8 +12,10 @@ class contactAdmin(SummernoteModelAdmin):
 admin.site.register(product,postAdmin)
 admin.site.register(comment)
 admin.site.register(Category)
-admin.site.register(Categorys)
+admin.site.register(Color)
+admin.site.register(CustomUser)
+
 admin.site.register(contact,contactAdmin)
-admin.site.register(newsletter)
+
 admin.site.register(adresses)
 admin.site.register(Order)

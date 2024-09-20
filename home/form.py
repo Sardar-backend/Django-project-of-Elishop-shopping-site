@@ -1,12 +1,13 @@
 from django import forms
-from home.models import contact, newsletter,comment,adresses,Order
+from home.models import contact,comment,adresses,Order ,CustomUser
 from captcha.fields import CaptchaField
-from django.contrib.auth.models import User
+
 # from captcha.fields import ReCaptchaField
 # from captcha.widgets import ReCaptchaV2Checkbox
 from django_recaptcha.fields import ReCaptchaField
 from django_recaptcha.widgets import ReCaptchaV2Invisible
 # from django_recaptcha.fields import ReCaptchaField
+from django.contrib.auth.models import User
 
 class captcha (forms.Form):
     captcha = ReCaptchaField()
@@ -19,12 +20,14 @@ class contactform(forms.ModelForm):
         fields=['name','content']
         #fields=['name','content']
 
-class neeslettertform(forms.ModelForm):
+
+
+class Userform(forms.ModelForm):
 
     class Meta:
-        model = newsletter
-        fields=['email']
-
+        model=CustomUser
+        #fields="__all__"
+        fields=['phone','meli','card','image','email','first_name','last_name','username']
 class commentform(forms.ModelForm):
 
     class Meta:

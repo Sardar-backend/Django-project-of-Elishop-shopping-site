@@ -2,6 +2,9 @@ from django import template
 from home.models import product
 from blog.cart import Cart
 register = template.Library()
+@register.filter
+def range_filter(y):
+    return range(5)
 
 @register.inclusion_tag('tagstemp/p.html')
 def lates_pro():

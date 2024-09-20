@@ -28,6 +28,10 @@
 
 </head>
 <style>
+    .aba{
+        border-radius: 10px;
+        border-color: red !important;
+    }
     .tt{
         margin-bottom: 1rem;
     }
@@ -75,6 +79,20 @@
         display: flex !important;
         justify-content: space-around !important;
     }
+
+
+
+    .favorites__inner {
+        display: flex!important;
+        flex-wrap: wrap!important; /* برای انتقال آیتم‌ها به سطر بعدی */
+        gap: 20px!important; /* فاصله بین آیتم‌ها */
+    }
+
+    .card-item-favorite {
+        flex: 1 1 calc(50% - 20px)!important; /* عرض هر آیتم 50% با فاصله 20px بین آیتم‌ها */
+        box-sizing: border-box!important;
+    }
+
 </style>
 <body>
 
@@ -124,7 +142,7 @@
                             {% if request.user.is_authenticated  %}
 
 
-                            <span data-dialog="reg-log__dialog" class="reg-log--text ml-3 ">{{user.username}}</span>
+                            <span data-dialog="reg-log__dialog" class="reg-log--text ml-3 ">{{user}}</span>
 
                             {% else %}
 
@@ -217,7 +235,7 @@
                                                                             <small>تومان</small>
                                                                         </div>
                                                                     </div>
-                                =                                </a>
+                                                               </a>
                                                             {% endfor %}
                                                             <!-- <a class="cart-box-list-item">
                                                                     <span class="basket-item-close">
@@ -749,10 +767,10 @@
                         <div class="more-links__inner">
                             <span class="head-title">گروه های محصولات</span>
                             <span class="items">
-                                <a href="#" class="item"><span class="item--text">پاسخ به پرسش‌های متداول</span></a>
-                                    <a href="#" class="item"><span
-                                            class="item--text">رویه‌های بازگرداندن کالا</span></a>
-                                    <a href="#" class="item"><span class="item--text">شرایط استفاده</span></a>
+                                {% for item in categoryList %}
+
+                                <a href="/product-{{item.name}}/" class="item"><span class="item--text">{{item.name}}</span></a>
+                                {% endfor %}
                                     </span>
                         </div>
                     </div>

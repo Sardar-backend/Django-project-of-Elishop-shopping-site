@@ -27,13 +27,13 @@
                                 <div class="side-left__inner">
                                     <div class="add-address-form">
                                         <div class="add-address-form__inner">
-                                            {% for message in messages %}
+                                            <!-- {% for message in messages %}
                                             <div class="container-fluid p-0">
                                               <div class="alert {{ message.tags }} alert-dismissible" role="alert" >
                                                 {{ message }}
                                               </div>
                                             </div>
-                                            {% endfor %}
+                                            {% endfor %} -->
                                             <form class="c-row" method="post" action="{% url 'home:profile_add_adress' %}">{% csrf_token %}
                                                 <input type="hidden" name="user" value="{{request.user.id}}">
                                                 <div class="form-title">
