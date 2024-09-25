@@ -14,6 +14,7 @@ class Cart:
         product_id = str(product.id)
         if product_id not in self.cart:
             self.cart[product_id] = {
+                'id':product_id,
                 'quantity': 0,
                 'price': str(product.price),
                 'discount': str(product.Discoust) if hasattr(product, 'Discoust') else '0'  # تخفیف به محصول اضافه می‌شود

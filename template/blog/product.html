@@ -32,6 +32,7 @@
     }
 
 </style>
+<br><br>
 <div class="main">
     <div class="container-fluid">
         <div class="main__inner">
@@ -99,7 +100,7 @@
                                                 <span class="color-key">رنگ‌ها</span>
                                                 <span class="items">
 
-                                                    <ul class="product-variants float-right ml-3">
+                                                    <ul class="product-variants float-right ml-3 d-flex">
                                                         {% for item in colorlist %}
 
                                                         <li class="ui-variant item">
@@ -166,16 +167,26 @@
 
                                                  <span class="price d-flex align-items-center dt-sl ">
                                                      <span class="price-key"> قیمت : </span>
-                                                     <span class="price-value">{{price }}</span>
+                                                     <span class="price-value">{{price}}</span>
                                                      <span class="price-unit">تومان</span>
                                                  </span>
+
                                                  <form id="form" action="{% url 'blog:add_to_cart'  product_id=p.id  %}" method="get"></form>
+                                                 {% if p.count %}
+
                                                  <span class="add-to-card col-lg-12">
                                                  <span onclick="let add=document.querySelector('#form').submit()" class="add-to-card__inner">
                                                      <span class="icon mdi mdi-cart-plus"></span>
                                                      <span class="text">افزودن به سبد خرید</span>
                                                  </span>
-                                             </span>
+                                                    </span>
+                                                 {% else %}
+                                                 <span class="dt-sl mt-4">
+                                                    <a class="btn-primary-cm bg-secondary btn-with-icon"><i class="mdi mdi-information"></i>
+                                                        ناموجود
+                                                    </a>
+                                                            </span>
+                                                 {% endif %}
                                              </div>
 
 
@@ -190,17 +201,20 @@
                                                         <span class="key--icon mdi mdi-shield-check"></span>
                                                         <span class="key--text">گارانتی:</span>
                                                     </span>
-                                                        <span class="value">سام سرویس</span>
+                                                        <span class="value"> {{p.get_warranty_display }}</span>
                                                     </div>
                                                 </div>
+                                                {% if p.Ready_to_send %}
+
                                                 <div class="transmit col-lg-6 col-6">
                                                     <div class="transmit__inner">
                                             <span class="key">
                                                 <span class="key--icon mdi mdi-truck-delivery"></span>
                                             </span>
-                                                        <span class="value">ارسال از ۲روز آینده</span>
+                                                        <span class="value">آماده برای ارسال</span>
                                                     </div>
                                                 </div>
+                                                {% endif %}
                                             </div>
                                         </div>
                                     </div>
@@ -212,10 +226,10 @@
                                             <div class="description__inner">
                                                 <span class="title">ویژگی محصول</span>
                                                 <ul class="items">
-                                                    <li>نوع: گوشی موبایل</li>
-                                                    <li>باتری 4200 mA</li>
-                                                    <li>سنسور عنبیه چشم</li>
-                                                    <li>سنسور قند خون</li>
+                                                    {% for attribute in p.attributes.all %}
+
+                                                    <li>{{ attribute.key }}: {{ attribute.value }} </li>
+                                                    {% endfor %}
                                                 </ul>
                                             </div>
                                         </div>
@@ -366,14 +380,12 @@
 
                                                 </div>
                                             </div>
+                                            {% for attribute in p.attributes.all %}
                                             <div class="item">
-                                                <div class="item-key col-lg-3">وزن</div>
-                                                <div class="item-value col-lg-9">۳۸۰ گرم</div>
+                                                <div class="item-key col-lg-3">{{ attribute.key }}</div>
+                                                <div class="item-value col-lg-9">{{ attribute.value }} </div>
                                             </div>
-                                            <div class="item">
-                                                <div class="item-key col-lg-3">پردازنده</div>
-                                                <div class="item-value col-lg-9">۴ هسته‌ای intel</div>
-                                            </div>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>
@@ -465,14 +477,7 @@
                                                 <div class="content">
                                                     <span class="content--text">{{comment.content}}</span>
                                                     <span class="like-dislike">
-                                                    <span class="like"><img class="like--img"
-                                                                            src="{% static './asset/images/like.png' %}"
-                                                                            alt=""><span
-                                                            class="like--text">{{comment.likes}}</span></span>
-                                                    <span class="dislike"><img class="dislike--img"
-                                                                               src="{% static './asset/images/dislike.png' %}"
-                                                                               alt=""><span
-                                                            class="dislike--text">۹</span></span>
+
                                                 </span>
                                                 </div>
                                             </div>

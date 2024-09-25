@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 from blog.cart import Cart
 from django.contrib.auth.forms import AuthenticationForm , UserCreationForm
 # Create your views here.
-@login_required(login_url='/')
+@login_required(login_url='/accounts/login')
 def contact_view(request):
     if request.method == 'POST':
         form = contactform(request.POST)
@@ -28,7 +28,7 @@ def contact_view(request):
     context['total'] =cart.get_total_price()
     return render(request, 'view/profile/add-ticket.html',context)
 
-@login_required(login_url='/')
+@login_required(login_url='/accounts/login')
 def add_adress(request):
     if request.method == 'POST':
         form = adressform(request.POST)
@@ -188,7 +188,7 @@ def products_views(request,cat_name):
 
 
 
-@login_required(login_url='/')
+@login_required(login_url='/accounts/login')
 def profile(request):
     item= adresses.objects.filter(user=request.user.id)
     # item= adresses.objects.all()
@@ -202,7 +202,7 @@ def profile(request):
     return render(request, 'view/profile/profile.html', context)
 # def add_adress(request):
 #     return render(request, 'view/profile/add-adress.html')
-@login_required(login_url='/')
+@login_required(login_url='/accounts/login')
 def edit_personal(request):
     if request.method == 'POST':
         form = Userform(request.POST, instance=request.user)
@@ -211,14 +211,14 @@ def edit_personal(request):
             return redirect('home:index')
         return HttpResponse('no')
     return render(request, 'view/profile/edit-personal-info.html')
-@login_required(login_url='/')
+@login_required(login_url='/accounts/login')
 def favorates(request):
     if request.method == 'POST':
         #p=product.objects.filter(id=request.POST.get('product_id'))
         p=get_object_or_404(product,pk=request.POST.get('product_id'))
-        p.favorites.add(request.user)
+        request.user.favorites.add(p)
         return redirect(request.META.get('HTTP_REFERER'))
-    favorates= product.objects.filter(favorites__id=request.user.id)
+    favorates= request.user.favorites.all()
     context= {'favorates':favorates}
     cart =Cart(request)
     context['CartNumber'] =len(cart)
@@ -226,7 +226,7 @@ def favorates(request):
     context['total'] =cart.get_total_price()
     return render(request, 'view/profile/favorates.html', context)
 
-@login_required(login_url='/')
+@login_required(login_url='/accounts/login')
 def list_ticket(request):
     tickets= contact.objects.filter(name=request.user.id)
     context= {'tickets':tickets}
@@ -236,7 +236,7 @@ def list_ticket(request):
     context['total'] =cart.get_total_price()
     return render(request, 'view/profile/ticket.html',context)
 
-@login_required(login_url='/')
+@login_required(login_url='/accounts/login')
 def product_orders(request):
     context= {}
     cart =Cart(request)
@@ -286,6 +286,7 @@ class home_view (TemplateView):
         context['CartNumber'] =len(cart)
         context['Cart'] =cart
         context['total'] =cart.get_total_price()
+        context['off'] = list( product.objects.filter(status = True , Discoust__gt=25 )[:8])
         return context
 
 class faq_view (TemplateView):
@@ -298,6 +299,11 @@ class faq_view (TemplateView):
         context['Cart'] =cart
         context['total'] =cart.get_total_price()
         return context
+
+
+def custom_404_view(request, exception):
+    return render(request, 'view/404.html', status=404)
+
 
     # def get_context_data(self, **kwargs):
     #     return super().get_context_data(**kwargs)

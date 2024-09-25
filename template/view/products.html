@@ -32,7 +32,92 @@
                                                 </div>
                                             </div>
                                         </div>
+                                            <div class="box brands-box">
+                                            <div class="box__inner brands-box__inner has-drop-down">
+                                                <div class="box-title">
+                                                    <span>{{get}}</span>
+                                                    <span class="text">برندها</span>
+                                                    <span class="icon mdi mdi-window-minimize"></span>
+                                                </div>
+                                                <div class="box-content">
+                                                    <div class="search-in-brands">
+                                                        <form action="{% url 'blog:search' %}">
+                                                        <input name="p" class="search-in-brands--input" type="text" placeholder="نام محصول یا برند را بنویسید">
+                                                        <button class="search-in-brands--btn"><span class="mdi mdi-magnify"></span></button></form>
+                                                    </div>
+                                                    <div class="brands">
+                                                        <div class="brand-item">
+                                                            <label class="brand-item__inner" for="samsung">
+                                                            <span class="md-checkbox">
+                                                                {% if get == 'سامسونگ' %}
 
+                                                                <!-- <input class="fa-title" id="samsung" data-brand-id="254"  type="checkbox"> -->
+                                                                <form action="{% url 'home:products_view' %}" method="get" id="formExidstingv">
+                                                                    <!-- <input type="hidden" value="سامسونگ" name="p"> -->
+                                                                </form>
+                                                                <input onclick="let forsmExistingv = document.querySelector('#formExidstingv').submit() " class="fa-title" id="samsung" data-brand-id="254" checked type="checkbox">
+                                                                {% else %}
+                                                                <form action="{% url 'blog:search' %}" method="get" id="formExidsting">
+                                                                    <input type="hidden" value="سامسونگ" name="p">
+                                                                </form>
+                                                                <input onclick="let forsmExisting = document.querySelector('#formExidsting').submit() " class="fa-title" id="samsung" data-brand-id="254"  type="checkbox">
+
+                                                                {% endif %}
+                                                                <label for="samsung">سامسونگ</label>
+                                                            </span>
+                                                                <span class="en-title">Samsung</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="brand-item">
+                                                            <label class="brand-item__inner" for="huawei">
+                                                            <span class="md-checkbox">
+                                                                {% if get == 'هوآوی' %}
+
+                                                                <!-- <input class="fa-title" id="samsung" data-brand-id="254"  type="checkbox"> -->
+                                                                <form action="{% url 'home:products_view' %}" method="get" id="formExidstingvb">
+                                                                    <!-- <input type="hidden" value="سامسونگ" name="p"> -->
+                                                                </form>
+                                                                <input onclick="let forsmExistinrgv = document.querySelector('#formExidstingvb').submit() " class="fa-title" id="huawei" data-brand-id="261" checked type="checkbox">
+                                                                {% else %}
+                                                                <form action="{% url 'blog:search' %}" method="get" id="formExidstingb">
+                                                                    <input type="hidden" value="هوآوی" name="p">
+                                                                </form>
+                                                                <input onclick="let forsmExistinrg = document.querySelector('#formExidstingb').submit() " class="fa-title" id="huawei" data-brand-id="261"  type="checkbox">
+
+                                                                {% endif %}
+                                                                <!-- <input class="fa-title" id="huawei" data-brand-id="261" type="checkbox"> -->
+                                                                <label for="huawei">هوآوی</label>
+                                                            </span>
+                                                                <span class="en-title">Huawei</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="brand-item">
+                                                            <label class="brand-item__inner" for="apple">
+                                                            <span class="md-checkbox">
+                                                                {% if get == 'اپل' %}
+
+                                                                <!-- <input class="fa-title" id="samsung" data-brand-id="254"  type="checkbox"> -->
+                                                                <form action="{% url 'home:products_view' %}" method="get" id="formExidstingvbq">
+                                                                    <!-- <input type="hidden" value="سامسونگ" name="p"> -->
+                                                                </form>
+                                                                <input onclick="let forsmExistqinrgv = document.querySelector('#formExidstingvbq').submit() " class="fa-title" id="apple" data-brand-id="287" checked type="checkbox">
+                                                                {% else %}
+                                                                <form action="{% url 'blog:search' %}" method="get" id="formExidstingbq">
+                                                                    <input type="hidden" value="اپل" name="p">
+                                                                </form>
+                                                                <input onclick="let forsmExistqinrg = document.querySelector('#formExidstingbq').submit() " class="fa-title" id="apple" data-brand-id="287"  type="checkbox">
+
+                                                                {% endif %}
+                                                                <!-- <input class="fa-title" id="apple" data-brand-id="287" type="checkbox"> -->
+                                                                <label for="apple">اپل</label>
+                                                            </span>
+                                                                <span class="en-title">Apple</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
                                         <!-- <div class="box colors-box">
                                             <div class="box__inner colors-box__inner has-drop-down">
@@ -84,12 +169,22 @@
 
 
                                             <div class="box__inner existing-pd-box__inner">
-                                                <div class="box-title">
+                                                <div class="box-title d-flex">
                                                     <span>{{display}} فقط کالا های موجود</span>
 
+                                                    {% if request.path == '/products_exist/' %}
+                                                    <form action="{% url 'home:products_view' %}" method="get" id="formExisting">
+                                                        <!-- <input type="hidden" value="true" name="Existing"> -->
+                                                    </form>
+                                                    <input class="mr-2" onclick="let formExisting = document.querySelector('#formExisting').submit() " type="checkbox"  checked  id="only-available">
 
-                                                    <a href="{% url 'home:exist' %}"><button type="submit" class="mr-5">فعال</button></a>
-                                                    <a href="{% url 'home:products_view' %}"><button type="submit" class="mr-1">غیر فعال</button></a>
+                                                    {% else %}
+                                                    <form action="{% url 'home:exist' %}" method="get" id="formc">
+                                                        <!-- <input type="hidden" value="true" name="Existing"> -->
+                                                        </form>
+
+                                                            <input class="mr-2" onclick="let sss = document.querySelector('#formc').submit()" type="checkbox"  id="only-available">
+                                                    {% endif %}
 
                                                     <!-- <button  type="submit" id="id-name--1"
                                                            class="switch-input"></button>
@@ -103,11 +198,24 @@
                                         </div>
                                         <div class="box ready-pd-box">
                                             <div class="box__inner ready-pd-box__inner">
-                                                <div class="box-title">
+                                                <div class="box-title d-flex">
                                                     <span>فقط کالاهای آماده ارسال</span>
-
+<!--
                                                     <a href="{% url 'home:ready' %}"><button type="submit" class="mr-3">فعال</button></a>
-                                                    <a href="{% url 'home:products_view' %}"><button type="submit" class="mr-1">غیر فعال</button></a>
+                                                    <a href="{% url 'home:products_view' %}"><button type="submit" class="mr-1">غیر فعال</button></a> -->
+                                                    {% if request.path == '/products_ready/' %}
+                                                    <form action="{% url 'home:products_view' %}" method="get" id="formready">
+                                                        <!-- <input type="hidden" value="true" name="Existing"> -->
+                                                    </form>
+                                                    <input class="mr-2" onclick="let formExdgistcing = document.querySelector('#formready').submit() " type="checkbox"  checked  id="only-available">
+
+                                                    {% else %}
+                                                    <form action="{% url 'home:ready' %}" method="get" id="formccc">
+                                                        <!-- <input type="hidden" value="true" name="Existing"> -->
+                                                        </form>
+
+                                                            <input class="mr-2" onclick="let sscs = document.querySelector('#formccc').submit()" type="checkbox"  id="only-available">
+                                                    {% endif %}
                                                     <!-- <input type="checkbox" id="id-name--2" name="set-name"
                                                            class="switch-input">
 
@@ -224,8 +332,10 @@
 
   				      	<div class="product col-lg-3 no-padding"><a href="{% url 'blog:product_view' pid=pro.id %}">
                                                 <div class="product__inner mb-3">
+                                                    {% if pro.Discoust > 15 %}
+
                                                     <div class="has-discount">
-							<!-- <div class="colors">
+							                        <!-- <div class="colors">
                                                             <div class="colors__inner">
 
                                                                 <span class="color"
@@ -239,8 +349,12 @@
                                                                 <span class="mdi mdi-plus"></span>
                                                             </div>
                             </div> -->
-							<span class="has-discount--text">فروش ویژه</span>
-						    </div>
+							                        <span class="has-discount--text">فروش ویژه</span>
+                                                    </div>
+                                                    {% endif %}
+
+
+
                                                     <div class="picture">
 							<img src="{{pro.image.url}}" alt="">
                                                     </div>

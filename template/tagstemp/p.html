@@ -1,17 +1,23 @@
  {% load static %}
+ {% load home_tags %}
  {% for po in products %}
  <div class="swiper-slide ">
     <a href="{% url 'blog:product_view' pid=po.id %}" class="swiper-slide__inner">
         <div class="product-head">
             <div class="rating-stars">
-                {{ po.stars  }}
+                {% for i in po.stars|range_filter  %}
 
 
                 <i class="mdi mdi-star active"></i>
+                {% endfor %}
+                {% for i in  po.stars|range_dfilter  %}
 
+
+                <i class="mdi mdi-star "></i>
+                {% endfor %}
+                <!-- <i class="mdi mdi-star active"></i>
                 <i class="mdi mdi-star active"></i>
-                <i class="mdi mdi-star active"></i>
-                <i class="mdi mdi-star"></i>
+                <i class="mdi mdi-star"></i> -->
             </div>
 
         </div>

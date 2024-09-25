@@ -41,50 +41,53 @@
                                                 <span class="discount-title">
                                                 <span class="discount-title--text">آف شو‌های شوکالا</span>
                                                 </span>
-                                            <div class="swiper-slide br-5">
-                                                <div class="discount-item">
-                                                    <div class="discount-item__inner">
-                                                        <a class="link" href="#"></a>
-                                                        <div  class="col-lg-6 col-6">
-                                                            <div class="picture"
-                                                                 style="background-image: url({% static './asset/images/1595855055.jpg' %})">
+                                                {% for item in off %}
+
+                                                <div class="swiper-slide br-5">
+                                                    <div class="discount-item">
+                                                        <div class="discount-item__inner">
+                                                            <a class="link" href="#"></a>
+                                                            <div  class="col-lg-6 col-6">
+                                                                <div class="picture"
+                                                                     style="background-image: url({% static './asset/images/1595855055.jpg' %})">
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="details col-lg-6">
-                                                            <div class="details__inner">
-                                                                <div class="before-price">
-                                                                    <span class="before-price--number">۳۹۸٫۰۰۰</span>
-                                                                    <span class="before-price-unit">تومان</span>
-                                                                </div>
-                                                                <div class="current-price">
-                                                                    <span class="current-price--number">۳۷۸٫۰۰۰</span>
-                                                                    <span class="current-price--unit">تومان</span>
-                                                                    <div class="discount-percent">
-                                                                        <span class="discount-percent--number">٪۴۱</span>
-                                                                        <span class="discount-percent--text">تخفیف</span>
+                                                            <div class="details col-lg-6">
+                                                                <div class="details__inner">
+                                                                    <div class="before-price">
+                                                                        <span class="before-price--number">{{item.price }}</span>
+                                                                        <span class="before-price-unit">تومان</span>
                                                                     </div>
-                                                                </div>
-                                                                <div class="title">
-                                                                        <span class="title--text">LopTop Samsung
-                                                                    </span>
-                                                                </div>
-                                                                <ul class="properties">
-                                                                    <li class="property"><span class="property--text">پردازنده :core7</span>
-                                                                    </li>
-                                                                    <li class="property"><span class="property--text">در ۶ رنگ متنوع</span>
-                                                                    </li>
-                                                                </ul>
-                                                                <div class="discount-time-to-left  margin-right">
-                                                                    <div data-time-left="2021-11-9 22:00:00"
-                                                                         class="discount-time-to-left__inner">
+                                                                    <div class="current-price">
+                                                                        <span class="current-price--number">{% multiply item.price item.Discoust %}</span>
+                                                                        <span class="current-price--unit">تومان</span>
+                                                                        <div class="discount-percent">
+                                                                            <span class="discount-percent--number">٪{{item.Discoust}}</span>
+                                                                            <span class="discount-percent--text">تخفیف</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="title">
+                                                                            <span class="title--text">{{item.title|first_three_words }}
+                                                                        </span>
+                                                                    </div>
+                                                                    <ul class="properties">
+                                                                        <li class="property"><span class="property--text">پردازنده :core7</span>
+                                                                        </li>
+                                                                        <li class="property"><span class="property--text">در ۶ رنگ متنوع</span>
+                                                                        </li>
+                                                                    </ul>
+                                                                    <div class="discount-time-to-left  margin-right">
+                                                                        <div data-time-left="2021-11-9 22:00:00"
+                                                                             class="discount-time-to-left__inner">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="swiper-slide br-5">
+                                                {% endfor %}
+                                            <!-- <div class="swiper-slide br-5">
                                                 <div class="discount-item">
                                                     <div class="discount-item__inner">
                                                         <a class="link" href="#"></a>
@@ -419,7 +422,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </div>
                                         <!-- Add Pagination -->
                                         <div class="swiper-pagination swiper-pagination-white"></div>
@@ -431,13 +434,19 @@
                                 <div class="discounts-title-list col-lg-3 col-12 hidden-sm">
                                     <div class="discounts-title-list__inner br-5 ">
                                         <div class="items">
-                                            <div class="item active" data-discount-id="0">
-                                                <span class="item--text">لپتاپ Samsung</span>
+                                            <!-- <div class="item " data-discount-id="0">
+                                                <span class="item--text">
+                                                    {{off.0.title|first_three_words }}
+                                                    </span>
+                                            </div> -->
+                                            {% for item in off %}
+
+                                            <div class="item" data-discount-id="{{ forloop.counter0 }}">
+
+                                                <span class="item--text">{{item.title|first_three_words }}</span>
                                             </div>
-                                            <div class="item" data-discount-id="1">
-                                                <span class="item--text">لپتاپ Acer</span>
-                                            </div>
-                                            <div class="item" data-discount-id="2">
+                                            {% endfor %}
+                                            <!-- <div class="item" data-discount-id="2">
                                                 <span class="item--text">لپتاپ Lenovo</span>
                                             </div>
                                             <div class="item" data-discount-id="3">
@@ -453,11 +462,11 @@
                                                 <span class="item--text">لپتاپ Apple</span>
                                             </div>
                                             <div class="item" data-discount-id="7">
-                                                <span class="item--text">{{cart}}</span>
+                                                <span class="item--text">dgf</span>
                                             </div>
                                             <div class="item" data-discount-id="8">
                                                 <span class="item--text">لپتاپ Sony</span>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>

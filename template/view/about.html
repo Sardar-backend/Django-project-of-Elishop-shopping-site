@@ -29,17 +29,31 @@
             color: #424242!important;
             font-size: 14px!important;
         }
-        a{
-            text-decoration:none!important;
-        }
+
         .item-picture{
             margin-bottom: 25%;
         }
         i{
-            color: rgb(255, 255, 255) !important;
+            color: rgb(0, 0, 0) !important;
         }
         p , h2 , span{
             font-family: iranyekan !important
+        }
+
+        a.ico {
+            display: inline-block;
+            width: 30px; /* می‌توانید عرض دلخواه را تعیین کنید */
+            height: 30px; /* می‌توانید ارتفاع دلخواه را تعیین کنید */
+            text-align: center;
+
+            border-radius: 100%; /* اگر دایره‌ای می‌خواهید */
+            margin-left: 5px;
+        }
+
+        a.ico i {
+            font-size: 30px; /* اندازه دلخواه آیکون */
+            color: #333; /* رنگ دلخواه آیکون */
+            vertical-align: middle;
         }
     </style>
 <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
@@ -71,7 +85,7 @@
                         <a class="ico" target="_blank" href="https://t.me/Sardar_backend"><i class="ico fab fa-telegram"></i></a>     <!-- تلگرام -->
                         <a class="ico" target="_blank" href="https://github.com/Sardar-backend"><i class="ico fab fa-github"></i></a>
 
-                    </div>
+                    </div><br>
                     <span class="about-button">
                         <a class="main-btn" href="{% url 'blog:download_file' %}">دانلود رزومه</a>
                     </span>

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
+<br><br>
 
     <div class="menu__overlay--bg"></div>
     <div class="overlay--bg"></div>
@@ -46,7 +46,7 @@
                                                             <span class="price-unit">تومان</span>
                                                         </div>
                                                         <div class="link">
-                                                            <a href="{% url 'blog:product_single' pid=item.id %}" class="btn">مشاهده محصول</a>
+                                                            <a href="{% url 'blog:product_view' pid=item.id %}" class="btn">مشاهده محصول</a>
                                                             <button onclick="let form=document.getElementById('#sys{{item.id}}').submit()"class="remove-btn">
                                                                 <i class="mdi mdi-trash-can-outline"></i>
                                                             </button>

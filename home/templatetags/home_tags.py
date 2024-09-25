@@ -49,3 +49,23 @@ def get_user_info(context):
     request = context['request']
     user = request.user
     return f"User: {user.username}" if user.is_authenticated else "Guest"
+
+@register.filter
+def range_filter(value):
+    return range(value)
+@register.filter
+def range_dfilter(value):
+    return range( 5 - value )
+@register.filter
+def first_three_words(value):
+    words = value.split()
+    return ' '.join(words[:3])
+# @register.filter
+# def index_of(value, arg):
+#     try:
+#         return value.index(arg)
+#     except ValueError:
+#         return -1
+@register.simple_tag
+def multiply(value1, value2):
+    return value1 * ( 100 - value2)/100

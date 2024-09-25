@@ -7,7 +7,7 @@ from django.db.models import Q
 from .cart import Cart
 from django.http import FileResponse
 import os
-
+from django.contrib.auth.models import User
 # Create your views here.
 
 
@@ -19,10 +19,14 @@ def product_view(request,pid):
             messages.add_message(request,messages.SUCCESS,'کامنت شما با موفقیت ارسال شد')
         else:
             messages.add_message(request,messages.ERROR,'متاسفانه کامنت شما ارسال نشد')
+    cart =Cart(request)
     p =get_object_or_404 (product,pk=pid,status=True)
     price = p.price * (p.Discoust)/100
     c= product.objects.filter(id=pid)
-    favorates= product.objects.filter(favorites__id=request.user.id)
+    if request.user.is_authenticated:
+        favorates= request.user.favorites.all()
+    else:
+        favorates =[]
     color= Color.objects.filter(product__id=p.id)
     comments =comment.objects.filter(pro=pid,status=True)
 
@@ -31,7 +35,6 @@ def product_view(request,pid):
     v=c[0].counted_view +1
     product.objects.filter(id=pid).update(counted_view=v)
     context = {'p':p ,'comments':comments,'favorates':favorates,'price':price}
-    cart =Cart(request)
     context['CartNumber'] =len(cart)
     context['colorlist']=color
     context['Cart'] =cart
@@ -57,6 +60,7 @@ def search_view (request):
     cart =Cart(request)
     context['CartNumber'] =len(cart)
     context['Cart'] =cart
+    context['get'] =z
     context['total'] =cart.get_total_price()
     return render(request, 'view/products.html',context)
 
@@ -93,7 +97,7 @@ def range_view (request):
 def delete_favorates (request,pid):
     if request.method == 'POST':
         p=get_object_or_404(product,pk=pid)
-        p.favorites.remove(request.user)
+        request.user.favorites.remove(p)
         return redirect(request.META.get('HTTP_REFERER'))
 
 def delete_adresses (request,pid):
