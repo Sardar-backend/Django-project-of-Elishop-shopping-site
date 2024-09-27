@@ -107,7 +107,7 @@ class CustomUser(AbstractUser):
 
 class comment (models.Model):
     pro = models.ForeignKey(product, on_delete=models.SET_NULL ,null=True)
-    name =models.CharField(max_length=255,default=None)
+    name =models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     content = models.TextField()
     cost= models.IntegerField(default=0)
@@ -132,11 +132,7 @@ class comment (models.Model):
 
 
 class contact (models.Model):
-    #name = models.CharField(max_length=255)
     name =  models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    # email = models.EmailField()
-    # telephon = models.IntegerField(default=0)
-    # title = models.CharField(max_length=255)
     answer = models.TextField(null=True,default=None)
     content = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)

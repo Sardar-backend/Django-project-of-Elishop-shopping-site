@@ -28,11 +28,22 @@ class Cart:
     def save(self):
         self.session.modified = True
 
-    def remove(self, product):
-        product_id = str(product.id)
-        if product_id in self.cart:
-            del self.cart[product_id]
-            self.save()
+    def remove(self, productt):
+        if isinstance(productt,product):
+            product_id = str(productt.id)
+            if product_id in self.cart:
+                del self.cart[product_id]
+                self.save()
+                return True
+            else:
+                return False
+        else:
+            if productt in self.cart:
+                del self.cart[productt]
+                self.save()
+                return True
+            else:
+                return False
 
     def __iter__(self):
         product_ids = self.cart.keys()

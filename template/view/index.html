@@ -49,7 +49,7 @@
                                                             <a class="link" href="#"></a>
                                                             <div  class="col-lg-6 col-6">
                                                                 <div class="picture"
-                                                                     style="background-image: url({% static './asset/images/1595855055.jpg' %})">
+                                                                     style="background-image: url({{item.image.url}})">
                                                                 </div>
                                                             </div>
                                                             <div class="details col-lg-6">
@@ -71,14 +71,31 @@
                                                                         </span>
                                                                     </div>
                                                                     <ul class="properties">
-                                                                        <li class="property"><span class="property--text">پردازنده :core7</span>
+                                                                        {% for attribute in item.attributes.all %}
+
+
+                                                                        <li class="property"><span class="property--text">{{ attribute.key }}: {{ attribute.value }} </span>
                                                                         </li>
-                                                                        <li class="property"><span class="property--text">در ۶ رنگ متنوع</span>
-                                                                        </li>
+                                                                        {% endfor %}
                                                                     </ul>
+                                                                    <style>
+                                                                        .finish-time-left--text{
+                                                                            letter-spacing: normal;
+                                                                            font-weight: 500;
+                                                                            font-size: 24px;
+                                                                            direction: rtl;
+                                                                            font-family: iranyekan;
+                                                                            color: #424242;
+                                                                        }
+                                                                    </style>
                                                                     <div class="discount-time-to-left  margin-right">
-                                                                        <div data-time-left="2021-11-9 22:00:00"
-                                                                             class="discount-time-to-left__inner">
+                                                                        <div>
+                                                                            {% if item.count %}
+                                                                                <span class="finish-time-left--text">{{item.count}}محصول مانده</span>
+                                                                            {% else %}
+
+                                                                                <span class="finish-time-left--text">تمام شد</span>
+                                                                            {% endif %}
                                                                         </div>
                                                                     </div>
                                                                 </div>
