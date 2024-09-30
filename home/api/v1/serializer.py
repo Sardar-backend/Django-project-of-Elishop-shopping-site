@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from ...models import product , comment, Category , Color , Order , contact ,adresses
+from ...models import product , comment, Category , Color , Order , contact ,adresses , CustomUser
 class Categoryserializer(serializers.ModelSerializer):
     # name = serializers.SlugRelatedField(many=True,slug_field='name',queryset=Category.objects.all())
     class Meta:
@@ -9,7 +9,7 @@ class Categoryserializer(serializers.ModelSerializer):
 class commentserializer(serializers.ModelSerializer):
     class Meta:
         model = comment
-        fields = ['id','pro','name','status','content' ,'created_date']
+        fields = ['id','pro','cost','Services','Longevity','beauty','Innovation','quality','name','status','content' ,'created_date']
         read_only_fields  =['status']
 class Productserializer(serializers.ModelSerializer):
 
@@ -51,6 +51,11 @@ class contactcreatSerializer(serializers.ModelSerializer):
         model = contact
         fields = ['content']
 
+class addCartSerializer(serializers.Serializer):
+    id = serializers.IntegerField(required=True ,min_value=1, error_messages={
+        'min_value': 'ID must be greater than or equal to 1.'
+    })
+
 class CartSerializer(serializers.Serializer):
     # quantity = serializers.IntegerField()
     id = serializers.IntegerField()
@@ -66,3 +71,9 @@ class CartSerializer(serializers.Serializer):
     #     if 'product' in instance and instance['product'] is None:
     #         data.pop('product', None)
     #     return data
+
+
+class profileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields= ['username', 'password','first_name','last_name','email','meli','phone','card','image']

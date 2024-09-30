@@ -1,11 +1,11 @@
-from rest_framework import mixins , viewsets
+from rest_framework import mixins , viewsets ,generics
 from django.shortcuts import render ,HttpResponse ,get_object_or_404
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.generics import ListCreateAPIView
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from .serializer import Productserializer , commentserializer ,Categoryserializer ,OrderSerializer ,contactSerializer ,contactcreatSerializer ,adressSerializer ,CartSerializer
-from ...models import product ,Category , Order , comment ,contact
+from .serializer import Productserializer , commentserializer ,Categoryserializer ,OrderSerializer ,contactSerializer ,contactcreatSerializer ,adressSerializer ,CartSerializer , addCartSerializer ,profileSerializer
+from ...models import product ,Category , Order , comment ,contact ,CustomUser
 from rest_framework.filters import OrderingFilter
 from .paginiton import Resultpagniton
 from rest_framework.permissions import IsAuthenticated
@@ -39,33 +39,19 @@ class indexApiView(APIView):
 
         })
 
-# class cartApiView(APIView):
-#     def get(self, request):
-#         cart_items = Cart(request)
-#         serializer = CartSerializer(cart_items, many=True)
-#         return Response(serializer.data)
-#         # x = Cart(request)
-#         # return HttpResponse( x)
-#     def delete(self, request ,product_id):
-#         pro =get_object_or_404(product ,id = product_id)
-#         Cart.remove(pro)
-#         return Response({
-#             'massage' : 'deleted successfully'
-#         })
-#     def post (self, request, product_id):
-#         pro =get_object_or_404(product ,id = product_id)
-#         Cart.add(pro)
-#         return Response({
-#             'massage' : 'add successfully'
-#         })
 
 class cartApiView(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticatedOrReadOnly]
-    serializer_class = CartSerializer
+    # serializer_class = CartSerializer
+    def get_serializer_class(self):
+        if self.action == 'create':
+            return addCartSerializer
+        return CartSerializer
     def get_queryset(self):
         return Cart(self.request)
     def retrieve(self, request, pk=None):
         cart_items = self.get_queryset()
+        # return HttpResponse(cart_items)
         item = next((item for item in cart_items if item['id'] == pk), None)
         if item is None:
             raise NotFound(detail="Item not found", code=404)
@@ -85,18 +71,20 @@ class cartApiView(viewsets.ModelViewSet):
                 'message': 'The item could not be deleted. There is a problem',
                 'item_id': pk  # می‌توانید شناسه کالا را هم برگردانید
             }, status=400)
+    def create(self, request  , *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        cart =Cart(request)
+        pk = int (request.data.get('id'))
 
-    # def destroy(self, request, pk=None):
-    #     cart_items = self.get_queryset()
-    #     item = next((item for item in cart_items if item['id'] == pk),None)
-    #     if item is None:
-    #         raise NotFound(detail="Item not found", code=404)
-    #     cart = self.get_queryset()
-    #     p =product.objects.get(pk=pk)
-    #     cart.remove(p)
-    #     return Response({
-    #         'message':'Item deleted successfully',
-    #     },status=204)
+        # return HttpResponse(pk)
+        cart.add(pk)
+
+        return Response({
+            'message': 'Item added successfully',
+            'item_id': pk
+        },status=201)
+
 class ProductApiView(viewsets.ReadOnlyModelViewSet):
     permission_classes = [IsAuthenticatedOrReadOnly]
     serializer_class = Productserializer
@@ -107,13 +95,20 @@ class ProductApiView(viewsets.ReadOnlyModelViewSet):
 class CommentViewSetApiView(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticatedOrReadOnly]
     serializer_class = commentserializer
-    # queryset = comment.objects.filter(status=True)
+    queryset = comment.objects.filter(status=True)
     filter_backends = [OrderingFilter]
     ordering_fields = ['created_date']
-    def get_queryset(self):
-        id = self.kwargs.get('id')
-        return comment.objects.filter(pro_id= id, status=True)
+    # def get_queryset(self):
+    #     id = self.request.get('id')
+    #     return comment.objects.filter(pro_id= id, status=True)
     # pagination_class = Resultpagniton
+
+class profileViewSet(viewsets.ModelViewSet):
+    pagination_class = [IsAuthenticated]
+    serializer_class =profileSerializer
+    pagination_class = Resultpagniton
+    def get_queryset(self):
+        return CustomUser.objects.filter(id=self.request.user.id)
 
 class CategorysApiView(viewsets.ReadOnlyModelViewSet):
     permission_classes = [IsAuthenticatedOrReadOnly]
@@ -132,19 +127,29 @@ class OrderViewSet(viewsets.ModelViewSet):
         return Order.objects.filter(user=self.request.user.id)
 
 
-class favoratesViewSet(viewsets.ModelViewSet):
-    # permission_classes =[IsAuthenticatedOrReadOnly]
-    # serializer_class=OrderSerializer
-    # pagination_class = Resultpagniton
-
-    # def get_queryset(self):
-    #     return Order.objects.filter(user=self.request.user.id)
+class favoratesViewSet(generics.ListAPIView):
     serializer_class = Productserializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
+    # pagination_class = Resultpagniton
 
     def get_queryset(self):
         user = self.request.user
         return user.favorites.all()
+
+class favoratesCreateViewSet(generics.CreateAPIView):
+    serializer_class = addCartSerializer
+    permission_classes = [IsAuthenticated]
+    def create(self, request, *args, **kwargs):
+        p=get_object_or_404(product,pk=request.POST.get('id'))
+        request.user.favorites.add(p)
+        return Response({
+            'message' : 'product added'
+        })
+
+
+    # def get_queryset(self):
+    #     # users = self.request.user
+    #     return self.request.user.favorites.all()
 
 class listticketViewSet(viewsets.ModelViewSet):
     queryset = contact.objects.all()

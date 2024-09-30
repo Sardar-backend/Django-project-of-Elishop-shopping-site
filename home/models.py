@@ -93,6 +93,12 @@ class CustomUser(AbstractUser):
     meli = models.IntegerField(null=True, blank=True)
     card = models.CharField(null=True, blank=True , max_length=255)
     image =models.ImageField(upload_to='UserProfile/',default='categorys/422.jpg')
+    class Meta:
+        # ordering = ['created_date']
+        verbose_name = "کاربر"
+        verbose_name_plural = "کاربران "
+    def __str__(self):
+        return  "{}".format(self.username)
     # groups = models.ManyToManyField(
     #     'auth.Group',
     #     related_name='customuser_set',  # تغییر نام رابطه معکوس
