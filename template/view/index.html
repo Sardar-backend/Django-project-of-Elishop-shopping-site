@@ -48,9 +48,11 @@
                                                         <div class="discount-item__inner">
                                                             <a class="link" href="#"></a>
                                                             <div  class="col-lg-6 col-6">
+                                                                <a href="/blog/product_{{item.id}}">
                                                                 <div class="picture"
-                                                                     style="background-image: url({{item.image.url}})">
+                                                                    style="background-image: url({{item.image.url}})">
                                                                 </div>
+                                                                </a>
                                                             </div>
                                                             <div class="details col-lg-6">
                                                                 <div class="details__inner">
@@ -67,8 +69,8 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="title">
-                                                                            <span class="title--text">{{item.title|first_three_words }}
-                                                                        </span>
+                                                                            <a href="/blog/product_{{item.id}}"><span class="title--text">{{item.title|first_three_words }}
+                                                                        </span></a>
                                                                     </div>
                                                                     <ul class="properties">
                                                                         {% for attribute in item.attributes.all %}

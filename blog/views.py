@@ -135,6 +135,8 @@ def cart_detail(request):
     context['total'] =cart.get_total_price()
     context['totalDiscount'] =cart.get_total_discount()
     context['finalPrice'] = cart.get_total_price() - cart.get_total_discount()
+    if(request.GET.get('info')):
+        messages.info(request,'این سایت یک نمونه کار است و قابلیت پرداخت ندارد')
     if len(cart):
         return render(request, 'Cart/mycart.html', context)
     return render(request, 'Cart/mycartEmpty.html', context)

@@ -16,9 +16,11 @@ def contact_view(request):
         form = contactform(request.POST)
         if form.is_valid():
             form.save()
-            messages.add_message(request,messages.SUCCESS,'پیام شما با موفقیت ارسال شد')
+            messages.success(request,'تیکت  شما با موفقیت ارسال شد و بزودی پاسخ داده خواهد شد' )
+            # messages.add_message(request,messages.SUCCESS,'پیام شما با موفقیت ارسال شد')
         else:
-            messages.add_message(request,messages.ERROR,'متاسفانه پیام شما ارسال نشد')
+            messages.error(request,'متاسفانه پیام شما ارسال نشد لطفا دوباره تلاش کنید')
+            # messages.add_message(request,messages.ERROR,'متاسفانه پیام شما ارسال نشد')
     form = contactform()
     username=request.user.id
     context ={'form':form,'username':username}
@@ -34,9 +36,11 @@ def add_adress(request):
         form = adressform(request.POST)
         if form.is_valid():
             form.save()
-            messages.add_message(request,messages.SUCCESS,'پیام شما با موفقیت ارسال شد')
+            messages.success(request,'ادرس  شما با موفقیت ثبت شد و بزودی پاسخ داده خواهد شد')
+            # messages.add_message(request,messages.SUCCESS,'پیام شما با موفقیت ارسال شد')
         else:
-            messages.add_message(request,messages.ERROR,'متاسفانه پیام شما ارسال نشد')
+            messages.error(request,'متاسفانه ادرس شما ثبت نشد لطفا دوباره تلاش کنید')
+            #messages.add_message(request,messages.ERROR,'متاسفانه پیام شما ارسال نشد')
     form = adressform()
     context ={'form':form}
     cart =Cart(request)

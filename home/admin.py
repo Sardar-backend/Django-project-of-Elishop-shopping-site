@@ -5,9 +5,9 @@ from django_summernote.admin import SummernoteModelAdmin
 class postAdmin(SummernoteModelAdmin):
     list_filter = ('status','category',)
     summernote_fields = ('description',)
-class contactAdmin(SummernoteModelAdmin):
-    # list_filter = ('answer',)
-    summernote_fields = ('answer',)
+# class contactAdmin(SummernoteModelAdmin):
+#     # list_filter = ('answer',)
+#     summernote_fields = ('answer',)
 
 class ProductAttributeInline(admin.TabularInline):
     model = ProductAttribute
@@ -24,7 +24,7 @@ admin.site.register(Category)
 admin.site.register(Color)
 admin.site.register(CustomUser)
 
-admin.site.register(contact,contactAdmin)
+admin.site.register(contact)
 
 admin.site.register(adresses)
 admin.site.register(Order)

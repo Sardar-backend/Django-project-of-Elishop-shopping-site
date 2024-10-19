@@ -7,6 +7,7 @@ router.register('Products',ProductApiView , basename='Products')
 router.register('Categorys',CategorysApiView , basename='Categorys')
 router.register('Orders',OrderViewSet , basename='Orders')
 router.register('profile',profileViewSet , basename='profile')
+router.register('add_adress',AdressView , basename='add_adress')
 # router.register('profile/favorates',favoratesViewSet , basename='favorates')
 router.register('profile/ticket',listticketViewSet , basename='list-ticket')
 router.register('comment',CommentViewSetApiView , basename='comment')
@@ -14,6 +15,7 @@ router.register('cart',cartApiView , basename='cart')
 
 urlpatterns = [
     path('v1/', include(router.urls)),
+    path('v1/product-<str:cat_name>',CatApiView.as_view() , name='Cat'),
     path('v1/index',indexApiView.as_view() , name='index'),
     path('v1/add_adress',addadressApiView.as_view() , name='add_adress'),
     path('v1/profile/favorates',favoratesViewSet.as_view() , name='favorates'),

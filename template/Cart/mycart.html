@@ -2,10 +2,28 @@
 {% load static %}
 {% block content %}
 
+<div class="menu__overlay--bg"></div>
+<div class="overlay--bg"></div>
+<div class="main">
 
-    <div class="menu__overlay--bg"></div>
-    <div class="overlay--bg"></div>
-    <div class="main">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@5/dark.min.css"> -->
+</head>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        {% if messages %}
+            {% for message in messages %}
+                Swal.fire({
+                    title: "توجه",
+                    text: "{{ message }}",
+                    icon: "{{ message.tags }}",
+                    confirmButtonText: 'باشه'
+                });
+            {% endfor %}
+        {% endif %}
+    });
+</script>
         <div class="container-fluid">
             <div class="main__inner">
                 <div class="cart-page">
@@ -121,8 +139,12 @@
                                                     {{finalPrice}}
                                                 </div>
                                             </div>
+                                            <form action="" id="form" method="get">
+                                                <input type="hidden" name="info" value="true">
+                                            </form>
                                             <div class="payment-process-button">
-                                                <div class="payment-process-button__inner">ادامه ثبت سفارش</div>
+                                                <div onclick="document.querySelector('#form').submit()" class="payment-process-button__inner">ادامه ثبت سفارش</div>
+
                                             </div>
                                         </div>
                                     </div>

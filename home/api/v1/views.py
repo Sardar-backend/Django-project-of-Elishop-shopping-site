@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework.generics import ListCreateAPIView
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from .serializer import Productserializer , commentserializer ,Categoryserializer ,OrderSerializer ,contactSerializer ,contactcreatSerializer ,adressSerializer ,CartSerializer , addCartSerializer ,profileSerializer
-from ...models import product ,Category , Order , comment ,contact ,CustomUser
+from ...models import product ,Category , Order , comment ,contact ,CustomUser , adresses
 from rest_framework.filters import OrderingFilter
 from .paginiton import Resultpagniton
 from rest_framework.permissions import IsAuthenticated
@@ -35,8 +35,6 @@ class indexApiView(APIView):
             'most_viewed_products' : most_viewed_products_serializer.data,
             'Phone_equipment_products' : Phone_equipment_serializer.data,
             'headphones_products' : headphones_serializer.data
-
-
         })
 
 
@@ -152,7 +150,7 @@ class favoratesCreateViewSet(generics.CreateAPIView):
     #     return self.request.user.favorites.all()
 
 class listticketViewSet(viewsets.ModelViewSet):
-    queryset = contact.objects.all()
+    # queryset = contact.objects.all()
     serializer_class = contactSerializer
     permission_classes = [IsAuthenticated]
     pagination_class = Resultpagniton
@@ -160,6 +158,14 @@ class listticketViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return contact.objects.filter(name=self.request.user)
+
+class AdressView(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
+    pagination_class = Resultpagniton
+    serializer_class= adressSerializer
+    def get_queryset(self):
+        return adresses.objects.filter(user=self.request.user)
+
 
 class addadressApiView(APIView):
     permission_classes = [IsAuthenticated]
@@ -171,6 +177,13 @@ class addadressApiView(APIView):
              return Response(serializer.data,status=status.HTTP_201_CREATED )
          return Response(serializer.errors , status=status.HTTP_400_BAD_REQUEST)
 
+class CatApiView(APIView):
+    def get(self,request,cat_name):
+        products = product.objects.filter(category__name = cat_name)
+        res = Productserializer(products , many=True)
+        return Response({
+            'data' : res.data
+        })
 
 # class TicketCreateView(APIView):
 #     permission_classes =[IsAuthenticated]

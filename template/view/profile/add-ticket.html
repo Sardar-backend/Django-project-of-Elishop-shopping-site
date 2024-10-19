@@ -5,7 +5,24 @@
 
     <div class="menu__overlay--bg"></div>
     <div class="overlay--bg"></div>
-
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@5/dark.min.css"> -->
+    </head>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            {% if messages %}
+                {% for message in messages %}
+                    Swal.fire({
+                        title: "{{ message.tags|capfirst }}",
+                        text: "{{ message }}",
+                        icon: "{{ message.tags }}",
+                        confirmButtonText: 'باشه'
+                    });
+                {% endfor %}
+            {% endif %}
+        });
+    </script>
     <div class="main">
         <div class="container-fluid">
             <div class="main__inner">
