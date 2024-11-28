@@ -1,33 +1,42 @@
-
 {% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
-<div class="menu__overlay--bg"></div>
-<div class="overlay--bg"></div>
-
-<div class="main">
-    <div class="container-fluid ">
-        <div class="main__inner">
-            <div class="notfound-page">
-                <div class="notfound-page__inner">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="dt-sl notfound pt-3 pb-5">
-                                <div class="error-page text-center">
-                                    <h1>صفحه‌ای که دنبال آن بودید پیدا نشد!</h1>
-                                    <a href="/" class="btn-primary-cm">
-                                    ادامه خرید در
-                                    پرو کالا
-                                    </a>
-                                    <img src="{% static 'asset/images/404.jpg' %}" class="img-fluid" width="100%" alt="404">
-                                </div>
+        <div class="breadcrumb_wrapper">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-4">
+                        <div class="breadcrumb_inner">
+                            <h3>خطای 404</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="breadcrumb_block">
+                <ul>
+                    <li><a href="index.html">صفحه اصلی</a></li>
+                    <li>خطای 404</li>
+                </ul>
+            </div>
+        </div>
+        <!--404-->
+        <div class="error_wrapper clv_section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-md-">
+                        <div class="error_block">
+                            <div class="error_image">
+                                <h2>404</h2>
+                                <img src="images/404_veg.png" alt="image" class="veg_img">
+                                <img src="images/404_shape.png" alt="image" class="shape_img">
+                            </div>
+                            <div class="error_content">
+                                <h3><span>اوپس . . .</span> صفحه پیدا نشد!</h3>
+                                <p>به نظر مشکلی پیش اومده. به زودی آن را برطرف خواهیم کرد.</p>
+                                <a href="index.html" class="clv_btn">بازگشت به صفحه اصلی</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-{% endblock %}
+        {% endblock %}

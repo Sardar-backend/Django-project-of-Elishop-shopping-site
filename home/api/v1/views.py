@@ -40,7 +40,7 @@ class indexApiView(APIView):
 
 class cartApiView(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticatedOrReadOnly]
-    # serializer_class = CartSerializer
+
     def get_serializer_class(self):
         if self.action == 'create':
             return addCartSerializer
@@ -49,7 +49,7 @@ class cartApiView(viewsets.ModelViewSet):
         return Cart(self.request)
     def retrieve(self, request, pk=None):
         cart_items = self.get_queryset()
-        # return HttpResponse(cart_items)
+
         item = next((item for item in cart_items if item['id'] == pk), None)
         if item is None:
             raise NotFound(detail="Item not found", code=404)
@@ -58,16 +58,16 @@ class cartApiView(viewsets.ModelViewSet):
     def destroy(self, request, pk=None):
         cart=Cart(request)
         deleteStatus=cart.remove(pk)
-        # return HttpResponse(b)
+
         if deleteStatus:
             return Response({
                 'message': 'Item deleted successfully',
-                'item_id': pk  # می‌توانید شناسه کالا را هم برگردانید
+                'item_id': pk  
             }, status=204)
         else:
             return Response({
                 'message': 'The item could not be deleted. There is a problem',
-                'item_id': pk  # می‌توانید شناسه کالا را هم برگردانید
+                'item_id': pk
             }, status=400)
     def create(self, request  , *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -75,7 +75,7 @@ class cartApiView(viewsets.ModelViewSet):
         cart =Cart(request)
         pk = int (request.data.get('id'))
 
-        # return HttpResponse(pk)
+
         cart.add(pk)
 
         return Response({
@@ -96,10 +96,7 @@ class CommentViewSetApiView(viewsets.ModelViewSet):
     queryset = comment.objects.filter(status=True)
     filter_backends = [OrderingFilter]
     ordering_fields = ['created_date']
-    # def get_queryset(self):
-    #     id = self.request.get('id')
-    #     return comment.objects.filter(pro_id= id, status=True)
-    # pagination_class = Resultpagniton
+
 
 class profileViewSet(viewsets.ModelViewSet):
     pagination_class = [IsAuthenticated]
@@ -112,10 +109,7 @@ class CategorysApiView(viewsets.ReadOnlyModelViewSet):
     permission_classes = [IsAuthenticatedOrReadOnly]
     serializer_class = Categoryserializer
     queryset = Category.objects.all()
-    # def to_representation(self, instance):
-    #     rep = super().to_representation(instance)
-    #     rep['pro'] = Productserializer(instance.pro)
-    #     return rep
+
 class OrderViewSet(viewsets.ModelViewSet):
     permission_classes =[IsAuthenticatedOrReadOnly]
     serializer_class=OrderSerializer
@@ -127,8 +121,7 @@ class OrderViewSet(viewsets.ModelViewSet):
 
 class favoratesViewSet(generics.ListAPIView):
     serializer_class = Productserializer
-    # permission_classes = [IsAuthenticated]
-    # pagination_class = Resultpagniton
+
 
     def get_queryset(self):
         user = self.request.user
@@ -145,9 +138,7 @@ class favoratesCreateViewSet(generics.CreateAPIView):
         })
 
 
-    # def get_queryset(self):
-    #     # users = self.request.user
-    #     return self.request.user.favorites.all()
+
 
 class listticketViewSet(viewsets.ModelViewSet):
     # queryset = contact.objects.all()

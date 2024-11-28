@@ -22,7 +22,7 @@ urlpatterns = [
     path('profile/list-ticket',list_ticket, name="list_ticket"),
     path('profile/product-orders',product_orders, name="product-orders"),
     # path('profile/notifications',notifications, name="notifications"),
-    path('about',about.as_view(), name="about"),
+    path('about/',about.as_view(), name="about"),
     path('privacy',privacy.as_view(), name="privacy"),
     path('api/',include('home.api.v1.urls'))
     ]

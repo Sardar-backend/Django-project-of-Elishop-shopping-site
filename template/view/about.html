@@ -2,60 +2,114 @@
 {% load static %}
 
 {% block content %}
-<head>    <link rel="stylesheet" href="{% static 'asset/css/app.css' %}">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <meta name="csrf-token" content="4343kjj4i3o434kjhk3j4k3">
+<style>
+    /* استایل کلی برای بخش about */
+.about {
+    background-color: #ffffff;
+    padding: 100px 15px; /* فاصله از کناره‌های صفحه */
+    color: #333333;
+    font-family: 'Tahoma', sans-serif;
+    text-align: right;
+    direction: rtl;
+}
 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"></head>
-    <style>
-        .float-left{
-            margin:  14px 0   14px 0 !important;
-        }
-        .item--text{
-            font-weight: 300!important;
-            font-size: 14px!important;
-            direction: rtl!important;
-            font-family: iranyekan!important;
-            color: #424242!important;
-        }
-        .reg-log--text{
-            cursor: pointer!important;
-            line-height: 48px!important;
-            text-align: center!important;
-            direction: rtl!important;
-            font-family: iranyekan!important;
-            color: #424242!important;
-            font-size: 14px!important;
-        }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .item-picture{
-            margin-bottom: 25%;
-        }
-        i{
-            color: rgb(0, 0, 0) !important;
-        }
-        p , h2 , span{
-            font-family: iranyekan !important
-        }
+.about-img img {
+    max-width: 100%;
+    border-radius: 8px;
+    filter: grayscale(100%);
+    transition: filter 0.3s, transform 0.3s;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
 
-        a.ico {
-            display: inline-block;
-            width: 30px; /* می‌توانید عرض دلخواه را تعیین کنید */
-            height: 30px; /* می‌توانید ارتفاع دلخواه را تعیین کنید */
-            text-align: center;
+.about-img img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.03);
+}
 
-            border-radius: 100%; /* اگر دایره‌ای می‌خواهید */
-            margin-left: 5px;
-        }
+.about-content {
+    padding: 20px;
+}
 
-        a.ico i {
-            font-size: 30px; /* اندازه دلخواه آیکون */
-            color: #333; /* رنگ دلخواه آیکون */
-            vertical-align: middle;
-        }
-    </style>
+.about-heading h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #111111;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #333333;
+    padding-bottom: 8px;
+    display: inline-block;
+}
+
+.about-heading span {
+    display: block;
+    font-size: 18px;
+    color: #555555;
+    margin-top: 5px;
+}
+
+.about p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #555555;
+}
+
+/* استایل آیکون‌های شبکه‌های اجتماعی */
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+.social-icons .ico {
+    color: #333333;
+    font-size: 32px; /* افزایش سایز آیکون‌ها */
+    transition: transform 0.3s ease, color 0.3s;
+    text-decoration: none;
+}
+
+.social-icons .ico:hover {
+    color: #111111;
+    transform: translateY(-6px); /* حرکت نرم‌تر به بالا */
+}
+
+/* استایل دکمه دانلود رزومه */
+.about-button .main-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #333333;
+    color: #ffffff;
+    border: 2px solid #333333;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.about-button .main-btn:hover {
+    background-color: transparent;
+    color: #333333;
+    border-color: #333333;
+    transform: translateY(-2px);
+}
+
+</style>
+
 <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 <br><br><br><br><br>
 <section class="about pt-100 pb-100" data-scroll-index="1">

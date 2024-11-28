@@ -15,5 +15,5 @@ urlpatterns = [
     path('remove/<int:product_id>/', remove_from_cart, name='remove_from_cart'),
     path('cart/', cart_detail, name='cart_detail'),
     # path('vip-limit/',limit_vip, name="limit_vip"),
-    path('api/',include('blog.api.v1.urls'))
+    # path('api/',include('blog.api.v1.urls'))
 ]

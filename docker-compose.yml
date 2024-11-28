@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app  # برای مپ کردن دایرکتوری فعلی به /app در کانتینر
+    ports:
+      - "8000:8000"  # اتصال پورت لوکال 8000 به پورت 8000 کانتینر
+    depends_on:
+      - db  # اطمینان از اینکه دیتابیس قبل از اجرای وب‌سرور اجرا می‌شود
+
+  db:
+    image: postgres  # استفاده از ایمیج PostgreSQL برای دیتابیس
+    environment:
+      POSTGRES_DB: yourdbname  # نام دیتابیس
+      POSTGRES_USER: yourdbuser  # نام کاربر دیتابیس
+      POSTGRES_PASSWORD: yourdbpassword  # رمز عبور کاربر دیتابیس
+    ports:
+      - "5432:5432"  # اتصال پورت لوکال 5432 به پورت 5432 کانتینر

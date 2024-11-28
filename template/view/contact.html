@@ -1,146 +1,158 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
-<div class="menu__overlay--bg"></div>
-<div class="overlay--bg"></div>
-
-<div class="main">
-    <div class="container-fluid">
-        <div class="main__inner">
-            <div class="profile-page">
-                <div class="profile-page__inner">
-                    <div class="breadcrumbs">
-                        <div class="breadcrumbs__inner">
-                            <div class="items">
-                                <div class="item"><a href="#">خانه</a></div>
-                                <div class="item"><a href="#">پروفایل کاربری</a></div>
-                                <div class="item"><a href="#">آدرس‌ها</a></div>
+    
+        <!--Breadcrumb-->
+        <div class="breadcrumb_wrapper">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-4">
+                        <div class="breadcrumb_inner">
+                            <h3>تماس با ما</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="breadcrumb_block">
+                <ul>
+                    <li><a href="index.html">صفحه اصلی</a></li>
+                    <li>تماس با ما</li>
+                </ul>
+            </div>
+        </div>
+        <!--Contact Block-->
+        <div class="contact_blocks_wrapper clv_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <div class="contact_block">
+                            <span></span>
+                            <div class="contact_icon"><img src="images/contact_icon1.png" alt="image" /></div>
+                            <h4>تماس با ما</h4>
+                            <p>+1-202-555-0101</p>
+                            <p>+1-202-555-0132</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <div class="contact_block">
+                            <span></span>
+                            <div class="contact_icon"><img src="images/contact_icon2.png" alt="image" /></div>
+                            <h4>ایمیل</h4>
+                            <p>agriculture@example.com</p>
+                            <p>Cultivation@example.in</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <div class="contact_block">
+                            <span></span>
+                            <div class="contact_icon"><img src="images/contact_icon3.png" alt="image" /></div>
+                            <h4>نشانی</h4>
+                            <p>ایران، تهران، میدان آزادی</p>
+                            <p>ایران، شیراز، ولی عصر</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Contact Form-->
+        <div class="contact_form_wrapper clv_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8">
+                        <div class="contact_form_section">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12">
+                                    <h3>ارسال پیام برای ما</h3>
+                                </div>
+                                <form>
+                                    <div class="col-md-6 col-lg-6">
+                                        <div class="form_block">
+                                            <input type="text" name="first_name" class="form_field require"
+                                                placeholder="نام">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
+                                        <div class="form_block">
+                                            <input type="text" name="last_name" class="form_field require"
+                                                placeholder="نام خانوادگی">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
+                                        <div class="form_block">
+                                            <input type="text" name="email" class="form_field require"
+                                                placeholder="ایمیل" data-valid="email"
+                                                data-error="ایمیل معتبر وارد کنید.">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
+                                        <div class="form_block">
+                                            <input type="text" name="subject" class="form_field require"
+                                                placeholder="عنوان">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-12">
+                                        <div class="form_block">
+                                            <textarea placeholder="Message" name="message"
+                                                class="form_field require"></textarea>
+                                            <div class="response"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-12">
+                                        <div class="form_block">
+                                            <button type="button" class="clv_btn submitForm"
+                                                data-type="contact">ارسال</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
-                    <div class="wrapper c-row no-wrapper">
-                        <div class="side-right col-lg-3">
-                            <div class="side-right__inner">
-                                <div class="profile-view-box box">
-                                    <div class="profile-view-box__inner">
-                                        <div class="p-avatar">
-                                            <i class="mdi mdi-account-circle-outline mdi-48px text-black-50"></i>
-                                        </div>
-                                        <div class="p-name">
-                                            <span class="p-name--text">الهام موالی</span>
-                                        </div>
-                                        <div class="p-action">
-                                            <div class="p-action__inner">
-                                                <div class="change_p-info">
-                                                    <span class="mdi mdi-account-settings"></span>
-                                                    <span class="text">تنظیمات پروفایل</span>
-                                                </div>
-                                                <span class="h-separate"></span>
-                                                <div class="logout">
-                                                    <span class="mdi mdi-power"></span>
-                                                    <span class="text">خروج</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="profile-menu">
-                                    <div class="profile-menu__inner">
-                                        <div class="menus">
-                                            <div class="menu">
-                                                <div class="menu__inner">
-                                                    <span class="icon mdi mdi-shopping"></span>
-                                                    <a href="./product-orders.html"><span
-                                                            class="text">سفارش‌ محصولات</span></a>
-                                                </div>
-                                            </div>
-                                            <div class="menu">
-                                                <div class="menu__inner">
-                                                    <span class="icon mdi mdi-format-paint"></span>
-                                                    <a href="./single-product-order.html"><span class="text">سفارش‌ خدمات</span></a>
-                                                </div>
-                                            </div>
-                                            <div class="menu">
-                                                <div class="menu__inner">
-                                                    <span class="icon mdi mdi-map-marker"></span>
-                                                    <span class="icon navigate mdi mdi-chevron-down"></span>
-                                                    <a href="./myprofile.html"><span class="text">آدرس‌ها</span></a>
-                                                </div>
-                                                <div class="sub-menu p-menu-hidden">
-                                                    <span><a href="./add-adress.html">افزودن آدرس</a></span>
-                                                </div>
-                                            </div>
-                                            <div class="menu">
-                                                <div class="menu__inner">
-                                                    <span class="icon mdi mdi-bell"></span>
-                                                    <a href="##"><span class="text">اعلان‌ها</span></a>
-                                                </div>
-                                            </div>
-                                            <div class="menu active">
-                                                <div class="menu__inner">
-                                                    <span class="icon navigate mdi mdi-chevron-down"></span>
-                                                    <span class="icon mdi mdi-account"></span>
-                                                    <a href="##"><span class="text">اطلاعات فردی</span></a>
-                                                </div>
-                                                <div class="sub-menu p-menu-hidden">
-                                                    <span><a href="./edit-personal-info.html">ویرایش اطلاعات فردی</a></span>
-                                                </div>
-                                            </div>
-                                            <div class="menu">
-                                                <div class="menu__inner">
-                                                    <span class="icon mdi mdi-heart"></span>
-                                                    <a href="./favorates.html"><span
-                                                            class="text">علاقه‌مندی‌ها</span></a>
-                                                </div>
-                                            </div>
-                                            <div class="menu">
-                                                <div class="menu__inner">
-                                                    <span class="icon mdi mdi-eye"></span>
-                                                    <a href="./recentlyVisit.html"><span
-                                                            class="text">بازدید های اخیر</span></a>
-                                                </div>
-                                            </div>
-                                            <div class="menu">
-                                                <div class="menu__inner">
-                                                    <span class="icon navigate mdi mdi-chevron-down"></span>
-                                                    <span class="icon mdi mdi-message"></span>
-                                                    <a href="./ticket.html"><span class="text">تیکت‌ها</span></a>
-                                                </div>
-                                                <div class="sub-menu p-menu-hidden">
-                                                    <span><a href="./add-ticket.html"> افزودن تیکت جدید</a></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>                                </div>
-                        </div>
-                        <div class="side-left col-lg-9">
-                            <div class="side-left__inner">
-                                <div class="add-tickets">
-                                    <div class="add-tickets__inner">
-                                        <div class="profile-section-title">
-                                            <span class="mdi mdi-message-plus"></span>
-                                            <span class="profile-section-title--text">افزودن تیکت</span>
-                                        </div>
-                                        <label for="add-ticket--inp" class="add-ticket">
-                                        <span class="add-ticket--text text">متن تیکت شما</span>
-                                        <textarea rows="8" id="add-ticket--inp"
-                                                  placeholder="متن تیکت را اینجا بنویسید" name="add-ticket--inp"
-                                                  class="add-ticket--inp"></textarea>
-                                    </label>
-                                        <div class="submit-add-ticket">
-                                            <input type="submit" value="ارسال تیکت" class="submit-add-ticket--btn">
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="col-lg-4 col-md-4">
+                        <div class="working_time_section">
+                            <div class="timetable_block">
+                                <h5>ساعات کاری</h5>
+                                <ul>
+                                    <li>
+                                        <p>شنبه</p>
+                                        <p>9:30 am - 6:00 pm</p>
+                                    </li>
+                                    <li>
+                                        <p>یکشنبه</p>
+                                        <p>9:00 am - 6:00 pm</p>
+                                    </li>
+                                    <li>
+                                        <p>دوشنبه</p>
+                                        <p>9:45 am - 6:00 pm</p>
+                                    </li>
+                                    <li>
+                                        <p>سه شنبه</p>
+                                        <p>10:30 am - 6:00 pm</p>
+                                    </li>
+                                    <li>
+                                        <p>چهارشنبه</p>
+                                        <p>9:30 am - 6:00 pm</p>
+                                    </li>
+                                    <li>
+                                        <p>پنجشنبه</p>
+                                        <p>9:30 am - 6:00 pm</p>
+                                    </li>
+                                    <li>
+                                        <p>جمعه</p>
+                                        <p>تعطیل</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tollfree_block">
+                                <h5>رایگان تماس بگیرید</h5>
+                                <h3>+1-202-555-0101</h3>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<!-- Footer -->
-{% endblock %}
+        <!--Contact Map-->
+        <div class="contact_map_wrapper">
+            <div id="map"></div>
+        </div>
+        {% endblock %}
